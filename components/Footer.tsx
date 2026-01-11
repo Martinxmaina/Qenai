@@ -2,69 +2,90 @@ import Link from "next/link";
 import { Logo } from "@/components/icons/Logo";
 
 const FOOTER_LINKS = {
+    product: [
+        { label: "AI Platform", href: "/technology" },
+        { label: "Workflow Automation", href: "/services/automation" },
+        { label: "Integrations", href: "/technology#integrations" },
+    ],
+    solutions: [
+        { label: "Enterprise", href: "/solutions/corporate" },
+        { label: "SMEs & Startups", href: "/solutions/smes" },
+        { label: "Financial Services", href: "/solutions/financial" },
+    ],
     company: [
-        { label: "About Us", href: "/story" },
-        { label: "Careers", href: "/team" },
+        { label: "Who We Are", href: "/story" },
+        { label: "Team", href: "/team" },
+        { label: "Case Studies", href: "/cases" },
         { label: "Contact", href: "/contact" },
     ],
-    services: [
-        { label: "Solutions", href: "/solutions" },
-        { label: "Technology", href: "/technology" },
-        { label: "Free AI Audit", href: "/audit" },
-    ],
-    legal: [
-        { label: "Privacy Policy", href: "/contact" },
-        { label: "Terms of Service", href: "/contact" },
-        { label: "Security", href: "/technology" },
+    resources: [
+        { label: "Blog", href: "/blog" },
+        { label: "Resources", href: "/resources" },
+        { label: "FAQs", href: "/faq" },
     ],
 } as const;
 
-const LOCATIONS = ["Nairobi, Kenya"] as const;
-
 export const Footer = () => {
     return (
-        <footer className="bg-background border-t border-border pt-16 pb-8">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
+        <footer className="bg-white border-t border-slate-100 pt-24 pb-12">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-12 mb-20">
                     {/* Brand */}
-                    <div className="col-span-2 lg:col-span-2">
+                    <div className="lg:col-span-2">
                         <Link href="/" className="flex items-center gap-2 mb-6">
                             <Logo size="md" />
-                            <span className="text-lg font-bold text-foreground">QENAI</span>
+                            <span className="text-2xl font-bold text-slate-900">QENAI</span>
                         </Link>
-                        <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-sm">
-                            QENAI empowers enterprises across Africa to harness the full potential of
-                            artificial intelligence. Secure, scalable, and built for African business realities.
+                        <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
+                            Pioneering the next evolution of enterprise artificial intelligence. 
+                            Secure, modular, and built for Africa&apos;s tomorrow.
                         </p>
-                        {/* Social Links */}
-                        <div className="flex gap-4">
-                            <Link
-                                href="https://linkedin.com/company/qenai"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="size-8 rounded bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                                aria-label="LinkedIn"
-                            >
-                                <span className="text-xs font-bold">in</span>
-                            </Link>
-                            <Link
-                                href="https://twitter.com/qenai"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="size-8 rounded bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                                aria-label="X (Twitter)"
-                            >
-                                <span className="text-xs font-bold">x</span>
-                            </Link>
-                        </div>
                     </div>
 
-                    {/* Company Links */}
+                    {/* Product */}
                     <div>
-                        <h4 className="font-semibold text-foreground mb-4 text-sm">
+                        <h4 className="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">
+                            Product
+                        </h4>
+                        <ul className="space-y-4 text-sm text-slate-500">
+                            {FOOTER_LINKS.product.map((link) => (
+                                <li key={link.label}>
+                                    <Link
+                                        href={link.href}
+                                        className="hover:text-primary transition-colors"
+                                    >
+                                        {link.label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Solutions */}
+                    <div>
+                        <h4 className="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">
+                            Solutions
+                        </h4>
+                        <ul className="space-y-4 text-sm text-slate-500">
+                            {FOOTER_LINKS.solutions.map((link) => (
+                                <li key={link.label}>
+                                    <Link
+                                        href={link.href}
+                                        className="hover:text-primary transition-colors"
+                                    >
+                                        {link.label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Company */}
+                    <div>
+                        <h4 className="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">
                             Company
                         </h4>
-                        <ul className="space-y-3 text-sm text-muted-foreground">
+                        <ul className="space-y-4 text-sm text-slate-500">
                             {FOOTER_LINKS.company.map((link) => (
                                 <li key={link.label}>
                                     <Link
@@ -78,52 +99,51 @@ export const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Services Links */}
+                    {/* Social */}
                     <div>
-                        <h4 className="font-semibold text-foreground mb-4 text-sm">
-                            Services
+                        <h4 className="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">
+                            Social
                         </h4>
-                        <ul className="space-y-3 text-sm text-muted-foreground">
-                            {FOOTER_LINKS.services.map((link) => (
-                                <li key={link.label}>
-                                    <Link
-                                        href={link.href}
-                                        className="hover:text-primary transition-colors"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Legal Links */}
-                    <div>
-                        <h4 className="font-semibold text-foreground mb-4 text-sm">
-                            Legal
-                        </h4>
-                        <ul className="space-y-3 text-sm text-muted-foreground">
-                            {FOOTER_LINKS.legal.map((link) => (
-                                <li key={link.label}>
-                                    <Link
-                                        href={link.href}
-                                        className="hover:text-primary transition-colors"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
+                        <ul className="space-y-4 text-sm text-slate-500">
+                            <li>
+                                <Link
+                                    href="https://linkedin.com/company/qenai"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-primary transition-colors"
+                                >
+                                    LinkedIn
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href="https://twitter.com/qenai"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-primary transition-colors"
+                                >
+                                    Twitter
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
-                    <p>© 2025 QENAI Inc. All rights reserved.</p>
-                    <div className="flex gap-6">
-                        {LOCATIONS.map((location) => (
-                            <span key={location}>{location}</span>
-                        ))}
+                <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <p className="text-xs text-slate-400">
+                        © 2025 QENAI Technologies Inc. All rights reserved.
+                    </p>
+                    <div className="flex gap-8 text-xs text-slate-400">
+                        <Link href="/contact" className="hover:text-slate-900 transition-colors">
+                            Privacy Policy
+                        </Link>
+                        <Link href="/contact" className="hover:text-slate-900 transition-colors">
+                            Terms of Service
+                        </Link>
+                        <Link href="/contact" className="hover:text-slate-900 transition-colors">
+                            Cookie Settings
+                        </Link>
                     </div>
                 </div>
             </div>

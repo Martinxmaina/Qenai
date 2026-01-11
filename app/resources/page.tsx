@@ -1,199 +1,164 @@
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 
-const RESOURCES = {
-  whitepapers: [
-    { title: "AI Readiness for African Businesses", description: "A comprehensive guide to assessing and preparing your organization for AI adoption in the African market context", pages: "42 pages" },
-    { title: "Workflow Automation Best Practices", description: "Practical strategies for identifying and automating high-impact workflows in your organization", pages: "38 pages" },
-    { title: "AI Implementation ROI Guide", description: "How to measure and maximize return on investment for AI and automation projects", pages: "35 pages" }
-  ],
-  ebooks: [
-    { title: "The QEN AI Automation Playbook", description: "Step-by-step guide to implementing automation solutions that deliver measurable results", pages: "110 pages" },
-    { title: "AI Readiness Assessment Guide", description: "Complete framework for evaluating your organization's readiness for AI transformation", pages: "88 pages" }
-  ],
-  webinars: [
-    { title: "Getting Started with AI Automation", description: "Introduction to workflow automation and how to identify opportunities in your business", duration: "55 min" },
-    { title: "AI for African Businesses: Opportunities & Challenges", description: "Exploring how AI can transform operations for businesses across East Africa", duration: "60 min" },
-    { title: "Customer Experience Automation", description: "How to implement AI-powered customer support that scales with your business", duration: "50 min" }
-  ],
-  tools: [
-    { title: "AI Readiness Assessment Tool", description: "Interactive assessment to evaluate your organization's AI maturity and readiness", icon: "calculate", href: "/assessment" },
-    { title: "ROI Calculator", description: "Estimate potential return on investment for automation and AI projects", icon: "payments", href: "/contact" },
-    { title: "Automation Opportunity Finder", description: "Identify high-impact automation opportunities in your workflows", icon: "search", href: "/audit" }
-  ]
-};
+const RESOURCES = [
+  {
+    category: "WEEKLY UPDATE",
+    title: "The Blog",
+    description: "Deep dives into the latest industry shifts, LLM benchmarks, and AI governance frameworks.",
+    link: "/blog",
+    linkText: "Read latest articles",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000"
+  },
+  {
+    category: "TECHNICAL RESEARCH",
+    title: "Whitepapers",
+    description: "Rigorous technical research on scalable AI architecture and security.",
+    link: "/resources#whitepapers",
+    linkText: "Download Library →",
+    dark: true
+  }
+];
+
+const FAQ_TAGS = ["Deployment", "Privacy", "Pricing"];
 
 export default function ResourcesPage() {
-    return (
-        <main className="flex-1">
+  return (
+    <main className="flex-1">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-32 overflow-hidden">
-        <div className="absolute inset-0 hero-bg pointer-events-none -z-10"></div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge variant="secondary" className="mb-8">Resources</Badge>
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
-            Knowledge to <span className="text-primary">Accelerate</span> Your AI Journey
-                    </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Free guides, tools, and insights to help African businesses navigate AI adoption and automation.
+      <section className="hero-gradient min-h-[60vh] flex flex-col items-center justify-center text-center px-4 relative overflow-hidden pt-24">
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <h1 className="text-white text-5xl md:text-8xl font-serif leading-tight tracking-tight mb-6" style={{ fontFamily: 'Lora, Georgia, serif' }}>
+            Knowledge Hub
+          </h1>
+          <p className="text-white/90 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed mb-8">
+            Explore the frontier of Enterprise AI. Insights, tools, and technical research 
+            curated for strategic transformation.
           </p>
-                </div>
-            </section>
+          <Button variant="secondary" size="lg" className="rounded-full px-8">
+            Browse All Content
+          </Button>
+        </div>
+      </section>
 
-      {/* Whitepapers */}
-      <section className="py-24 bg-background">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Resource Directory */}
+      <section className="py-16 px-6 md:px-20 lg:px-40 bg-white">
+        <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-12">
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Whitepapers</h2>
-              <p className="text-lg text-muted-foreground">In-depth research and analysis on AI adoption, automation, and best practices for African businesses.</p>
+            <h2 className="text-3xl font-bold text-slate-900">Resource Directory</h2>
+            <div className="flex gap-2">
+              <Button variant="ghost" size="icon">
+                <span className="material-symbols-outlined">grid_view</span>
+              </Button>
+              <Button variant="ghost" size="icon">
+                <span className="material-symbols-outlined">view_list</span>
+              </Button>
             </div>
-                            </div>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {RESOURCES.whitepapers.map((paper, i) => (
-              <Card key={i} className="hover:shadow-lg transition-all group border-2 hover:border-primary/20">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
-                    <span className="material-symbols-outlined text-2xl">description</span>
-                                </div>
-                  <CardTitle className="text-xl group-hover:text-primary transition-colors">{paper.title}</CardTitle>
-                  <CardDescription>{paper.description}</CardDescription>
-                            </CardHeader>
-                <CardContent>
-                  <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">{paper.pages}</span>
-                      <Button variant="outline" size="sm" asChild>
-                        <Link href="/contact">Download</Link>
-                      </Button>
-                    </div>
+          {/* Bento Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+            {/* Blog Card - Large */}
+            <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card className="border-slate-200">
+                <CardContent className="p-6">
+                  <span className="text-primary font-bold tracking-widest text-xs uppercase">{RESOURCES[0].category}</span>
+                  <h3 className="text-2xl font-bold mt-2 mb-3">{RESOURCES[0].title}</h3>
+                  <p className="text-slate-500 mb-6">{RESOURCES[0].description}</p>
+                  <Link href={RESOURCES[0].link} className="text-primary font-bold text-sm flex items-center gap-1 hover:underline">
+                    {RESOURCES[0].linkText} <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  </Link>
                 </CardContent>
-                        </Card>
-            ))}
+              </Card>
+              
+              <div 
+                className="rounded-xl overflow-hidden min-h-[250px] bg-cover bg-center"
+                style={{ backgroundImage: `url('${RESOURCES[0].image}')` }}
+              />
+            </div>
+
+            {/* Whitepapers Card - Dark */}
+            <Card className="bg-slate-900 text-white border-slate-800">
+              <CardContent className="p-6 flex flex-col h-full">
+                <div className="size-12 rounded-lg bg-white/10 flex items-center justify-center mb-6">
+                  <span className="material-symbols-outlined text-white">description</span>
+                </div>
+                <h3 className="text-2xl font-bold mb-3">{RESOURCES[1].title}</h3>
+                <p className="text-slate-400 mb-6 flex-1">{RESOURCES[1].description}</p>
+                <Link href={RESOURCES[1].link} className="text-primary font-bold text-sm hover:underline">
+                  {RESOURCES[1].linkText}
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Second Row */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* AI Readiness Tool */}
+            <Card className="bg-primary text-white">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-3">AI Readiness Tool</h3>
+                <p className="text-blue-100 mb-6 text-sm">
+                  Benchmark your organization against industry standards in 5 minutes.
+                </p>
+                <Button variant="secondary" className="w-full" asChild>
+                  <Link href="/assessment">
+                    <span className="material-symbols-outlined mr-2 text-sm">analytics</span>
+                    Start Assessment
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Support & FAQs */}
+            <Card className="border-slate-200 lg:col-span-2">
+              <CardContent className="p-6 flex items-center gap-8">
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold mb-2">Support & FAQs</h3>
+                  <p className="text-slate-500 text-sm mb-4">
+                    Find answers to common implementation questions and technical support details.
+                  </p>
+                  <div className="flex gap-2 flex-wrap">
+                    {FAQ_TAGS.map((tag, i) => (
+                      <span key={i} className="px-3 py-1 bg-slate-100 rounded-full text-sm text-slate-600">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="hidden md:flex size-24 rounded-full bg-slate-100 items-center justify-center">
+                  <span className="material-symbols-outlined text-4xl text-slate-400">help</span>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      {/* eBooks */}
-      <section className="py-24 bg-muted/30 border-y">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-12">
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">eBooks</h2>
-              <p className="text-lg text-muted-foreground">Comprehensive guides covering AI strategy, automation, and implementation for growing businesses.</p>
-                            </div>
-                                </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {RESOURCES.ebooks.map((book, i) => (
-              <Card key={i} className="hover:shadow-lg transition-all group border-2 hover:border-primary/20">
-                <CardContent className="p-6">
-                  <div className="flex gap-6">
-                    <div className="flex-shrink-0 w-24 h-32 rounded-lg bg-gradient-to-br from-primary to-indigo-600 flex items-center justify-center shadow-lg">
-                      <span className="material-symbols-outlined text-5xl text-white">menu_book</span>
-                            </div>
-                                <div className="flex-1">
-                      <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{book.title}</h3>
-                      <p className="text-sm text-muted-foreground mb-4">{book.description}</p>
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm text-muted-foreground">{book.pages}</span>
-                          <Button variant="default" size="sm" asChild>
-                            <Link href="/contact">Download</Link>
-                                    </Button>
-                                </div>
-                                    </div>
-                                </div>
-                            </CardContent>
-                        </Card>
-            ))}
-          </div>
-                                    </div>
-      </section>
-
-      {/* Webinars */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-12">
-                                    <div>
-              <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Webinars & Recordings</h2>
-              <p className="text-lg text-muted-foreground">Learn from our experts through recorded sessions and live events.</p>
-                                    </div>
-                                </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {RESOURCES.webinars.map((webinar, i) => (
-              <Card key={i} className="hover:shadow-lg transition-all group border-2 hover:border-primary/20">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-4">
-                    <span className="material-symbols-outlined text-2xl">play_circle</span>
-                  </div>
-                  <CardTitle className="text-xl group-hover:text-primary transition-colors">{webinar.title}</CardTitle>
-                  <CardDescription>{webinar.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">{webinar.duration}</span>
-                      <Button variant="outline" size="sm" asChild>
-                        <Link href="/contact">Watch</Link>
-                                </Button>
-                    </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-                        </div>
-      </section>
-
-      {/* Tools */}
-      <section className="py-24 bg-muted/30 border-y">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-12">
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Free Tools</h2>
-              <p className="text-lg text-muted-foreground">Interactive calculators and assessment tools.</p>
-                                        </div>
-                                    </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {RESOURCES.tools.map((tool, i) => (
-              <Card key={i} className="hover:shadow-lg transition-all group border-2 hover:border-primary/20">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 rounded-full bg-green-50 text-green-600 flex items-center justify-center mx-auto mb-4">
-                    <span className="material-symbols-outlined text-3xl">{tool.icon}</span>
-                                    </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{tool.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-6">{tool.description}</p>
-                  <Button className="w-full" asChild>
-                    <Link href={tool.href || "/assessment"}>Try It Now</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-                    </div>
-                </div>
-            </section>
-
-      {/* CTA */}
-      <section className="py-24 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight text-foreground">
-            Need More <span className="text-primary">Guidance?</span>
-                    </h2>
-          <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Our team is here to help you navigate your AI journey with personalized consultation.
+      {/* Newsletter Section */}
+      <section className="py-24 px-6 bg-slate-50">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-slate-900 mb-4">Stay ahead of the curve</h2>
+          <p className="text-slate-500 mb-8">
+            Join 5,000+ AI leaders receiving our weekly strategic briefing.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="h-12 px-8 text-base" asChild>
-              <Link href="/contact">Schedule Consultation</Link>
+          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <Input 
+              type="email" 
+              placeholder="work@company.com" 
+              className="h-12 flex-1"
+            />
+            <Button type="submit" className="h-12 px-8">
+              Subscribe
             </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base" asChild>
-              <Link href="/audit">Free AI Audit</Link>
-            </Button>
-          </div>
-                </div>
-            </section>
-        </main>
-    );
+          </form>
+          <p className="text-xs text-slate-400 mt-4">
+            By subscribing, you agree to our Privacy Policy.
+          </p>
+        </div>
+      </section>
+    </main>
+  );
 }

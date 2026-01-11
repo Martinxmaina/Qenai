@@ -1,170 +1,149 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-
-const MILESTONES = [
-  {
-    year: "2025",
-    location: "Nairobi, Kenya",
-    title: "Founded QEN AI",
-    description: "Two operators recognized the gap between enterprise AI expertise and African business realities. QEN AI is born with a mission to make enterprise-grade AI accessible for African organizations.",
-    color: "blue"
-  },
-  {
-    year: "2025",
-    location: "First Client Success",
-    title: "QEN AI Core v1.0",
-    description: "Our first client transformation proves the model: combining deep listening with technical expertise delivers measurable results. Word spreads across East Africa.",
-    color: "green"
-  },
-  {
-    year: "2026",
-    location: "Rapid Growth",
-    title: "Building Track Record Across Sectors",
-    description: "From manufacturing to financial services, from NGOs to professional services firms—we prove AI transformation works for African businesses of all sizes.",
-    color: "purple"
-  },
-  {
-    year: "2027",
-    location: "Continental Vision",
-    title: "Trusted AI Partner Across Africa",
-    description: "Becoming the go-to AI transformation partner for businesses across the continent, expanding our reach while maintaining our deep understanding of local contexts.",
-    color: "orange"
-  }
-];
-
-const STATS = [
-  { value: "2025", label: "Year Founded" },
-  { value: "50+", label: "Enterprise Partners" },
-  { value: "75+", label: "AI Experts" },
-  { value: "3", label: "Global Hubs" }
-];
 
 export default function StoryPage() {
   return (
     <main className="flex-1">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-32 overflow-hidden">
-        <div className="absolute inset-0 hero-bg pointer-events-none -z-10"></div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-          <div className="inline-flex items-center rounded-full border border-border bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground mb-8">
-            <span className="flex h-2 w-2 rounded-full bg-primary mr-2"></span>
-            <span>Why QENAI</span>
-          </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-foreground mb-6 animate-fade-in-up">
-            Built to Bridge the Gap Between <span className="text-primary">AI Potential and African Reality</span>
+      <section className="hero-gradient min-h-screen flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <h1 className="text-white text-6xl md:text-8xl font-serif leading-tight tracking-tight mb-6" style={{ fontFamily: 'Lora, Georgia, serif' }}>
+            Quest for the Next AI
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-            We are building the bridge between complex artificial intelligence and practical enterprise value for African businesses. This is our journey of innovation, resilience, and impact.
+          <p className="text-white/90 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
+            Driven by a mission to redefine the future of intelligence, our history is rooted in solving complex challenges with elegant AI solutions.
           </p>
+          <div className="mt-8">
+            <button className="group flex items-center gap-2 text-white font-semibold text-lg hover:gap-4 transition-all mx-auto">
+              Explore our journey
+              <span className="material-symbols-outlined">arrow_downward</span>
+            </button>
+          </div>
         </div>
       </section>
 
-      {/* Our Story Section */}
-      <section className="py-20 bg-muted/50 border-y border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">
-                It started with a simple question.
-              </h2>
-              <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
-                <p>
-                  In 2025, two operators recognized something critical: African businesses face unique operational challenges that off-the-shelf AI tools simply don't address. While enterprise AI expertise existed, it lacked deep understanding of local business contexts—the infrastructure realities, regulatory environments, market dynamics, and resource constraints that define how African organizations actually operate.
-                </p>
-                <p>
-                  They saw too many businesses struggling with either too much complexity—enterprise solutions that required teams of PhDs and massive budgets—or too little capability—basic tools that couldn't handle the nuanced needs of growing African companies.
-                </p>
-                <p>
-                  That insight sparked QEN AI. Our mission from day one has been clear: make enterprise-grade AI accessible, practical, and impactful for African organizations. We combine deep technical expertise with genuine understanding of how businesses operate across East Africa and beyond.
-                </p>
-                <p>
-                  From our first client to building a track record across sectors—from manufacturing to financial services, from NGOs to professional services firms—we've proven that AI transformation doesn't require massive teams or budgets. It requires the right approach: listening first, understanding context, and building solutions that actually work in African business environments.
-                </p>
-                <p>
-                  Today, we're becoming the trusted AI transformation partner for businesses across the continent. We're not just implementing technology—we're building organizational capability, establishing governance, and ensuring that AI adoption delivers real, measurable value.
-                </p>
-                <p>
-                  <span className="text-foreground font-medium">Where we're headed:</span> We envision a future where every African business, regardless of size or sector, can leverage enterprise-grade AI to solve their unique challenges. We're building that future, one successful transformation at a time.
+      {/* Our Foundation - Bento Grid */}
+      <section className="py-24 px-6 md:px-20 lg:px-40 bg-slate-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-12 text-slate-900">Our Foundation</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {/* Our Story (Large Block) */}
+            <div className="md:col-span-4 rounded-xl bg-white border border-slate-200 p-8 shadow-sm hover:shadow-lg transition-all">
+              <span className="text-primary font-bold text-xs uppercase tracking-widest mb-4 block">The Genesis</span>
+              <h3 className="text-3xl font-bold mb-4">Our Story</h3>
+              <p className="text-slate-500 text-lg leading-relaxed max-w-xl mb-6">
+                Founded in Nairobi by a team passionate about bringing AI transformation to African businesses, 
+                QENAI began with a simple mission: make enterprise AI accessible, practical, and impactful 
+                for organizations across the continent.
+              </p>
+              <p className="text-slate-500 text-lg leading-relaxed max-w-xl">
+                Today, we&apos;ve grown into a trusted partner for businesses seeking to harness AI without 
+                the complexity. We bridge the gap between theoretical AI and real-world business applications.
+              </p>
+              <div className="flex gap-4 mt-8">
+                <div className="px-4 py-2 bg-primary/10 rounded-lg text-primary text-sm font-semibold italic">
+                  &quot;Innovation at scale&quot;
+                </div>
+              </div>
+            </div>
+
+            {/* The Team Block */}
+            <div 
+              className="md:col-span-2 rounded-xl overflow-hidden relative group min-h-[300px] bg-cover bg-center"
+              style={{ 
+                backgroundImage: `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2000')` 
+              }}
+            >
+              <div className="absolute bottom-0 p-8 text-white">
+                <h3 className="text-2xl font-bold mb-2">The Team</h3>
+                <p className="text-sm text-white/80 font-normal leading-snug">
+                  A diverse team of engineers, strategists, and AI specialists based in Nairobi, 
+                  serving clients across East Africa and beyond.
                 </p>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-6">
-              {[
-                {
-                  icon: "lightbulb",
-                  iconBg: "bg-blue-50 text-primary",
-                  title: "Our Vision",
-                  description: "A world where AI augments human potential without compromising privacy or control. We believe in tools that empower, not replace. A future where every African business can leverage enterprise-grade AI to solve their unique challenges."
-                },
-                {
-                  icon: "flag",
-                  iconBg: "bg-purple-50 text-purple-600",
-                  title: "Our Mission",
-                  description: "To make enterprise-grade AI accessible, practical, and impactful for African organizations. We combine deep technical expertise with genuine understanding of how businesses operate across East Africa and beyond."
-                },
-                {
-                  icon: "security",
-                  iconBg: "bg-teal-50 text-teal-600",
-                  title: "Our Pledge",
-                  description: "We commit to radical transparency in how our models process data and make decisions. Trust is our currency."
-                }
-              ].map((item, i) => (
-                <Card key={i} className="shadow-sm hover:shadow-md transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className={`flex h-10 w-10 items-center justify-center rounded-full ${item.iconBg}`}>
-                        <span className="material-symbols-outlined text-xl">{item.icon}</span>
-                      </div>
-                      <h3 className="font-semibold leading-none tracking-tight text-lg">{item.title}</h3>
-                    </div>
-                    <p className="text-sm text-muted-foreground">{item.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
+            {/* Our Values Block */}
+            <div className="md:col-span-3 rounded-xl bg-white border border-slate-200 p-8 flex flex-col justify-center hover:shadow-lg transition-all">
+              <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary">auto_awesome</span>
+                Our Core Values
+              </h3>
+              <div className="grid grid-cols-2 gap-8">
+                <div>
+                  <p className="font-bold text-sm mb-1 uppercase tracking-tight">Radical Transparency</p>
+                  <p className="text-xs text-slate-500">Open processes that you can trust and verify.</p>
+                </div>
+                <div>
+                  <p className="font-bold text-sm mb-1 uppercase tracking-tight">Human-Centric Design</p>
+                  <p className="text-xs text-slate-500">AI that augments intelligence, never replaces it.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Stats Block */}
+            <div className="md:col-span-3 rounded-xl bg-primary text-white p-8 flex flex-col items-center justify-center text-center hover:shadow-lg transition-all">
+              <span className="text-4xl font-black mb-1">99.9%</span>
+              <span className="text-xs font-medium uppercase tracking-widest opacity-80">System Reliability</span>
+              <div className="w-full h-px bg-white/20 my-4"></div>
+              <span className="text-lg font-serif italic opacity-90" style={{ fontFamily: 'Lora, Georgia, serif' }}>
+                &quot;Securing the digital future, one node at a time.&quot;
+              </span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Milestones Timeline */}
-      <section className="py-24 bg-background relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground">Key Milestones</h2>
-            <p className="text-muted-foreground mt-4 text-lg">The defining moments that shaped who we are today.</p>
-          </div>
+      {/* Our Approach Section */}
+      <section className="py-24 px-6 md:px-20 lg:px-40 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-16 items-start">
+            <div className="w-full md:w-1/3 md:sticky md:top-32">
+              <h2 className="text-4xl font-bold mb-6 tracking-tight leading-tight">Our Approach to AI</h2>
+              <p className="text-slate-500 leading-relaxed text-lg">
+                We don&apos;t just build models; we engineer ecosystems. Our methodology ensures that every 
+                solution is resilient, ethical, and performant.
+              </p>
+              <div className="mt-10">
+                <Button className="bg-primary/10 text-primary font-bold hover:bg-primary hover:text-white" asChild>
+                  <Link href="/values">View Our Values</Link>
+                </Button>
+              </div>
+            </div>
 
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-[1px] bg-border -translate-x-1/2 z-0"></div>
-
-            {/* Milestones */}
-            <div className="space-y-12 relative z-10">
-              {MILESTONES.map((milestone, index) => (
-                <div key={index} className={`relative md:flex items-center justify-between group ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-                  {/* Content */}
-                  <div className={`md:w-[45%] mb-8 md:mb-0 ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:pl-12'}`}>
-                    <Card className="shadow-sm hover:shadow-md transition-shadow">
-                      <CardContent className="p-6">
-                        <Badge variant="outline" className={`mb-3 border-${milestone.color}-200 bg-${milestone.color}-50 text-${milestone.color}-700`}>
-                          {milestone.location}
-                        </Badge>
-                        <h3 className="text-lg font-bold text-foreground mb-2">{milestone.title}</h3>
-                        <p className="text-muted-foreground text-sm">{milestone.description}</p>
-                      </CardContent>
-                    </Card>
+            <div className="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-8">
+              {/* Approach Items */}
+              {[
+                {
+                  icon: "shield",
+                  title: "Ethical Integration",
+                  description: "Prioritizing transparency and fairness in every model we build through rigorous bias-detection protocols."
+                },
+                {
+                  icon: "cloud_sync",
+                  title: "Scalable Infrastructure",
+                  description: "Robust systems designed to grow alongside your business needs, handling large volumes of data with ease."
+                },
+                {
+                  icon: "lightbulb",
+                  title: "Continuous Innovation",
+                  description: "Always pushing the boundaries of what is possible in machine learning through R&D partnerships."
+                },
+                {
+                  icon: "api",
+                  title: "Seamless Integration",
+                  description: "API-first philosophy allows our AI to slot directly into your existing software stack without friction."
+                }
+              ].map((item, i) => (
+                <div key={i} className="p-6 rounded-xl border border-slate-200 bg-slate-50 group hover:shadow-lg transition-all">
+                  <div className="size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+                    <span className="material-symbols-outlined">{item.icon}</span>
                   </div>
-
-                  {/* Timeline Dot */}
-                  <div className="absolute left-[20px] md:left-1/2 -translate-x-1/2 flex items-center justify-center w-8 h-8 rounded-full bg-primary border-4 border-background shadow-sm z-20"></div>
-
-                  {/* Year */}
-                  <div className={`pl-12 md:pl-0 md:w-[45%] md:flex md:items-center ${index % 2 === 1 ? 'md:justify-end' : ''}`}>
-                    <span className="text-5xl font-black text-slate-100 select-none">{milestone.year}</span>
-                  </div>
+                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -172,39 +151,41 @@ export default function StoryPage() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 border-y border-border bg-secondary/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {STATS.map((stat, i) => (
-              <div key={i} className="p-6">
-                <div className="text-4xl lg:text-5xl font-bold mb-2 text-primary">{stat.value}</div>
-                <div className="text-muted-foreground text-sm font-medium uppercase tracking-wider">{stat.label}</div>
-              </div>
-            ))}
+      {/* Why Choose QENAI Stats */}
+      <section className="py-24 px-6 md:px-20 lg:px-40 bg-primary/5">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-12">Why Clients Choose QENAI</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="flex flex-col items-center">
+              <span className="text-5xl font-black text-primary mb-4">50+</span>
+              <h4 className="font-bold mb-2">Enterprise Partners</h4>
+              <p className="text-slate-500 text-sm">Trusted by leading organizations across East Africa.</p>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-5xl font-black text-primary mb-4">73%</span>
+              <h4 className="font-bold mb-2">Avg. Time Savings</h4>
+              <p className="text-slate-500 text-sm">Reduction in manual processing time.</p>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-5xl font-black text-primary mb-4">4.9/5</span>
+              <h4 className="font-bold mb-2">Support Rating</h4>
+              <p className="text-slate-500 text-sm">Dedicated AI specialists at your service.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 relative overflow-hidden bg-background">
-        <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight text-foreground">
-            Be Part of the <span className="text-primary">Next Chapter</span>
-          </h2>
-          <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-            We are always looking for visionary partners and talent to help us write the future of ethical AI.
+      {/* CTA */}
+      <section className="py-24 px-6 text-center bg-white">
+        <div className="max-w-3xl mx-auto space-y-8">
+          <h2 className="text-4xl font-bold text-slate-900">Ready to start your AI journey?</h2>
+          <p className="text-slate-500 text-lg">
+            Book a consultation with our team and discover how QENAI can transform your operations.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="h-11 px-8 rounded-md text-base font-medium shadow" asChild>
-              <Link href="/team">View Career Openings</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="h-11 px-8 rounded-md text-base font-medium" asChild>
-              <Link href="/contact">Partner With Us</Link>
-            </Button>
-          </div>
+          <Button size="lg" className="bg-primary hover:bg-blue-700 text-white px-10 py-6 h-auto rounded-lg text-lg font-bold" asChild>
+            <Link href="/contact">Contact Our Team</Link>
+          </Button>
         </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-100/40 rounded-full blur-3xl -z-10 opacity-50 pointer-events-none"></div>
       </section>
     </main>
   );

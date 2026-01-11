@@ -1,356 +1,200 @@
-"use client";
-
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 
 const CASE_STUDIES = [
   {
-    company: "Mid-Sized Manufacturing Company",
-    industry: "Corporate",
-    service: "AI Automation",
-    serviceHref: "/services/automation",
-    challenge: "Manual order processing consuming 20+ hours/week with frequent errors",
-    solution: "Automated workflow with intelligent data extraction and ERP integration",
-    results: [
-      "85% reduction in processing time",
-      "Eliminated data entry errors completely",
-      "Freed up two staff members for strategic work"
-    ],
-    metrics: {
-      timeSaved: "85%",
-      roi: "7-month payback period",
-      staffFreed: "2 employees"
-    },
-    technology: ["n8n", "Python", "ERP Integration", "AI Data Extraction"],
-    icon: "precision_manufacturing",
-    color: "from-blue-500 to-cyan-500"
+    id: "corporate-integration",
+    category: "ENTERPRISE",
+    title: "Corporate Integration Framework",
+    description: "Implementing a customized LLM architecture for a Fortune 500 logistics provider, automating core workflows and predictive supply chain management.",
+    impact: "+40%",
+    impactLabel: "Efficiency Increase",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000"
   },
   {
-    company: "E-commerce Retailer",
-    industry: "E-commerce",
-    service: "Customer Experience",
-    serviceHref: "/services/customer-experience",
-    challenge: "Customer support overwhelmed with repetitive inquiries, 24-hour response times",
-    solution: "AI-powered chatbot with product knowledge base and order tracking",
-    results: [
-      "70% of inquiries handled instantly by AI",
-      "Response time under 5 minutes",
-      "Customer satisfaction up 35%"
-    ],
-    metrics: {
-      inquiriesHandled: "70%",
-      responseTime: "< 5 minutes",
-      satisfaction: "+35%"
-    },
-    technology: ["Claude API", "RAG System", "Shopify Integration", "WhatsApp Business"],
-    icon: "shopping_cart",
-    color: "from-purple-500 to-pink-500"
+    id: "ngo-routing",
+    category: "SOCIAL IMPACT",
+    title: "NGO Resource Routing",
+    description: "Maximizing food distribution reach in underserved regions using QENAI's geo-spatial optimization models.",
+    impact: "3x",
+    impactLabel: "Resource Distribution Range",
+    image: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&q=80&w=2000"
   },
   {
-    company: "Professional Services Firm",
-    industry: "Professional Services",
-    service: "Knowledge Systems",
-    serviceHref: "/services/knowledge-systems",
-    challenge: "Scattered information across documents, difficulty finding past project insights",
-    solution: "RAG-based knowledge system with semantic search and automated documentation",
-    results: [
-      "70-80% time reduction in information searches",
-      "40-60% faster onboarding for new team members",
-      "85% of routine questions answered instantly"
-    ],
-    metrics: {
-      searchTimeReduction: "70-80%",
-      onboardingSpeed: "40-60% faster",
-      questionsAnswered: "85%"
-    },
-    technology: ["Pinecone", "Claude API", "Document Processing", "Slack Integration"],
-    icon: "business_center",
-    color: "from-indigo-500 to-blue-500"
-  },
-  {
-    company: "NGO with Field Operations",
-    industry: "NGOs",
-    service: "AI Automation",
-    serviceHref: "/services/automation",
-    challenge: "Field teams spending 30% of time on administrative reporting",
-    solution: "Mobile-first data collection with automated aggregation and real-time reporting",
-    results: [
-      "65% reduction in admin burden",
-      "Improved data quality significantly",
-      "Enabled real-time reporting capabilities"
-    ],
-    metrics: {
-      adminTimeReduction: "65%",
-      costSavings: "Significant annual savings",
-      dataQuality: "Significantly improved"
-    },
-    technology: ["n8n", "Mobile Forms", "Airtable", "Custom Dashboard"],
-    icon: "volunteer_activism",
-    color: "from-green-500 to-emerald-500"
-  },
-  {
-    company: "Financial Services Company",
-    industry: "Financial Services",
-    service: "Customer Experience",
-    serviceHref: "/services/customer-experience",
-    challenge: "Complex client onboarding taking 3-5 days with multiple documents and compliance requirements",
-    solution: "AI assistant guiding clients through onboarding with automated document collection and compliance verification",
-    results: [
-      "Onboarding time reduced by 60%",
-      "100% compliance rate achieved",
-      "Improved client experience scores"
-    ],
-    metrics: {
-      timeReduction: "60%",
-      compliance: "100%",
-      clientSatisfaction: "Significantly improved"
-    },
-    technology: ["Claude API", "Document Processing", "Compliance Checks", "CRM Integration"],
-    icon: "account_balance",
-    color: "from-teal-500 to-green-500"
-  },
-  {
-    company: "Tech Startup",
-    industry: "SMEs",
-    service: "Knowledge Systems",
-    serviceHref: "/services/knowledge-systems",
-    challenge: "Growing team struggling with knowledge transfer, repetitive questions to leadership",
-    solution: "AI-powered internal chatbot with access to company knowledge base",
-    results: [
-      "85% of routine questions answered instantly",
-      "15 hours/week leadership time saved",
-      "40% faster onboarding for new hires"
-    ],
-    metrics: {
-      questionsAnswered: "85%",
-      timeSaved: "15 hours/week",
-      onboardingSpeed: "40% faster"
-    },
-    technology: ["RAG System", "Claude API", "Slack Integration", "Knowledge Base"],
-    icon: "rocket_launch",
-    color: "from-orange-500 to-red-500"
+    id: "retail-growth",
+    category: "E-COMMERCE",
+    title: "Retail Growth Engine",
+    description: "Deploying hyper-personalization engines for a global lifestyle brand, enhancing customer retention and lifetime value.",
+    impact: "+25%",
+    impactLabel: "Sales Growth YoY",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=2000"
   }
 ];
 
-const INDUSTRIES = ["All", "Corporate", "E-commerce", "Professional Services", "NGOs", "Financial Services", "SMEs"];
-const SERVICES = ["All", "AI Automation", "Customer Experience", "Knowledge Systems"];
+const QUICK_STATS = [
+  { label: "Global Impact", value: "1M+", sublabel: "Users", trend: "+15%" },
+  { label: "Active Deployments", value: "500+", sublabel: "", trend: "+12%" },
+  { label: "Avg. Latency Reduction", value: "200ms", sublabel: "", trend: "-45%" }
+];
+
+const ADDITIONAL_CASES = [
+  {
+    icon: "local_hospital",
+    title: "Healthcare Compliance",
+    description: "Securing patient data processing with HIPAA-compliant AI pipelines.",
+    stat: "0.00%",
+    statLabel: "DATA BREACHES"
+  },
+  {
+    icon: "account_balance",
+    title: "Fraud Detection",
+    description: "Reducing false positives in digital transactions by 60%.",
+    stat: "60%",
+    statLabel: "ACCURACY BOOST"
+  },
+  {
+    icon: "precision_manufacturing",
+    title: "Smart Factories",
+    description: "Predictive maintenance scheduling for global automotive lines.",
+    stat: "99.9%",
+    statLabel: "UPTIME"
+  }
+];
 
 export default function CasesPage() {
-  const [selectedIndustry, setSelectedIndustry] = useState("All");
-  const [selectedService, setSelectedService] = useState("All");
-
-  const filteredStudies = CASE_STUDIES.filter((study) => {
-    const industryMatch = selectedIndustry === "All" || study.industry === selectedIndustry;
-    const serviceMatch = selectedService === "All" || study.service === selectedService;
-    return industryMatch && serviceMatch;
-  });
-
   return (
     <main className="flex-1">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-32 overflow-hidden">
-        <div className="absolute inset-0 hero-bg pointer-events-none -z-10"></div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge variant="secondary" className="mb-8">Case Studies & Impact</Badge>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
-            Real Results from <span className="text-primary">Real Clients</span>
+      <section className="hero-gradient min-h-[70vh] flex flex-col items-center justify-center text-center px-4 relative overflow-hidden pt-24">
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <h1 className="text-white text-5xl md:text-7xl font-serif leading-tight tracking-tight mb-6" style={{ fontFamily: 'Lora, Georgia, serif' }}>
+            Real Impact
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Discover how businesses across East Africa have transformed their operations with QEN AI's automation and AI solutions.
+          <p className="text-white/90 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
+            Pioneering AI infrastructure that transforms global industries through 
+            intelligence, efficiency, and ethical scaling.
           </p>
         </div>
       </section>
 
-      {/* Filters */}
-      <section className="py-12 bg-muted/30 border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
-            <div className="flex flex-wrap gap-2">
-              <span className="text-sm font-medium text-muted-foreground self-center">Filter by Industry:</span>
-              {INDUSTRIES.map((industry) => (
-                <Button
-                  key={industry}
-                  variant={selectedIndustry === industry ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setSelectedIndustry(industry)}
-                >
-                  {industry}
-                </Button>
-              ))}
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <span className="text-sm font-medium text-muted-foreground self-center">Filter by Service:</span>
-              {SERVICES.map((service) => (
-                <Button
-                  key={service}
-                  variant={selectedService === service ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setSelectedService(service)}
-                >
-                  {service}
-                </Button>
-              ))}
-            </div>
+      {/* Main Content */}
+      <section className="py-16 px-6 md:px-20 lg:px-40 bg-slate-50">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="mb-12">
+            <span className="text-primary font-bold tracking-widest text-xs uppercase">Case Studies</span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2 text-slate-900">Industry Success Stories</h2>
           </div>
-        </div>
-      </section>
 
-      {/* Case Studies Grid */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {filteredStudies.length === 0 ? (
-            <div className="text-center py-12">
-              <p className="text-muted-foreground">No case studies match the selected filters.</p>
-              <Button variant="outline" className="mt-4" onClick={() => {
-                setSelectedIndustry("All");
-                setSelectedService("All");
-              }}>
-                Clear Filters
-              </Button>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {filteredStudies.map((study, i) => (
-                <Card key={i} className="hover:shadow-xl transition-all duration-300 overflow-hidden border-2 hover:border-primary/20">
-                  {/* Header with gradient */}
-                  <div className={`h-24 bg-gradient-to-br ${study.color} flex items-center justify-center relative`}>
-                    <div className="absolute inset-0 bg-black/10"></div>
-                    <span className="material-symbols-outlined text-5xl text-white relative z-10">{study.icon}</span>
+          {/* Quick Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            {QUICK_STATS.map((stat, i) => (
+              <Card key={i} className="border-slate-200">
+                <CardContent className="p-6">
+                  <p className="text-slate-500 text-sm">{stat.label}</p>
+                  <div className="flex items-baseline gap-2 mt-1">
+                    <span className="text-3xl font-bold text-slate-900">{stat.value}</span>
+                    {stat.sublabel && <span className="text-slate-500">{stat.sublabel}</span>}
+                    <span className="text-green-600 text-sm font-medium ml-auto">{stat.trend}</span>
                   </div>
-
-                  <CardHeader>
-                    <div className="flex items-start justify-between mb-2">
-                      <div className="flex-1">
-                        <CardTitle className="text-2xl mb-2">{study.company}</CardTitle>
-                        <div className="flex flex-wrap gap-2 mb-2">
-                          <Badge variant="outline">{study.industry}</Badge>
-                          <Badge variant="secondary">{study.service}</Badge>
-                        </div>
-                      </div>
-                    </div>
-                  </CardHeader>
-
-                  <CardContent className="space-y-6">
-                    {/* Challenge */}
-                    <div>
-                      <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">Challenge</h3>
-                      <p className="text-foreground">{study.challenge}</p>
-                    </div>
-
-                    {/* Solution */}
-                    <div>
-                      <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">Solution</h3>
-                      <p className="text-foreground">{study.solution}</p>
-                    </div>
-
-                    {/* Results */}
-                    <div>
-                      <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">Results</h3>
-                      <div className="space-y-2">
-                        {study.results.map((result, idx) => (
-                          <div key={idx} className="flex items-start gap-2">
-                            <span className="material-symbols-outlined text-green-500 text-sm mt-0.5">check_circle</span>
-                            <span className="text-sm font-medium">{result}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Technology */}
-                    <div>
-                      <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">Technology</h3>
-                      <div className="flex flex-wrap gap-2">
-                        {study.technology.map((tech, idx) => (
-                          <Badge key={idx} variant="secondary" className="text-xs">{tech}</Badge>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* CTA */}
-                    <div className="flex gap-2">
-                      <Button variant="outline" className="flex-1" asChild>
-                        <Link href={study.serviceHref}>
-                          View Service
-                          <span className="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
-                        </Link>
-                      </Button>
-                      <Button variant="outline" className="flex-1" asChild>
-                        <Link href="/contact">
-                          Contact Us
-                        </Link>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Impact Stats */}
-      <section className="py-24 bg-muted/30 border-y">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Our Impact by the Numbers</h2>
-            <p className="text-lg text-muted-foreground">
-              Real results from businesses across East Africa that have transformed their operations with QEN AI.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { value: "73%", label: "Average Time Reduction" },
-              { value: "5-8 months", label: "Average ROI Payback" },
-              { value: "98.4%", label: "Efficiency Improvement" },
-              { value: "50+", label: "Organizations Transformed" }
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-8 rounded-xl bg-background border">
-                <div className="text-4xl lg:text-5xl font-bold text-primary mb-2">{stat.value}</div>
-                <div className="text-sm text-muted-foreground font-medium uppercase tracking-wider">{stat.label}</div>
-              </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Testimonials */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">What Our Clients Say</h2>
+          {/* Case Studies Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-16">
+            {/* Featured Case - Large Card */}
+            <div className="lg:col-span-5 rounded-xl overflow-hidden relative min-h-[400px] group">
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                style={{ backgroundImage: `url('${CASE_STUDIES[0].image}')` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+              <div className="absolute bottom-0 p-8 text-white">
+                <Badge className="bg-slate-800 text-white mb-4">{CASE_STUDIES[0].category}</Badge>
+                <h3 className="text-2xl font-bold mb-2">{CASE_STUDIES[0].title}</h3>
+                <p className="text-white/80 text-sm mb-4">{CASE_STUDIES[0].description}</p>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <span className="text-2xl font-bold text-green-400">{CASE_STUDIES[0].impact}</span>
+                    <span className="text-white/60 text-sm ml-2">{CASE_STUDIES[0].impactLabel}</span>
+                  </div>
+                  <Button variant="secondary" size="sm">
+                    Read Full Study
+                    <span className="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column */}
+            <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* NGO Case */}
+              <div className="rounded-xl overflow-hidden relative min-h-[200px] group">
+                <div 
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                  style={{ backgroundImage: `url('${CASE_STUDIES[1].image}')` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+              </div>
+              
+              <Card className="border-slate-200 flex flex-col">
+                <CardContent className="p-6 flex-1 flex flex-col">
+                  <Badge variant="outline" className="w-fit mb-4 bg-green-50 text-green-700 border-green-200">{CASE_STUDIES[1].category}</Badge>
+                  <h3 className="text-xl font-bold mb-2">{CASE_STUDIES[1].title}</h3>
+                  <p className="text-slate-500 text-sm mb-4 flex-1">{CASE_STUDIES[1].description}</p>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl font-bold text-green-600">{CASE_STUDIES[1].impact}</span>
+                    <span className="text-slate-500 text-sm">{CASE_STUDIES[1].impactLabel}</span>
+                  </div>
+                  <Link href="#" className="text-primary font-bold text-sm mt-4 flex items-center gap-1 hover:underline">
+                    LEARN MORE <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  </Link>
+                </CardContent>
+              </Card>
+
+              {/* Retail Case */}
+              <div className="rounded-xl overflow-hidden relative min-h-[200px] group">
+                <div 
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                  style={{ backgroundImage: `url('${CASE_STUDIES[2].image}')` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+              </div>
+
+              <Card className="border-slate-200 flex flex-col">
+                <CardContent className="p-6 flex-1 flex flex-col">
+                  <Badge variant="outline" className="w-fit mb-4 bg-orange-50 text-orange-700 border-orange-200">{CASE_STUDIES[2].category}</Badge>
+                  <h3 className="text-xl font-bold mb-2">{CASE_STUDIES[2].title}</h3>
+                  <p className="text-slate-500 text-sm mb-4 flex-1">{CASE_STUDIES[2].description}</p>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl font-bold text-green-600">{CASE_STUDIES[2].impact}</span>
+                    <span className="text-slate-500 text-sm">{CASE_STUDIES[2].impactLabel}</span>
+                  </div>
+                  <Link href="#" className="text-primary font-bold text-sm mt-4 flex items-center gap-1 hover:underline">
+                    LEARN MORE <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  </Link>
+                </CardContent>
+              </Card>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                quote: "The audit process opened our eyes to automation opportunities we never considered. The ROI was evident within months of implementation.",
-                author: "Operations Director",
-                role: "Mid-Sized Manufacturing Company, Nairobi"
-              },
-              {
-                quote: "Our customer support team was drowning in repetitive inquiries. The AI chatbot now handles 70% of them instantly, and our customer satisfaction scores have never been higher.",
-                author: "Customer Experience Manager",
-                role: "E-commerce Retailer, Kenya"
-              },
-              {
-                quote: "QEN AI didn't just implement technology—they understood our operations first. The knowledge system has transformed how our team accesses information and onboard new members.",
-                author: "Managing Partner",
-                role: "Professional Services Firm, East Africa"
-              }
-            ].map((testimonial, i) => (
-              <Card key={i}>
+          {/* Additional Cases */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {ADDITIONAL_CASES.map((item, i) => (
+              <Card key={i} className="border-slate-200 hover:shadow-lg transition-all">
                 <CardContent className="p-6">
-                  <span className="material-symbols-outlined text-4xl text-primary mb-4 block">format_quote</span>
-                  <p className="text-foreground mb-6 leading-relaxed italic">"{testimonial.quote}"</p>
-                  <div className="border-t pt-4">
-                    <p className="font-semibold text-foreground">{testimonial.author}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                  <div className="size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4">
+                    <span className="material-symbols-outlined">{item.icon}</span>
                   </div>
+                  <h3 className="text-lg font-bold mb-2">{item.title}</h3>
+                  <p className="text-slate-500 text-sm mb-4">{item.description}</p>
+                  <p className="text-slate-400 text-xs uppercase tracking-wider">
+                    <span className="text-slate-900 font-bold">{item.stat}</span> {item.statLabel}
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -358,25 +202,18 @@ export default function CasesPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 bg-primary text-primary-foreground">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
-            Ready to Write Your Success Story?
-                    </h2>
-          <p className="text-xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto">
-            Let's discuss how QENAI can help you achieve similar results.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="h-12 px-8 text-base" asChild>
-              <Link href="/contact">Schedule Consultation</Link>
-                        </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-              <Link href="/audit">Start Free AI Audit</Link>
-                        </Button>
-                    </div>
-                </div>
-            </section>
-        </main>
-    );
+      {/* CTA Section */}
+      <section className="py-24 px-6 text-center bg-white">
+        <div className="max-w-3xl mx-auto space-y-8">
+          <h2 className="text-4xl font-bold text-slate-900">Ready to be our next success story?</h2>
+          <p className="text-slate-500 text-lg">
+            Book a consultation with our team and discover how QENAI can transform your operations.
+          </p>
+          <Button size="lg" className="bg-primary hover:bg-blue-700 text-white px-10 py-6 h-auto rounded-lg text-lg font-bold" asChild>
+            <Link href="/contact">Contact Our Team</Link>
+          </Button>
+        </div>
+      </section>
+    </main>
+  );
 }
