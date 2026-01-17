@@ -1,406 +1,200 @@
+import { Metadata } from "next";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Image from "next/image";
+import { NeuCard } from "@/components/ui/neu-card";
+import { NeuButton } from "@/components/ui/neu-button";
+import { NeuIconContainer } from "@/components/ui/neu-icon-container";
+import { NeuTag } from "@/components/ui/neu-tag";
+import { Logo } from "@/components/icons/Logo";
+import ServiceSchema from "@/components/seo/ServiceSchema";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-const PHASES = [
+export const metadata: Metadata = {
+  title: "AI Knowledge Systems & Productivity | QENAI - AI Automation Agency Kenya",
+  description: "Build AI-powered knowledge management systems that make your team's expertise searchable and actionable. Reduce time spent searching for information.",
+  keywords: ["AI knowledge management", "productivity AI", "enterprise knowledge systems", "AI automation agency Kenya", "corporate knowledge base"],
+  alternates: {
+    canonical: "/services/knowledge-systems",
+  },
+  openGraph: {
+    title: "AI Knowledge Systems & Productivity | QENAI",
+    description: "AI-powered knowledge management that makes your team's expertise instantly accessible.",
+    url: "https://qenai.com/services/knowledge-systems",
+  },
+};
+
+const KNOWLEDGE_FEATURES = [
   {
-    id: "audit",
-    title: "Knowledge Audit",
-    duration: "1-2 weeks",
-    activities: [
-      "Documentation inventory (locations, formats, accessibility)",
-      "Information flow mapping",
-      "Common knowledge gaps identification",
-      "Employee pain point interviews",
-      "Current tool usage assessment"
-    ],
-    deliverable: "Knowledge ecosystem map and recommendations report"
+    icon: "search",
+    title: "Intelligent Search",
+    description: "Natural language search across all your documents, emails, and data sources."
   },
   {
-    id: "design",
-    title: "System Design",
-    duration: "2-3 weeks",
-    activities: [
-      "Knowledge architecture design",
-      "Information taxonomy and organization",
-      "Search and retrieval strategy",
-      "Integration planning (Slack, email, existing tools)",
-      "User interface design",
-      "Access control and permissions structure"
-    ],
-    deliverable: "System architecture and design specifications"
+    icon: "auto_awesome",
+    title: "AI Summarization",
+    description: "Get instant summaries of long documents, meeting recordings, and email threads."
   },
   {
-    id: "development",
-    title: "Development & Integration",
-    duration: "4-8 weeks",
-    activities: [
-      "Knowledge base construction or migration",
-      "AI-powered search system development (RAG architecture)",
-      "Document processing pipeline setup",
-      "Integration with existing tools",
-      "User interface development",
-      "Admin dashboard for knowledge management"
-    ],
-    deliverable: "Functional knowledge system in staging environment"
+    icon: "question_answer",
+    title: "Q&A Systems",
+    description: "Ask questions in plain English and get answers from your company's knowledge base."
   },
   {
-    id: "processing",
-    title: "Content Processing & Optimization",
-    duration: "2-4 weeks",
-    activities: [
-      "Bulk document ingestion and processing",
-      "Content quality review and enhancement",
-      "AI model training on your specific knowledge base",
-      "Search accuracy optimization",
-      "Metadata enrichment"
-    ],
-    deliverable: "Fully populated and optimized knowledge system"
+    icon: "edit_document",
+    title: "Content Generation",
+    description: "Generate reports, proposals, and documentation based on your existing content."
   },
   {
-    id: "deployment",
-    title: "Deployment & Adoption",
-    duration: "2-3 weeks",
-    activities: [
-      "Production deployment",
-      "Team training sessions",
-      "Champions program for adoption",
-      "Feedback collection and rapid iteration",
-      "Documentation and usage guidelines"
-    ],
-    deliverable: "Live system with trained users and adoption plan"
+    icon: "integration_instructions",
+    title: "System Integration",
+    description: "Connect to SharePoint, Google Drive, Confluence, and other platforms."
+  },
+  {
+    icon: "security",
+    title: "Access Control",
+    description: "Ensure sensitive information is only accessible to authorized team members."
   }
 ];
 
-const USE_CASES = [
-  {
-    title: "Professional Services Firm Knowledge Base",
-    challenge: "Scattered information across documents, difficulty finding past project insights",
-    solution: "RAG-based knowledge system with semantic search, automated documentation",
-    impact: "70-80% time reduction in information searches, 40-60% faster onboarding"
-  },
-  {
-    title: "Tech Startup Internal Knowledge System",
-    challenge: "Growing team struggling with knowledge transfer, repetitive questions to leadership",
-    solution: "AI-powered internal chatbot with access to company knowledge base",
-    impact: "85% of routine questions answered instantly, 15 hours/week leadership time saved"
-  }
-];
-
-
-export default function KnowledgeSystemsServicePage() {
+export default function KnowledgeSystemsPage() {
   return (
-    <main className="flex-1">
-      <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-32 overflow-hidden">
-        <div className="absolute inset-0 hero-bg pointer-events-none -z-10"></div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge variant="secondary" className="mb-8">Service</Badge>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
-            Productivity & <span className="text-primary">Knowledge Systems</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
-            Turn Organizational Knowledge Into Competitive Advantage. Make organizational intelligence instantly accessible with AI-powered systems.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="h-12 px-8 text-base" asChild>
-              <Link href="/contact">Schedule Consultation</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base" asChild>
-              <Link href="/audit">Request Proposal</Link>
-            </Button>
-          </div>
+    <main className="flex-1 bg-[#E0E5EC]">
+      <ServiceSchema
+        name="AI Knowledge Systems & Productivity"
+        description="AI-powered knowledge management and productivity tools for enterprise teams"
+        url="https://qenai.com/services/knowledge-systems"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://qenai.com" },
+          { name: "Services", url: "https://qenai.com/services" },
+          { name: "Knowledge Systems", url: "https://qenai.com/services/knowledge-systems" },
+        ]}
+      />
+
+      {/* Hero Section */}
+      <section className="pt-40 pb-20 px-4 text-center max-w-4xl mx-auto">
+        <NeuTag className="mb-6">Knowledge & Productivity</NeuTag>
+        <Logo size="lg" className="mx-auto mb-6" />
+        <h1 className="text-4xl md:text-6xl font-serif text-gray-800 mb-6 leading-tight">
+          AI Knowledge <span className="text-primary italic">Systems</span>
+        </h1>
+        <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+          Your team&apos;s knowledge is scattered across emails, documents, and people&apos;s heads. 
+          Our AI knowledge systems make that expertise searchable, shareable, and actionable - so 
+          answers are always just a question away.
+        </p>
+        <div className="flex justify-center gap-4 flex-wrap">
+          <Link href="/contact">
+            <NeuButton variant="primary" size="lg">
+              Build Your Knowledge System
+            </NeuButton>
+          </Link>
+          <Link href="/services/audits">
+            <NeuButton variant="secondary" size="lg">
+              Start With an Audit
+            </NeuButton>
+          </Link>
         </div>
       </section>
 
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">What are Knowledge Systems?</h2>
-            <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
-              <p>
-                Your organization's collective knowledge—documentation, processes, past decisions, best practices—is one of your most valuable 
-                assets. But if people can't find what they need when they need it, that knowledge might as well not exist.
+      {/* Feature Section */}
+      <section className="py-12 px-4 max-w-6xl mx-auto">
+        <NeuCard className="p-6 md:p-8 flex flex-col md:flex-row-reverse items-center gap-8 overflow-hidden">
+          <div className="w-full md:w-1/2 h-64 md:h-80 rounded-2xl overflow-hidden shadow-inner">
+            <Image
+              src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80"
+              alt="AI Knowledge Systems - Team collaboration"
+              width={800}
+              height={400}
+              className="w-full h-full object-cover"
+              priority
+            />
+          </div>
+          <div className="w-full md:w-1/2">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+              Stop Losing Time to Information Hunts
+            </h2>
+            <p className="text-gray-500 leading-relaxed mb-6">
+              Your team spends hours searching for information that already exists somewhere 
+              in your organization. Our AI knowledge systems surface the right information 
+              at the right time - no more digging through folders or asking around.
+            </p>
+            <ul className="space-y-2 mb-6">
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Ask questions in plain language
+              </li>
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Get answers from across all your systems
+              </li>
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Preserve knowledge when employees leave
+              </li>
+            </ul>
+          </div>
+        </NeuCard>
+      </section>
+
+      {/* Knowledge Features */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-700 mb-2">System Capabilities</h2>
+          <p className="text-gray-500">What your AI knowledge system can do</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {KNOWLEDGE_FEATURES.map((feature, i) => (
+            <NeuCard key={i} className="p-6">
+              <NeuIconContainer size="sm" className="mb-4">
+                <span className="material-symbols-outlined text-2xl">{feature.icon}</span>
+              </NeuIconContainer>
+              <h3 className="font-bold text-lg text-gray-800 mb-2">{feature.title}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                {feature.description}
               </p>
-              <p>
-                Our Productivity & Knowledge Systems make organizational intelligence instantly accessible. We build AI-powered systems that 
-                understand your documentation, answer employee questions in natural language, surface relevant information contextually, and 
-                even help create and maintain documentation automatically. The result: faster onboarding, more consistent decisions, less 
-                time wasted searching, and preserved institutional knowledge.
-              </p>
-            </div>
-            <div className="mt-12">
-              <h3 className="text-2xl font-bold text-foreground mb-4">Who This Is For</h3>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <span className="material-symbols-outlined text-primary mt-0.5">check_circle</span>
-                  <span>Growing organizations struggling with knowledge transfer</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="material-symbols-outlined text-primary mt-0.5">check_circle</span>
-                  <span>Companies with distributed or remote teams</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="material-symbols-outlined text-primary mt-0.5">check_circle</span>
-                  <span>Businesses losing productivity to information searches</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="material-symbols-outlined text-primary mt-0.5">check_circle</span>
-                  <span>Organizations with high employee turnover</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+            </NeuCard>
+          ))}
         </div>
       </section>
 
-      <section className="py-24 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Business Impact</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="text-center">
-              <CardHeader>
-                <div className="text-4xl font-bold text-primary mb-2">70-80%</div>
-                <CardTitle>Time Saved</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">Reduction in time spent searching for information</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardHeader>
-                <div className="text-4xl font-bold text-primary mb-2">40-60%</div>
-                <CardTitle>Faster Onboarding</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">New employee time-to-productivity</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardHeader>
-                <div className="text-4xl font-bold text-primary mb-2">3-5h</div>
-                <CardTitle>Weekly Savings</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">Per employee (no longer searching)</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardHeader>
-                <div className="text-4xl font-bold text-primary mb-2">Knowledge</div>
-                <CardTitle>Retention</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">Preserve critical knowledge when people leave</p>
-              </CardContent>
-            </Card>
-          </div>
+      {/* Related Services */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-8">
+          <h2 className="text-xl font-bold text-gray-700">Related Services</h2>
+        </div>
+        <div className="flex flex-wrap gap-4">
+          <Link href="/services/automation">
+            <NeuButton variant="secondary">AI Workflow Automation →</NeuButton>
+          </Link>
+          <Link href="/services/customer-experience">
+            <NeuButton variant="secondary">Customer Experience AI →</NeuButton>
+          </Link>
+          <Link href="/services/custom-models">
+            <NeuButton variant="secondary">Custom AI Models →</NeuButton>
+          </Link>
         </div>
       </section>
 
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">What's Included</h2>
-          </div>
-          <Tabs defaultValue="audit" className="w-full">
-            <TabsList className="grid w-full grid-cols-5 mb-8">
-              {PHASES.map((phase) => (
-                <TabsTrigger key={phase.id} value={phase.id} className="text-xs">
-                  {phase.title.split(" ")[0]}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-            {PHASES.map((phase) => (
-              <TabsContent key={phase.id} value={phase.id} className="space-y-6">
-                <Card>
-                  <CardHeader>
-                    <div className="flex items-center justify-between">
-                      <CardTitle className="text-2xl">{phase.title}</CardTitle>
-                      <Badge variant="outline">{phase.duration}</Badge>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-3">Activities:</h4>
-                      <ul className="space-y-2">
-                        {phase.activities.map((activity, i) => (
-                          <li key={i} className="flex items-start gap-2 text-muted-foreground">
-                            <span className="material-symbols-outlined text-primary text-sm mt-0.5">arrow_right</span>
-                            <span>{activity}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <Separator />
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-2">Deliverable:</h4>
-                      <p className="text-muted-foreground">{phase.deliverable}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-            ))}
-          </Tabs>
-        </div>
-      </section>
-
-      <section className="py-24 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Technology & Tools</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>RAG Systems</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  <Badge>Pinecone</Badge>
-                  <Badge>Claude/GPT-4</Badge>
-                  <Badge>Custom RAG</Badge>
-                </div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Document Processing</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  <Badge>PDF Processing</Badge>
-                  <Badge>Text Extraction</Badge>
-                  <Badge>Metadata Enrichment</Badge>
-                </div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Integrations</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  <Badge>Slack</Badge>
-                  <Badge>Google Drive</Badge>
-                  <Badge>Notion</Badge>
-                  <Badge>Confluence</Badge>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Use Cases</h2>
-          </div>
-          <div className="space-y-6">
-            {USE_CASES.map((useCase, i) => (
-              <Card key={i} className="hover:shadow-lg transition-all">
-                <CardHeader>
-                  <CardTitle className="text-xl">{useCase.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-sm text-muted-foreground mb-2">Challenge</h4>
-                    <p className="text-foreground">{useCase.challenge}</p>
-                  </div>
-                  <Separator />
-                  <div>
-                    <h4 className="font-semibold text-sm text-muted-foreground mb-2">Solution</h4>
-                    <p className="text-foreground">{useCase.solution}</p>
-                  </div>
-                  <Separator />
-                  <div>
-                    <h4 className="font-semibold text-sm text-muted-foreground mb-2">Impact</h4>
-                    <p className="text-foreground font-medium">{useCase.impact}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Related Services</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="group hover:shadow-xl transition-all">
-              <CardHeader>
-                <CardTitle>AI-Powered Customer Experience</CardTitle>
-                <CardDescription>For external-facing knowledge systems</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button variant="ghost" className="w-full group-hover:bg-primary/5" asChild>
-                  <Link href="/services/customer-experience">
-                    Learn More
-                    <span className="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-            <Card className="group hover:shadow-xl transition-all">
-              <CardHeader>
-                <CardTitle>AI Automation Design & Deployment</CardTitle>
-                <CardDescription>For workflow automation</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button variant="ghost" className="w-full group-hover:bg-primary/5" asChild>
-                  <Link href="/services/automation">
-                    Learn More
-                    <span className="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-            <Card className="group hover:shadow-xl transition-all">
-              <CardHeader>
-                <CardTitle>AI Readiness & Workflow Audits</CardTitle>
-                <CardDescription>Identify knowledge management opportunities</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button variant="ghost" className="w-full group-hover:bg-primary/5" asChild>
-                  <Link href="/services/audits">
-                    Learn More
-                    <span className="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-primary text-primary-foreground">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
-            Ready to Unlock Your Organizational Knowledge?
+      {/* CTA Section */}
+      <section className="py-20 px-4 max-w-4xl mx-auto text-center">
+        <NeuCard className="p-12">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            Your Team&apos;s Knowledge Is Your Competitive Advantage
           </h2>
-          <p className="text-xl mb-10 max-w-2xl mx-auto opacity-90">
-            Let's discuss how AI-powered knowledge systems can transform how your team accesses and uses information.
+          <p className="text-gray-500 text-lg mb-8 max-w-2xl mx-auto">
+            Don&apos;t let valuable expertise stay locked in silos. Let&apos;s discuss how AI can 
+            make your organization&apos;s knowledge work harder.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="h-12 px-8 text-base" asChild>
-              <Link href="/contact">Schedule Consultation</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base bg-transparent border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-              <Link href="/audit">Request Proposal</Link>
-            </Button>
-          </div>
-        </div>
+          <Link href="/contact">
+            <NeuButton variant="primary" size="lg">
+              Build Your Knowledge System
+            </NeuButton>
+          </Link>
+        </NeuCard>
       </section>
     </main>
   );
 }
-

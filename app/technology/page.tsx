@@ -1,204 +1,205 @@
+import { Metadata } from "next";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
+import { NeuCard } from "@/components/ui/neu-card";
+import { NeuButton } from "@/components/ui/neu-button";
+import { NeuIconContainer } from "@/components/ui/neu-icon-container";
+import { NeuTag } from "@/components/ui/neu-tag";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-const TECH_STACK = {
-  automation: ["n8n", "Zapier", "Make", "Go High Level"],
-  ai: ["OpenAI GPT-4", "Anthropic Claude", "Google Gemini", "Custom Models"],
-  data: ["Airtable", "PostgreSQL", "MongoDB", "Pinecone"],
-  integrations: ["Shopify", "WooCommerce", "Salesforce", "HubSpot"]
+export const metadata: Metadata = {
+  title: "Our Technology | QENAI - AI Automation Agency Kenya",
+  description: "Explore QENAI's AI technology stack. We use cutting-edge machine learning, NLP, and automation tools built for African business contexts.",
+  keywords: ["AI technology Kenya", "machine learning Africa", "NLP Kenya", "AI automation agency Kenya", "AI tools"],
+  alternates: {
+    canonical: "/technology",
+  },
 };
+
+const TECH_STACK = [
+  {
+    category: "AI & Machine Learning",
+    items: ["Large Language Models", "Computer Vision", "Predictive Analytics", "Natural Language Processing"]
+  },
+  {
+    category: "Integration",
+    items: ["REST APIs", "Webhooks", "Database Connectors", "Enterprise System Integration"]
+  },
+  {
+    category: "Automation",
+    items: ["Workflow Orchestration", "Document Processing", "RPA Integration", "Scheduled Tasks"]
+  },
+  {
+    category: "Infrastructure",
+    items: ["Cloud Deployment", "On-Premise Options", "Hybrid Solutions", "Secure Data Handling"]
+  }
+];
 
 const CAPABILITIES = [
   {
-    icon: "schema",
-    title: "Workflow Automation",
-    description: "End-to-end process automation that eliminates manual bottlenecks and reduces operational costs."
+    icon: "psychology",
+    title: "Natural Language Understanding",
+    description: "Process and understand text in English, Swahili, and local variants."
   },
   {
-    icon: "support_agent",
-    title: "AI-Powered Customer Experience",
-    description: "Intelligent chatbots and support systems that handle routine inquiries with human-like understanding."
+    icon: "document_scanner",
+    title: "Document Intelligence",
+    description: "Extract data from invoices, forms, and unstructured documents."
   },
   {
-    icon: "menu_book",
-    title: "Knowledge Management Systems",
-    description: "AI-powered knowledge bases that make organizational intelligence instantly accessible."
+    icon: "analytics",
+    title: "Predictive Analytics",
+    description: "Forecast trends and make data-driven recommendations."
   },
   {
-    icon: "neurology",
-    title: "Custom AI Model Development",
-    description: "Bespoke models fine-tuned for your industry, processes, and brand voice."
+    icon: "hub",
+    title: "System Integration",
+    description: "Connect with your existing tools and databases seamlessly."
   }
 ];
 
 export default function TechnologyPage() {
-    return (
-        <main className="flex-1">
+  return (
+    <main className="flex-1 bg-[#E0E5EC]">
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://qenai.com" },
+          { name: "Technology", url: "https://qenai.com/technology" },
+        ]}
+      />
+
       {/* Hero Section */}
-      <section className="hero-gradient min-h-[70vh] flex flex-col items-center justify-center text-center px-4 relative overflow-hidden pt-24">
-        <div className="relative z-10 max-w-4xl mx-auto">
-          <h1 className="text-white text-5xl md:text-7xl font-serif leading-tight tracking-tight mb-6" style={{ fontFamily: 'Lora, Georgia, serif' }}>
-            Enterprise-Grade Technology
-                    </h1>
-          <p className="text-white/90 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
-            Built on industry-leading platforms and frameworks, designed for security, 
-            scalability, and African market realities.
-                    </p>
-                </div>
-            </section>
+      <section className="pt-40 pb-20 px-4 text-center max-w-4xl mx-auto">
+        <NeuTag className="mb-6">Our Stack</NeuTag>
+        <h1 className="text-4xl md:text-6xl font-serif text-gray-800 mb-6 leading-tight">
+          Our <span className="text-primary italic">Technology</span>
+        </h1>
+        <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+          We combine cutting-edge AI with practical engineering to build solutions that work 
+          reliably in African business environments. No hype - just technology that delivers.
+        </p>
+      </section>
 
-            {/* Tech Stack */}
-      <section className="py-24 px-6 md:px-20 lg:px-40 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
-            <span className="text-primary font-bold tracking-widest text-xs uppercase">Our Stack</span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-2 text-slate-900">Technology Foundation</h2>
-                    </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Automation */}
-            <div className="space-y-4">
-              <h3 className="font-bold text-lg text-slate-900 flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary">settings</span>
-                Automation Platforms
-              </h3>
-              <div className="space-y-3">
-                {TECH_STACK.automation.map((tech, i) => (
-                  <div key={i} className="p-4 bg-slate-50 rounded-lg border border-slate-100 hover:border-primary/50 hover:shadow-sm transition-all">
-                    <span className="font-medium">{tech}</span>
-                                    </div>
-                                        ))}
-                                    </div>
-            </div>
-
-            {/* AI */}
-            <div className="space-y-4">
-              <h3 className="font-bold text-lg text-slate-900 flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary">psychology</span>
-                AI & Machine Learning
-              </h3>
-              <div className="space-y-3">
-                {TECH_STACK.ai.map((tech, i) => (
-                  <div key={i} className="p-4 bg-slate-50 rounded-lg border border-slate-100 hover:border-primary/50 hover:shadow-sm transition-all">
-                    <span className="font-medium">{tech}</span>
-                  </div>
-                        ))}
-                    </div>
-                </div>
-
-            {/* Data */}
-            <div className="space-y-4">
-              <h3 className="font-bold text-lg text-slate-900 flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary">database</span>
-                Data & Storage
-              </h3>
-              <div className="space-y-3">
-                {TECH_STACK.data.map((tech, i) => (
-                  <div key={i} className="p-4 bg-slate-50 rounded-lg border border-slate-100 hover:border-primary/50 hover:shadow-sm transition-all">
-                    <span className="font-medium">{tech}</span>
-                                        </div>
-                                ))}
-                            </div>
-                        </div>
-
-            {/* Integrations */}
-            <div className="space-y-4">
-              <h3 className="font-bold text-lg text-slate-900 flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary">hub</span>
-                Business Integrations
-              </h3>
-              <div className="space-y-3">
-                {TECH_STACK.integrations.map((tech, i) => (
-                  <div key={i} className="p-4 bg-slate-50 rounded-lg border border-slate-100 hover:border-primary/50 hover:shadow-sm transition-all">
-                    <span className="font-medium">{tech}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-      {/* Capabilities */}
-      <section className="py-24 px-6 md:px-20 lg:px-40 bg-slate-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
-            <span className="text-primary font-bold tracking-widest text-xs uppercase">What We Build</span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-2 text-slate-900">Core Capabilities</h2>
+      {/* Feature Section */}
+      <section className="py-12 px-4 max-w-6xl mx-auto">
+        <NeuCard className="p-6 md:p-8 flex flex-col md:flex-row items-center gap-8 overflow-hidden">
+          <div className="w-full md:w-1/2 h-64 md:h-80 rounded-2xl overflow-hidden shadow-inner">
+            <Image
+              src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
+              alt="QENAI Technology - Server infrastructure"
+              width={800}
+              height={400}
+              className="w-full h-full object-cover"
+              priority
+            />
           </div>
+          <div className="w-full md:w-1/2">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+              Built for African Markets
+            </h2>
+            <p className="text-gray-500 leading-relaxed mb-6">
+              Our technology is designed with African realities in mind. We optimize for 
+              variable connectivity, local language support, and the specific data patterns 
+              found in African businesses.
+            </p>
+            <ul className="space-y-2">
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Works with intermittent connectivity
+              </li>
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Local language support built-in
+              </li>
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Data residency compliance
+              </li>
+            </ul>
+          </div>
+        </NeuCard>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {CAPABILITIES.map((cap, i) => (
-              <Card key={i} className="border-slate-200 hover:shadow-lg transition-all group">
-                <CardContent className="p-8 flex gap-6">
-                  <div className="size-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all">
-                    <span className="material-symbols-outlined text-2xl">{cap.icon}</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">{cap.title}</h3>
-                    <p className="text-slate-500 leading-relaxed">{cap.description}</p>
-                            </div>
-                </CardContent>
-              </Card>
-                        ))}
-                    </div>
-                </div>
-            </section>
+      {/* Capabilities Grid */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-700 mb-2">Core Capabilities</h2>
+          <p className="text-gray-500">What our technology can do for you</p>
+        </div>
 
-      {/* African Market Focus */}
-      <section className="py-24 px-6 md:px-20 lg:px-40 bg-primary text-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div>
-              <span className="font-bold tracking-widest text-xs uppercase opacity-70">Built for Africa</span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6">African Market Focus</h2>
-              <p className="text-blue-100 text-lg leading-relaxed mb-8">
-                Our solutions are designed with African business realities in mind. We understand 
-                the unique challenges of infrastructure, connectivity, and local market dynamics.
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {CAPABILITIES.map((capability, i) => (
+            <NeuCard key={i} className="p-8">
+              <NeuIconContainer size="sm" className="mb-4">
+                <span className="material-symbols-outlined text-2xl">{capability.icon}</span>
+              </NeuIconContainer>
+              <h3 className="font-bold text-xl text-gray-800 mb-2">{capability.title}</h3>
+              <p className="text-gray-500 leading-relaxed">
+                {capability.description}
               </p>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined">wifi_off</span>
-                  <span>Offline-capable systems</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined">payments</span>
-                  <span>M-Pesa integration</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined">language</span>
-                  <span>Multi-language support</span>
-                    </div>
-                <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined">security</span>
-                  <span>Local data compliance</span>
-                </div>
-              </div>
-            </div>
-            <div className="rounded-xl overflow-hidden shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&q=80&w=1000" 
-                alt="African city skyline"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+            </NeuCard>
+          ))}
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 px-6 text-center bg-white">
-        <div className="max-w-3xl mx-auto space-y-8">
-          <h2 className="text-4xl font-bold text-slate-900">Ready to leverage enterprise-grade AI?</h2>
-          <p className="text-slate-500 text-lg">
-            Book a consultation to discuss how our technology can transform your operations.
-          </p>
-          <Button size="lg" className="bg-primary hover:bg-blue-700 text-white px-10 py-6 h-auto rounded-lg text-lg font-bold" asChild>
-            <Link href="/contact">Contact Our Team</Link>
-          </Button>
+      {/* Tech Stack */}
+      <section className="py-16 px-4 max-w-6xl mx-auto" id="integrations">
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-700 mb-2">Technology Stack</h2>
+          <p className="text-gray-500">The tools and frameworks we use</p>
         </div>
-            </section>
-        </main>
-    );
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {TECH_STACK.map((stack, i) => (
+            <NeuCard key={i} className="p-6" hover={false}>
+              <h3 className="font-bold text-gray-800 mb-4">{stack.category}</h3>
+              <ul className="space-y-2">
+                {stack.items.map((item, j) => (
+                  <li key={j} className="text-sm text-gray-500 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </NeuCard>
+          ))}
+        </div>
+      </section>
+
+      {/* Quick Links */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-8">
+          <h2 className="text-xl font-bold text-gray-700">Explore Our Services</h2>
+        </div>
+        <div className="flex flex-wrap gap-4">
+          <Link href="/services/automation">
+            <NeuButton variant="secondary">Workflow Automation →</NeuButton>
+          </Link>
+          <Link href="/services/custom-models">
+            <NeuButton variant="secondary">Custom AI Models →</NeuButton>
+          </Link>
+          <Link href="/cases">
+            <NeuButton variant="secondary">Case Studies →</NeuButton>
+          </Link>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4 max-w-4xl mx-auto text-center">
+        <NeuCard className="p-12">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            See Our Technology in Action
+          </h2>
+          <p className="text-gray-500 text-lg mb-8 max-w-2xl mx-auto">
+            Book a demo and see how our AI technology can solve your specific business challenges.
+          </p>
+          <Link href="/contact">
+            <NeuButton variant="primary" size="lg">
+              Book a Demo
+            </NeuButton>
+          </Link>
+        </NeuCard>
+      </section>
+    </main>
+  );
 }

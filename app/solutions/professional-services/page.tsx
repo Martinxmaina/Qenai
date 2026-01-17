@@ -1,318 +1,179 @@
+import { Metadata } from "next";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import Image from "next/image";
+import { NeuCard } from "@/components/ui/neu-card";
+import { NeuButton } from "@/components/ui/neu-button";
+import { NeuIconContainer } from "@/components/ui/neu-icon-container";
+import { NeuTag } from "@/components/ui/neu-tag";
+import { Logo } from "@/components/icons/Logo";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-const CHALLENGES = [
-  {
-    title: "Knowledge Management",
-    description: "Professional services firms struggle with capturing, organizing, and accessing institutional knowledge across teams."
+export const metadata: Metadata = {
+  title: "AI for Professional Services | QENAI - AI Automation Agency Kenya",
+  description: "Transform legal, accounting, and consulting firms with AI. Automate research, document processing, and client communications while maintaining quality.",
+  keywords: ["AI for professional services", "legal AI Kenya", "accounting automation", "consulting firm AI", "AI automation agency Kenya"],
+  alternates: {
+    canonical: "/solutions/professional-services",
   },
-  {
-    title: "Client Onboarding Complexity",
-    description: "Complex onboarding processes with multiple documents, compliance checks, and coordination across departments."
-  },
-  {
-    title: "Document Processing",
-    description: "Time-consuming document review, analysis, and processing that takes professionals away from high-value work."
-  },
-  {
-    title: "Time Tracking & Billing",
-    description: "Manual time tracking and billing processes that are error-prone and time-consuming."
-  }
-];
+};
 
-const SOLUTIONS = [
+const PROFESSIONAL_APPLICATIONS = [
   {
-    icon: "database",
-    title: "Knowledge Management Systems",
-    description: "AI-powered knowledge bases that make organizational expertise instantly accessible to your team.",
-    href: "/services/knowledge-systems"
-  },
-  {
-    icon: "person_add",
-    title: "Client Onboarding Automation",
-    description: "Streamlined onboarding workflows with automated document collection and compliance verification.",
-    href: "/services/automation"
-  },
-  {
-    icon: "description",
-    title: "Document Processing",
-    description: "AI-powered document analysis, review, and processing for faster turnaround times.",
-    href: "/services/custom-models"
-  }
-];
-
-const USE_CASES = [
-  {
-    title: "Professional Services Knowledge Base",
-    challenge: "Scattered information across documents, difficulty finding past project insights and best practices",
-    solution: "RAG-based knowledge system with semantic search, automated documentation, team-wide access",
-    impact: "70-80% time reduction in information searches, 40-60% faster onboarding, consistent knowledge access"
-  },
-  {
+    icon: "gavel",
     title: "Legal Document Analysis",
-    challenge: "Reviewing contracts takes 4-6 hours per document, high cost, risk of missing critical clauses",
-    solution: "Fine-tuned AI model for contract analysis, key term identification, structured reports",
-    impact: "Review time reduced from 4-6 hours to 45 minutes, higher consistency, junior associates freed for analysis"
+    description: "Review contracts, extract key terms, and identify risks in a fraction of the time."
+  },
+  {
+    icon: "calculate",
+    title: "Financial Processing",
+    description: "Automate reconciliations, audit procedures, and compliance checks."
+  },
+  {
+    icon: "content_paste_search",
+    title: "Research & Analysis",
+    description: "AI-powered research that synthesizes information from multiple sources."
+  },
+  {
+    icon: "edit_note",
+    title: "Document Generation",
+    description: "Create first drafts of reports, proposals, and client communications."
   }
 ];
 
 export default function ProfessionalServicesPage() {
   return (
-    <main className="flex-1">
-      <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-32 overflow-hidden">
-        <div className="absolute inset-0 hero-bg pointer-events-none -z-10"></div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge variant="secondary" className="mb-8">Professional Services</Badge>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
-            AI Solutions for <span className="text-primary">Service Firms</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
-            Streamline operations, enhance knowledge management, and automate routine tasks so your team can focus on delivering exceptional client service.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="h-12 px-8 text-base" asChild>
-              <Link href="/contact">Schedule Consultation</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base" asChild>
-              <Link href="/cases">View Case Studies</Link>
-            </Button>
-          </div>
+    <main className="flex-1 bg-[#E0E5EC]">
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://qenai.com" },
+          { name: "Solutions", url: "https://qenai.com/solutions" },
+          { name: "Professional Services", url: "https://qenai.com/solutions/professional-services" },
+        ]}
+      />
+
+      {/* Hero Section */}
+      <section className="pt-40 pb-20 px-4 text-center max-w-4xl mx-auto">
+        <NeuTag className="mb-6">Professional Services</NeuTag>
+        <Logo size="lg" className="mx-auto mb-6" />
+        <h1 className="text-4xl md:text-6xl font-serif text-gray-800 mb-6 leading-tight">
+          AI for Professional <span className="text-primary italic">Services</span>
+        </h1>
+        <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+          Your clients pay for your expertise, not your admin time. Our professional services 
+          AI solutions handle document processing, research, and routine tasks - so you can focus 
+          on high-value advisory work.
+        </p>
+        <div className="flex justify-center gap-4 flex-wrap">
+          <Link href="/contact">
+            <NeuButton variant="primary" size="lg">
+              See a Demo
+            </NeuButton>
+          </Link>
+          <Link href="/cases">
+            <NeuButton variant="secondary" size="lg">
+              View Case Studies
+            </NeuButton>
+          </Link>
         </div>
       </section>
 
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Optimize Your Service Delivery</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Professional services firms—law firms, consultancies, accounting practices, and advisory firms—rely on 
-              knowledge, expertise, and efficient processes. QEN AI helps these organizations capture and leverage 
-              institutional knowledge, streamline client onboarding, automate document processing, and free professionals 
-              from routine tasks so they can focus on high-value client work. Our solutions are designed to integrate 
-              seamlessly with professional workflows while maintaining the quality and accuracy standards your clients expect.
+      {/* Feature Section */}
+      <section className="py-12 px-4 max-w-6xl mx-auto">
+        <NeuCard className="p-6 md:p-8 flex flex-col md:flex-row items-center gap-8 overflow-hidden">
+          <div className="w-full md:w-1/2 h-64 md:h-80 rounded-2xl overflow-hidden shadow-inner">
+            <Image
+              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
+              alt="AI for Professional Services - Business professional"
+              width={800}
+              height={400}
+              className="w-full h-full object-cover"
+              priority
+            />
+          </div>
+          <div className="w-full md:w-1/2">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+              Bill for Thinking, Not for Typing
+            </h2>
+            <p className="text-gray-500 leading-relaxed mb-6">
+              AI handles the first draft, the research summary, the document review. 
+              You provide the judgment, the strategy, the client relationship. 
+              That&apos;s how professional services should work.
             </p>
+            <ul className="space-y-2">
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Maintain quality while increasing throughput
+              </li>
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Client confidentiality and data security
+              </li>
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Integration with professional tools
+              </li>
+            </ul>
           </div>
+        </NeuCard>
+      </section>
+
+      {/* Applications */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-700 mb-2">AI Applications</h2>
+          <p className="text-gray-500">Transform how your firm delivers value</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {PROFESSIONAL_APPLICATIONS.map((app, i) => (
+            <NeuCard key={i} className="p-8">
+              <NeuIconContainer size="sm" className="mb-4">
+                <span className="material-symbols-outlined text-2xl">{app.icon}</span>
+              </NeuIconContainer>
+              <h3 className="font-bold text-xl text-gray-800 mb-2">{app.title}</h3>
+              <p className="text-gray-500 leading-relaxed">
+                {app.description}
+              </p>
+            </NeuCard>
+          ))}
         </div>
       </section>
 
-      <section className="py-24 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Challenges We Solve</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {CHALLENGES.map((challenge, i) => (
-              <Card key={i} className="hover:shadow-lg transition-all">
-                <CardHeader>
-                  <CardTitle className="text-xl">{challenge.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{challenge.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+      {/* Relevant Services */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-8">
+          <h2 className="text-xl font-bold text-gray-700">Relevant Services</h2>
+        </div>
+        <div className="flex flex-wrap gap-4">
+          <Link href="/services/knowledge-systems">
+            <NeuButton variant="secondary">Knowledge Systems →</NeuButton>
+          </Link>
+          <Link href="/services/automation">
+            <NeuButton variant="secondary">Workflow Automation →</NeuButton>
+          </Link>
+          <Link href="/services/custom-models">
+            <NeuButton variant="secondary">Custom AI Models →</NeuButton>
+          </Link>
         </div>
       </section>
 
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Solutions for Professional Services</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {SOLUTIONS.map((solution, i) => (
-              <Card key={i} className="group hover:shadow-xl transition-all border-2 hover:border-primary/20">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                    <span className="material-symbols-outlined text-2xl text-primary">{solution.icon}</span>
-                  </div>
-                  <CardTitle className="text-xl">{solution.title}</CardTitle>
-                  <CardDescription className="text-base mt-2">{solution.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button variant="ghost" className="w-full group-hover:bg-primary/5" asChild>
-                    <Link href={solution.href}>
-                      Learn More
-                      <span className="material-symbols-outlined ml-2 text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Success Stories</h2>
-          </div>
-          <div className="space-y-6">
-            {USE_CASES.map((useCase, i) => (
-              <Card key={i} className="hover:shadow-lg transition-all">
-                <CardHeader>
-                  <CardTitle className="text-xl">{useCase.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-sm text-muted-foreground mb-2">Challenge</h4>
-                    <p className="text-foreground">{useCase.challenge}</p>
-                  </div>
-                  <Separator />
-                  <div>
-                    <h4 className="font-semibold text-sm text-muted-foreground mb-2">Solution</h4>
-                    <p className="text-foreground">{useCase.solution}</p>
-                  </div>
-                  <Separator />
-                  <div>
-                    <h4 className="font-semibold text-sm text-muted-foreground mb-2">Impact</h4>
-                    <p className="text-foreground font-medium">{useCase.impact}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Business Impact</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center">
-              <CardHeader>
-                <div className="text-5xl font-bold text-primary mb-2">70-80%</div>
-                <CardTitle>Time Saved</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">Reduction in information search time</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardHeader>
-                <div className="text-5xl font-bold text-primary mb-2">40-60%</div>
-                <CardTitle>Faster Onboarding</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">New employee time-to-productivity</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardHeader>
-                <div className="text-5xl font-bold text-primary mb-2">90%</div>
-                <CardTitle>Document Processing</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">Reduction in manual document review time</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-8 text-center">Why Choose QEN AI for Professional Services</h2>
-            <div className="space-y-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-primary">database</span>
-                    Knowledge Preservation
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Capture and leverage institutional knowledge so expertise is accessible to your entire team.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-primary">verified</span>
-                    Quality & Accuracy
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Our solutions maintain the high standards your clients expect, with human oversight built into every process.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-primary">work</span>
-                    Focus on High-Value Work
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Automate routine tasks so professionals can focus on strategic client work and relationship building.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Explore Other Industries</h2>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            <Button variant="outline" asChild>
-              <Link href="/solutions/corporate">Corporate</Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="/solutions/smes">SMEs & Startups</Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="/solutions/ngos">NGOs</Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="/solutions/ecommerce">E-commerce</Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="/solutions/financial">Financial Services</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-primary text-primary-foreground">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
-            Ready to Optimize Your Practice?
+      {/* CTA Section */}
+      <section className="py-20 px-4 max-w-4xl mx-auto text-center">
+        <NeuCard className="p-12">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            Work Smarter, Bill Better
           </h2>
-          <p className="text-xl mb-10 max-w-2xl mx-auto opacity-90">
-            Let's discuss how AI automation can help your firm operate more efficiently and deliver better client service.
+          <p className="text-gray-500 text-lg mb-8 max-w-2xl mx-auto">
+            Let&apos;s discuss how AI can help your firm deliver more value while improving 
+            your margins.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="h-12 px-8 text-base" asChild>
-              <Link href="/contact">Schedule Consultation</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base bg-transparent border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-              <Link href="/audit">Request Assessment</Link>
-            </Button>
-          </div>
-        </div>
+          <Link href="/contact">
+            <NeuButton variant="primary" size="lg">
+              Schedule a Consultation
+            </NeuButton>
+          </Link>
+        </NeuCard>
       </section>
     </main>
   );
 }
-
-
-
-

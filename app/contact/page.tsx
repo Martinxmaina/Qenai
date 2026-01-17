@@ -1,171 +1,141 @@
-"use client";
-
-import { useState } from "react";
+import { Metadata } from "next";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import Script from "next/script";
+import { NeuCard } from "@/components/ui/neu-card";
+import { NeuButton } from "@/components/ui/neu-button";
+import { NeuIconContainer } from "@/components/ui/neu-icon-container";
+import { NeuTag } from "@/components/ui/neu-tag";
+import { Logo } from "@/components/icons/Logo";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
+
+export const metadata: Metadata = {
+  title: "Contact Us | QENAI - AI Automation Agency Kenya",
+  description: "Get in touch with QENAI. Book a free consultation to discuss AI workflow automation, readiness audits, and custom AI solutions for your African business.",
+  keywords: ["contact QENAI", "AI consultation Kenya", "AI automation contact", "AI automation agency Kenya"],
+  alternates: {
+    canonical: "/contact",
+  },
+};
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    role: "",
-    interest: "",
-    message: ""
-  });
+  return (
+    <main className="flex-1 bg-[#E0E5EC]">
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://qenai.com" },
+          { name: "Contact", url: "https://qenai.com/contact" },
+        ]}
+      />
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert("Thank you! We'll be in touch soon.");
-  };
-
-  const handleChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
-
-    return (
-        <main className="flex-1">
       {/* Hero Section */}
-      <section className="hero-gradient min-h-[60vh] flex flex-col items-center justify-center text-center px-4 relative overflow-hidden pt-24">
-        <div className="relative z-10 max-w-4xl mx-auto">
-          <h1 className="text-white text-5xl md:text-7xl font-serif leading-tight tracking-tight mb-6" style={{ fontFamily: 'Lora, Georgia, serif' }}>
-            Let&apos;s Build the Future
-                    </h1>
-          <p className="text-white/90 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
-            Personalized AI strategies to scale your vision.
-                    </p>
-                </div>
-            </section>
+      <section className="pt-40 pb-20 px-4 text-center max-w-4xl mx-auto">
+        <NeuTag className="mb-6">Let&apos;s Talk</NeuTag>
+        <h1 className="text-4xl md:text-6xl font-serif text-gray-800 mb-6 leading-tight">
+          Get Started with <span className="text-primary italic">AI Automation</span>
+        </h1>
+        <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+          Whether you&apos;re ready to transform your operations or just exploring what&apos;s possible, 
+          we&apos;d love to hear from you. Book a free consultation and let&apos;s discuss your AI journey.
+        </p>
+      </section>
 
-      {/* Contact Form Section */}
-      <section className="py-16 px-6 bg-slate-50 -mt-20 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden">
-            {/* Form Header */}
-            <div className="p-8 border-b border-slate-100">
-              <h2 className="text-2xl font-bold text-slate-900">Book a Discovery Call</h2>
-              <p className="text-slate-500 mt-2">Pick a time that works for you to discuss your project with our AI experts.</p>
-                            </div>
+      {/* Contact Form & Info */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Calendly Booking */}
+          <NeuCard className="flex-1 p-8 md:p-12">
+            <h2 className="text-xl font-bold text-gray-800 mb-6">Book a Consultation</h2>
+            <p className="text-gray-500 mb-6">
+              Schedule a 30-minute consultation to discuss your AI automation needs. 
+              We&apos;ll explore opportunities and answer your questions.
+            </p>
+            {/* Calendly inline widget begin */}
+            <div 
+              className="calendly-inline-widget" 
+              data-url="https://calendly.com/martin-qenai/30min?hide_landing_page_details=1&hide_gdpr_banner=1" 
+              style={{minWidth: '320px', height: '700px'}}
+            ></div>
+            <Script 
+              src="https://assets.calendly.com/assets/external/widget.js" 
+              strategy="lazyOnload"
+            />
+            {/* Calendly inline widget end */}
+          </NeuCard>
 
-            {/* Form */}
-            <form onSubmit={handleSubmit} className="p-8 space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Full Name *</Label>
-                  <Input
-                    id="name"
-                    placeholder="John Doe"
-                    value={formData.name}
-                    onChange={(e) => handleChange("name", e.target.value)}
-                    required
-                    className="h-12"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email *</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="john@company.com"
-                    value={formData.email}
-                    onChange={(e) => handleChange("email", e.target.value)}
-                    required
-                    className="h-12"
-                  />
-                            </div>
-                        </div>
+          {/* Contact Info */}
+          <div className="lg:w-1/3 space-y-6">
+            <NeuCard className="p-8">
+              <NeuIconContainer size="sm" className="mb-4">
+                <span className="material-symbols-outlined text-2xl">mail</span>
+              </NeuIconContainer>
+              <h3 className="font-bold text-gray-800 mb-2">Email Us</h3>
+              <p className="text-gray-500 text-sm">team@qenai.co</p>
+              <p className="text-gray-400 text-xs mt-2">We respond within 24 hours</p>
+            </NeuCard>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="company">Company</Label>
-                  <Input
-                    id="company"
-                    placeholder="Company Name"
-                    value={formData.company}
-                    onChange={(e) => handleChange("company", e.target.value)}
-                    className="h-12"
-                  />
-                                    </div>
-                <div className="space-y-2">
-                  <Label htmlFor="role">Your Role</Label>
-                  <Input
-                    id="role"
-                    placeholder="e.g., CEO, CTO, Operations Manager"
-                    value={formData.role}
-                    onChange={(e) => handleChange("role", e.target.value)}
-                    className="h-12"
-                  />
-                                            </div>
-                                        </div>
+            <NeuCard className="p-8">
+              <NeuIconContainer size="sm" className="mb-4">
+                <span className="material-symbols-outlined text-2xl">phone</span>
+              </NeuIconContainer>
+              <h3 className="font-bold text-gray-800 mb-2">Call Us</h3>
+              <p className="text-gray-500 text-sm">+254 705951082</p>
+              <p className="text-gray-400 text-xs mt-2">Mon - Fri: 9am - 6pm EAT</p>
+            </NeuCard>
 
-              <div className="space-y-2">
-                <Label htmlFor="interest">What are you interested in? *</Label>
-                <Select onValueChange={(value) => handleChange("interest", value)} required>
-                  <SelectTrigger id="interest" className="h-12">
-                    <SelectValue placeholder="Select an option" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="audit">Free AI Readiness Audit</SelectItem>
-                    <SelectItem value="consultation">Schedule a Consultation</SelectItem>
-                    <SelectItem value="automation">Automation Solutions</SelectItem>
-                    <SelectItem value="custom">Custom AI Development</SelectItem>
-                    <SelectItem value="partnership">Partnership Opportunity</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
-                  </SelectContent>
-                </Select>
-                                            </div>
+            <NeuCard className="p-8">
+              <NeuIconContainer size="sm" className="mb-4">
+                <span className="material-symbols-outlined text-2xl">location_on</span>
+              </NeuIconContainer>
+              <h3 className="font-bold text-gray-800 mb-2">Our Location</h3>
+              <p className="text-gray-500 text-sm">Nairobi, Kenya</p>
+              <p className="text-gray-400 text-xs mt-2">Available for in-person meetings</p>
+            </NeuCard>
 
-              <div className="space-y-2">
-                <Label htmlFor="message">Tell us about your project *</Label>
-                <Textarea
-                  id="message"
-                  placeholder="Describe your current challenges and what you're hoping to achieve with AI..."
-                  rows={6}
-                  value={formData.message}
-                  onChange={(e) => handleChange("message", e.target.value)}
-                  required
-                />
-                                            </div>
+            <NeuCard className="p-8">
+              <NeuIconContainer size="sm" className="mb-4">
+                <span className="material-symbols-outlined text-2xl">schedule</span>
+              </NeuIconContainer>
+              <h3 className="font-bold text-gray-800 mb-2">Office Hours</h3>
+              <p className="text-gray-500 text-sm">Mon - Fri: 9am - 6pm EAT</p>
+              <p className="text-gray-400 text-xs mt-2">We&apos;re flexible for different time zones</p>
+            </NeuCard>
+          </div>
+        </div>
+      </section>
 
-              <Button type="submit" size="lg" className="w-full h-14 text-lg font-bold">
-                Send Message
-                <span className="material-symbols-outlined ml-2">send</span>
-              </Button>
-            </form>
+      {/* Quick Links */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-8">
+          <h2 className="text-xl font-bold text-gray-700">Not Ready for a Call Yet?</h2>
+        </div>
+        <div className="flex flex-wrap gap-4">
+          <Link href="/services/audits">
+            <NeuButton variant="secondary">Learn About AI Audits →</NeuButton>
+          </Link>
+          <Link href="/resources">
+            <NeuButton variant="secondary">Browse Resources →</NeuButton>
+          </Link>
+          <Link href="/faq">
+            <NeuButton variant="secondary">Read FAQs →</NeuButton>
+          </Link>
+        </div>
+      </section>
 
-            {/* Contact Info Footer */}
-            <div className="p-8 bg-slate-50 border-t border-slate-100 grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="flex items-center gap-4">
-                <div className="size-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-primary">mail</span>
-                                                </div>
-                <div>
-                  <p className="text-xs text-slate-500 uppercase font-medium">Email Us</p>
-                  <p className="font-semibold text-slate-900">hello@qenai.com</p>
-                                            </div>
-                                        </div>
-              <div className="flex items-center gap-4">
-                <div className="size-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-primary">location_on</span>
-                                    </div>
-                <div>
-                  <p className="text-xs text-slate-500 uppercase font-medium">Location</p>
-                  <p className="font-semibold text-slate-900">Nairobi, Kenya</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-          {/* Alternative Contact */}
-          <p className="text-center text-slate-500 mt-8">
-            Prefer another way? <Link href="mailto:hello@qenai.com" className="text-primary font-semibold hover:underline">Send us a direct message</Link>.
+      {/* FOMO CTA */}
+      <section className="py-20 px-4 max-w-4xl mx-auto text-center">
+        <NeuCard className="p-12">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            Your Competitors Are Already Automating
+          </h2>
+          <p className="text-gray-500 text-lg mb-8 max-w-2xl mx-auto">
+            Every day without AI automation is a day you&apos;re falling behind. 
+            The consultation is free - the insights are invaluable.
           </p>
-                </div>
-            </section>
-        </main>
-    );
+          <p className="text-primary font-medium">
+            Average response time: Under 24 hours
+          </p>
+        </NeuCard>
+      </section>
+    </main>
+  );
 }

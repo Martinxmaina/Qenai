@@ -1,54 +1,90 @@
 import Link from "next/link";
-import { Logo } from "@/components/icons/Logo";
+import Image from "next/image";
 
 const FOOTER_LINKS = {
-    product: [
-        { label: "AI Platform", href: "/technology" },
+    services: [
+        { label: "AI Readiness Audits", href: "/services/audits" },
         { label: "Workflow Automation", href: "/services/automation" },
-        { label: "Integrations", href: "/technology#integrations" },
+        { label: "Custom AI Models", href: "/services/custom-models" },
+        { label: "Customer Experience AI", href: "/services/customer-experience" },
+        { label: "Knowledge Systems", href: "/services/knowledge-systems" },
+        { label: "Advisory Services", href: "/services/advisory" },
     ],
     solutions: [
-        { label: "Enterprise", href: "/solutions/corporate" },
+        { label: "Enterprise Solutions", href: "/solutions/corporate" },
         { label: "SMEs & Startups", href: "/solutions/smes" },
+        { label: "NGOs", href: "/solutions/ngos" },
+        { label: "Professional Services", href: "/solutions/professional-services" },
+        { label: "E-commerce", href: "/solutions/ecommerce" },
         { label: "Financial Services", href: "/solutions/financial" },
     ],
     company: [
-        { label: "Who We Are", href: "/story" },
+        { label: "Our Story", href: "/story" },
         { label: "Team", href: "/team" },
-        { label: "Case Studies", href: "/cases" },
+        { label: "Values", href: "/values" },
         { label: "Contact", href: "/contact" },
     ],
     resources: [
         { label: "Blog", href: "/blog" },
         { label: "Resources", href: "/resources" },
+        { label: "AI Assessment", href: "/assessment" },
         { label: "FAQs", href: "/faq" },
     ],
 } as const;
 
 export const Footer = () => {
     return (
-        <footer className="bg-white border-t border-slate-100 pt-24 pb-12">
-            <div className="max-w-7xl mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-12 mb-20">
-                    {/* Brand */}
+        <footer className="mt-20 py-16 border-t border-gray-200/30 bg-[#E0E5EC]">
+            <div className="max-w-6xl mx-auto px-4">
+                {/* Main Footer Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
+                    {/* Brand Section */}
                     <div className="lg:col-span-2">
-                        <Link href="/" className="flex items-center gap-2 mb-6">
-                            <Logo size="md" />
-                            <span className="text-2xl font-bold text-slate-900">QENAI</span>
+                        <Link href="/" className="flex items-center gap-2 mb-6 group">
+                            <div className="p-4 rounded-2xl bg-[#E0E5EC] shadow-neu-flat group-hover:shadow-neu-pressed transition-all">
+                                <Image 
+                                    src="/qenai-logo.png" 
+                                    alt="QENAI Logo" 
+                                    width={144} 
+                                    height={144} 
+                                    className="h-28 w-auto group-hover:scale-105 transition-transform"
+                                />
+                            </div>
                         </Link>
-                        <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
-                            Pioneering the next evolution of enterprise artificial intelligence. 
-                            Secure, modular, and built for Africa&apos;s tomorrow.
+                        <p className="text-gray-500 text-sm leading-relaxed max-w-xs mb-6">
+                            Kenya&apos;s premier AI automation agency. We transform business operations with 
+                            intelligent workflow automation, custom AI models, and strategic AI readiness audits.
                         </p>
+                        {/* Social Links */}
+                        <div className="flex gap-4">
+                            <a
+                                href="https://linkedin.com/company/qenai"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-xl bg-[#E0E5EC] shadow-neu-sm flex items-center justify-center text-gray-500 hover:text-primary transition-colors"
+                                aria-label="LinkedIn"
+                            >
+                                <span className="material-symbols-outlined text-xl">link</span>
+                            </a>
+                            <a
+                                href="https://twitter.com/qenai"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-xl bg-[#E0E5EC] shadow-neu-sm flex items-center justify-center text-gray-500 hover:text-primary transition-colors"
+                                aria-label="Twitter"
+                            >
+                                <span className="material-symbols-outlined text-xl">tag</span>
+                            </a>
+                        </div>
                     </div>
 
-                    {/* Product */}
+                    {/* Services */}
                     <div>
-                        <h4 className="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">
-                            Product
+                        <h4 className="font-bold text-gray-800 mb-6 uppercase text-xs tracking-widest">
+                            Services
                         </h4>
-                        <ul className="space-y-4 text-sm text-slate-500">
-                            {FOOTER_LINKS.product.map((link) => (
+                        <ul className="space-y-3 text-sm text-gray-500">
+                            {FOOTER_LINKS.services.map((link) => (
                                 <li key={link.label}>
                                     <Link
                                         href={link.href}
@@ -63,10 +99,10 @@ export const Footer = () => {
 
                     {/* Solutions */}
                     <div>
-                        <h4 className="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">
+                        <h4 className="font-bold text-gray-800 mb-6 uppercase text-xs tracking-widest">
                             Solutions
                         </h4>
-                        <ul className="space-y-4 text-sm text-slate-500">
+                        <ul className="space-y-3 text-sm text-gray-500">
                             {FOOTER_LINKS.solutions.map((link) => (
                                 <li key={link.label}>
                                     <Link
@@ -82,10 +118,10 @@ export const Footer = () => {
 
                     {/* Company */}
                     <div>
-                        <h4 className="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">
+                        <h4 className="font-bold text-gray-800 mb-6 uppercase text-xs tracking-widest">
                             Company
                         </h4>
-                        <ul className="space-y-4 text-sm text-slate-500">
+                        <ul className="space-y-3 text-sm text-gray-500">
                             {FOOTER_LINKS.company.map((link) => (
                                 <li key={link.label}>
                                     <Link
@@ -99,50 +135,37 @@ export const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Social */}
+                    {/* Resources */}
                     <div>
-                        <h4 className="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">
-                            Social
+                        <h4 className="font-bold text-gray-800 mb-6 uppercase text-xs tracking-widest">
+                            Resources
                         </h4>
-                        <ul className="space-y-4 text-sm text-slate-500">
-                            <li>
-                                <Link
-                                    href="https://linkedin.com/company/qenai"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="hover:text-primary transition-colors"
-                                >
-                                    LinkedIn
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="https://twitter.com/qenai"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="hover:text-primary transition-colors"
-                                >
-                                    Twitter
-                                </Link>
-                            </li>
+                        <ul className="space-y-3 text-sm text-gray-500">
+                            {FOOTER_LINKS.resources.map((link) => (
+                                <li key={link.label}>
+                                    <Link
+                                        href={link.href}
+                                        className="hover:text-primary transition-colors"
+                                    >
+                                        {link.label}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <p className="text-xs text-slate-400">
-                        © 2025 QENAI Technologies Inc. All rights reserved.
+                <div className="pt-8 border-t border-gray-200/30 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <p className="text-xs text-gray-400">
+                        © {new Date().getFullYear()} QENAI Technologies. All rights reserved.
                     </p>
-                    <div className="flex gap-8 text-xs text-slate-400">
-                        <Link href="/contact" className="hover:text-slate-900 transition-colors">
+                    <div className="flex gap-8 text-xs text-gray-400">
+                        <Link href="/privacy" className="hover:text-primary transition-colors">
                             Privacy Policy
                         </Link>
-                        <Link href="/contact" className="hover:text-slate-900 transition-colors">
+                        <Link href="/terms" className="hover:text-primary transition-colors">
                             Terms of Service
-                        </Link>
-                        <Link href="/contact" className="hover:text-slate-900 transition-colors">
-                            Cookie Settings
                         </Link>
                     </div>
                 </div>

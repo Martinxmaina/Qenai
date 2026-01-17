@@ -1,6 +1,25 @@
+import { Metadata } from "next";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { NeuCard } from "@/components/ui/neu-card";
+import { NeuButton } from "@/components/ui/neu-button";
+import { NeuIconContainer } from "@/components/ui/neu-icon-container";
+import { NeuTag } from "@/components/ui/neu-tag";
+import ServiceSchema from "@/components/seo/ServiceSchema";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
+
+export const metadata: Metadata = {
+  title: "AI Readiness Audit Services | QENAI - AI Automation Agency Kenya",
+  description: "Get a comprehensive AI readiness audit for your business. Our expert team identifies high-impact automation opportunities and creates a strategic roadmap for AI workflow automation in Kenya and Africa.",
+  keywords: ["AI readiness audit", "AI workflow automation", "business process audit", "AI automation agency Kenya", "workflow assessment Africa"],
+  alternates: {
+    canonical: "/services/audits",
+  },
+  openGraph: {
+    title: "AI Readiness Audit Services | QENAI",
+    description: "Comprehensive AI readiness audits that identify your highest-impact automation opportunities.",
+    url: "https://qenai.com/services/audits",
+  },
+};
 
 const PHASES = [
   {
@@ -8,7 +27,7 @@ const PHASES = [
     title: "Discovery",
     duration: "Week 1-2",
     activities: [
-      "Stakeholder interviews (leadership, operations, IT, end users)",
+      "Stakeholder interviews with leadership and operations teams",
       "Workflow observation and documentation",
       "Current systems and data flow mapping",
       "Pain point and bottleneck identification"
@@ -21,7 +40,7 @@ const PHASES = [
     activities: [
       "Automation opportunity identification across all workflows",
       "Technical feasibility assessment for each opportunity",
-      "ROI estimation (time saved, cost reduction, revenue impact)",
+      "ROI estimation for time saved and cost reduction",
       "Risk and change management considerations"
     ]
   },
@@ -30,10 +49,10 @@ const PHASES = [
     title: "Strategic Roadmap",
     duration: "Week 3-4",
     activities: [
-      "Prioritization framework (impact vs. effort)",
-      "Phased implementation plan (quick wins to complex transformations)",
+      "Prioritization framework based on impact vs effort",
+      "Phased implementation plan from quick wins to transformations",
       "Budget allocation recommendations",
-      "Technology recommendations"
+      "Technology stack recommendations"
     ]
   },
   {
@@ -42,7 +61,7 @@ const PHASES = [
     duration: "Week 4",
     activities: [
       "Executive presentation of findings and recommendations",
-      "Technical deep-dive session with IT/operations teams",
+      "Technical deep-dive session with your IT team",
       "Q&A and refinement based on feedback",
       "Next-step planning and project scoping"
     ]
@@ -51,152 +70,188 @@ const PHASES = [
 
 export default function AuditsPage() {
   return (
-    <main className="flex-1">
+    <main className="flex-1 bg-[#E0E5EC]">
+      <ServiceSchema
+        name="AI Readiness Audit"
+        description="Comprehensive evaluation of business processes to identify AI automation opportunities"
+        url="https://qenai.com/services/audits"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://qenai.com" },
+          { name: "Services", url: "https://qenai.com/services" },
+          { name: "AI Readiness Audits", url: "https://qenai.com/services/audits" },
+        ]}
+      />
+
       {/* Hero Section */}
-      <section className="hero-gradient min-h-[70vh] flex flex-col items-center justify-center text-center px-4 relative overflow-hidden pt-24">
-        <div className="relative z-10 max-w-4xl mx-auto">
-          <h1 className="text-white text-5xl md:text-7xl font-serif leading-tight tracking-tight mb-6" style={{ fontFamily: 'Lora, Georgia, serif' }}>
-            AI Readiness & Workflow Audits
-          </h1>
-          <p className="text-white/90 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed mb-8">
-            Comprehensive evaluation of your current systems and processes to identify 
-            high-impact AI integration opportunities.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="rounded-full px-8" asChild>
-              <Link href="/audit">Book Free Audit</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="rounded-full px-8 bg-transparent border-white/30 text-white hover:bg-white/10" asChild>
-              <Link href="/cases">View Case Studies</Link>
-            </Button>
-          </div>
+      <section className="pt-40 pb-20 px-4 text-center max-w-4xl mx-auto">
+        <NeuTag className="mb-6">AI Audit Services</NeuTag>
+        <h1 className="text-4xl md:text-6xl font-serif text-gray-800 mb-6 leading-tight">
+          AI Readiness Audit <span className="text-primary italic">Services</span>
+        </h1>
+        <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+          Know exactly where AI will deliver the biggest impact. Our comprehensive 
+          <strong> AI readiness audit</strong> maps your workflows and identifies high-ROI 
+          automation opportunities - no guesswork, just data-driven decisions.
+        </p>
+        <div className="flex justify-center">
+          <a href="https://calendly.com/martin-qenai/30min" target="_blank" rel="noopener noreferrer">
+            <NeuButton variant="primary" size="lg">
+              Book Your Free Audit
+            </NeuButton>
+          </a>
         </div>
       </section>
 
-      {/* Services Bento Grid */}
-      <section className="py-24 px-6 md:px-20 lg:px-40 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
-            <span className="text-primary font-bold tracking-widest text-xs uppercase">Our Process</span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-2 text-slate-900">How We Work</h2>
-          </div>
-
-          {/* Large Feature Card */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div className="md:col-span-2 rounded-xl bg-primary text-white p-8 md:p-12 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none">
-                <div className="w-full h-full bg-gradient-to-l from-white to-transparent"></div>
-              </div>
-              <div className="relative z-10 max-w-2xl">
-                <div className="p-3 bg-white/10 rounded-lg text-white w-fit mb-6">
-                  <span className="material-symbols-outlined text-3xl">analytics</span>
-                </div>
-                <h3 className="text-3xl font-bold mb-4">Comprehensive Evaluation</h3>
-                <p className="text-blue-100 text-lg leading-relaxed mb-6">
-                  We don&apos;t just look at your technology—we examine your entire operational ecosystem. 
-                  Our audit covers people, processes, and platforms to identify the highest-impact 
-                  automation opportunities.
-                </p>
-                <div className="flex items-center gap-6">
-                  <div>
-                    <span className="text-3xl font-bold">73%</span>
-                    <span className="text-xs text-blue-200 block">Avg. Time Savings</span>
-                  </div>
-                  <div className="border-l border-white/20 pl-6">
-                    <span className="text-3xl font-bold">4 weeks</span>
-                    <span className="text-xs text-blue-200 block">Typical Duration</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Phase Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PHASES.map((phase, i) => (
-              <Card key={i} className="border-slate-200 hover:shadow-lg transition-all group">
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-4xl font-bold text-primary/20">{phase.number}</span>
-                    <span className="text-xs text-slate-500 font-medium">{phase.duration}</span>
-                  </div>
-                  <h3 className="text-xl font-bold mb-4">{phase.title}</h3>
-                  <ul className="space-y-2">
-                    {phase.activities.slice(0, 3).map((activity, idx) => (
-                      <li key={idx} className="text-sm text-slate-500 flex items-start gap-2">
-                        <span className="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
-                        {activity}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+      {/* What We Assess Section */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-700 mb-2">What We Assess</h2>
+          <p className="text-gray-500">A holistic view of your operations, not just technology</p>
         </div>
-      </section>
 
-      {/* What You Get */}
-      <section className="py-24 px-6 md:px-20 lg:px-40 bg-slate-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-16 items-start">
-            <div className="w-full md:w-1/3 md:sticky md:top-32">
-              <h2 className="text-4xl font-bold mb-6 tracking-tight leading-tight">What You&apos;ll Receive</h2>
-              <p className="text-slate-500 leading-relaxed text-lg">
-                Every audit culminates in a comprehensive package of deliverables designed 
-                to guide your AI transformation journey.
+        <NeuCard className="p-8 md:p-12 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center md:text-left">
+              <NeuIconContainer className="mx-auto md:mx-0 mb-4">
+                <span className="material-symbols-outlined text-3xl">group</span>
+              </NeuIconContainer>
+              <h3 className="font-bold text-lg text-gray-800 mb-2">People & Processes</h3>
+              <p className="text-sm text-gray-500">
+                We interview stakeholders at every level to understand how work actually gets done, 
+                not just how it&apos;s supposed to work.
               </p>
             </div>
-
-            <div className="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-8">
-              {[
-                {
-                  icon: "description",
-                  title: "Detailed Process Maps",
-                  description: "Visual documentation of your current workflows with identified bottlenecks and inefficiencies."
-                },
-                {
-                  icon: "analytics",
-                  title: "Opportunity Matrix",
-                  description: "Prioritized list of automation opportunities ranked by impact, effort, and ROI potential."
-                },
-                {
-                  icon: "route",
-                  title: "Implementation Roadmap",
-                  description: "Phased plan for rolling out automation, from quick wins to complex transformations."
-                },
-                {
-                  icon: "present_to_all",
-                  title: "Executive Presentation",
-                  description: "Board-ready presentation summarizing findings and recommendations."
-                }
-              ].map((item, i) => (
-                <div key={i} className="p-6 rounded-xl border border-slate-200 bg-white group hover:shadow-lg transition-all">
-                  <div className="size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all">
-                    <span className="material-symbols-outlined">{item.icon}</span>
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              ))}
+            <div className="text-center md:text-left">
+              <NeuIconContainer className="mx-auto md:mx-0 mb-4">
+                <span className="material-symbols-outlined text-3xl">hub</span>
+              </NeuIconContainer>
+              <h3 className="font-bold text-lg text-gray-800 mb-2">Systems & Data</h3>
+              <p className="text-sm text-gray-500">
+                We map your current technology stack, data flows, and integration points to 
+                identify automation-ready processes.
+              </p>
+            </div>
+            <div className="text-center md:text-left">
+              <NeuIconContainer className="mx-auto md:mx-0 mb-4">
+                <span className="material-symbols-outlined text-3xl">trending_up</span>
+              </NeuIconContainer>
+              <h3 className="font-bold text-lg text-gray-800 mb-2">Opportunities & ROI</h3>
+              <p className="text-sm text-gray-500">
+                Every recommendation comes with estimated time savings, cost reduction, 
+                and implementation complexity.
+              </p>
             </div>
           </div>
+        </NeuCard>
+      </section>
+
+      {/* Our Process Section */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-700 mb-2">Our Process</h2>
+          <p className="text-gray-500">A structured approach that delivers results in weeks</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {PHASES.map((phase, i) => (
+            <NeuCard key={i} className="p-6">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-4xl font-bold text-primary/20">{phase.number}</span>
+                <span className="text-xs text-gray-400 font-medium">{phase.duration}</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 mb-4">{phase.title}</h3>
+              <ul className="space-y-2">
+                {phase.activities.slice(0, 3).map((activity, idx) => (
+                  <li key={idx} className="text-sm text-gray-500 flex items-start gap-2">
+                    <span className="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+                    {activity}
+                  </li>
+                ))}
+              </ul>
+            </NeuCard>
+          ))}
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 px-6 text-center bg-white">
-        <div className="max-w-3xl mx-auto space-y-8">
-          <h2 className="text-4xl font-bold text-slate-900">Ready to discover your AI potential?</h2>
-          <p className="text-slate-500 text-lg">
-            Book a free consultation to discuss your operational challenges and learn how our audit can help.
-          </p>
-          <Button size="lg" className="bg-primary hover:bg-blue-700 text-white px-10 py-6 h-auto rounded-lg text-lg font-bold" asChild>
-            <Link href="/audit">Book Free Audit</Link>
-          </Button>
+      {/* Results You Can Expect Section */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-700 mb-2">Results You Can Expect</h2>
+          <p className="text-gray-500">Deliverables that guide your AI transformation</p>
         </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {[
+            {
+              icon: "description",
+              title: "Detailed Process Maps",
+              description: "Visual documentation of your current workflows with identified bottlenecks and inefficiencies."
+            },
+            {
+              icon: "analytics",
+              title: "Opportunity Matrix",
+              description: "Prioritized list of automation opportunities ranked by impact, effort, and ROI potential."
+            },
+            {
+              icon: "route",
+              title: "Implementation Roadmap",
+              description: "Phased plan for rolling out automation, from quick wins to complex transformations."
+            },
+            {
+              icon: "present_to_all",
+              title: "Executive Presentation",
+              description: "Board-ready presentation summarizing findings and recommendations for stakeholders."
+            }
+          ].map((item, i) => (
+            <NeuCard key={i} className="p-8">
+              <NeuIconContainer size="sm" className="mb-4">
+                <span className="material-symbols-outlined text-2xl">{item.icon}</span>
+              </NeuIconContainer>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">{item.title}</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">
+                {item.description}
+              </p>
+            </NeuCard>
+          ))}
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-8">
+          <h2 className="text-xl font-bold text-gray-700">Related Services</h2>
+        </div>
+        <div className="flex flex-wrap gap-4">
+          <Link href="/services/automation">
+            <NeuButton variant="secondary">AI Workflow Automation →</NeuButton>
+          </Link>
+          <Link href="/services/advisory">
+            <NeuButton variant="secondary">Strategic Advisory →</NeuButton>
+          </Link>
+          <Link href="/services/custom-models">
+            <NeuButton variant="secondary">Custom AI Models →</NeuButton>
+          </Link>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4 max-w-4xl mx-auto text-center">
+        <NeuCard className="p-12">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            Ready to Discover Your AI Potential?
+          </h2>
+          <p className="text-gray-500 text-lg mb-8 max-w-2xl mx-auto">
+            Every day you delay is a day your competitors get ahead. Book your free 
+            <strong> AI readiness audit</strong> consultation today.
+          </p>
+          <a href="https://calendly.com/martin-qenai/30min" target="_blank" rel="noopener noreferrer">
+            <NeuButton variant="primary" size="lg">
+              Book Free Consultation
+            </NeuButton>
+          </a>
+        </NeuCard>
       </section>
     </main>
   );

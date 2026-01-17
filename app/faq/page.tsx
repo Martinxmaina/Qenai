@@ -1,74 +1,85 @@
-import { Badge } from "@/components/ui/badge";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Metadata } from "next";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { NeuCard } from "@/components/ui/neu-card";
+import { NeuButton } from "@/components/ui/neu-button";
+import { NeuTag } from "@/components/ui/neu-tag";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-const FAQ_CATEGORIES = [
+export const metadata: Metadata = {
+  title: "FAQs | QENAI - AI Automation Agency Kenya",
+  description: "Get answers to common questions about AI automation, our services, and how QENAI helps African businesses transform with artificial intelligence.",
+  keywords: ["AI FAQ", "AI automation questions", "AI consulting FAQ", "AI automation agency Kenya"],
+  alternates: {
+    canonical: "/faq",
+  },
+};
+
+const FAQS = [
   {
-    title: "Getting Started",
-    faqs: [
+    category: "Getting Started",
+    questions: [
       {
-        question: "What is QENAI and what do you offer?",
-        answer: "QENAI is an enterprise AI platform that helps organizations deploy, manage, and scale AI solutions. We offer end-to-end AI services including consulting, development, deployment, and ongoing support."
+        q: "What is AI workflow automation?",
+        a: "AI workflow automation uses artificial intelligence to handle repetitive business tasks automatically. This includes processing documents, responding to emails, generating reports, and routing requests - without human intervention."
       },
       {
-        question: "How long does a typical implementation take?",
-        answer: "Implementation timelines vary based on project complexity. Simple solutions can be deployed in 4-6 weeks, while complex enterprise implementations may take 3-6 months. We work with you to define realistic timelines during the discovery phase."
+        q: "How do I know if my business is ready for AI?",
+        a: "If you have documented processes with repeatable steps, digital data sources, and pain points around manual work, you're likely ready for AI. Our free AI readiness audit can help you identify specific opportunities."
       },
       {
-        question: "Do I need in-house AI expertise to use QENAI?",
-        answer: "No. While having AI expertise helps, it's not required. Our team handles the heavy lifting and provides training to your staff. We design solutions that your team can maintain and extend over time."
+        q: "How long does it take to implement AI automation?",
+        a: "Simple automations can be deployed in weeks. More complex solutions involving custom models or deep integrations typically take 2-4 months. We always start with quick wins to demonstrate value early."
       }
     ]
   },
   {
-    title: "Technical",
-    faqs: [
+    category: "Services & Process",
+    questions: [
       {
-        question: "What technologies does QENAI use?",
-        answer: "We use industry-leading open-source tools including PyTorch, TensorFlow, Kubernetes, and major cloud platforms (AWS, Google Cloud, Azure). Our proprietary orchestration layer sits on top to provide seamless integration and management."
+        q: "What does an AI readiness audit involve?",
+        a: "We interview stakeholders, observe workflows, map your systems, and identify automation opportunities. You receive a detailed report with prioritized recommendations, ROI estimates, and a suggested implementation roadmap."
       },
       {
-        question: "Can QENAI integrate with our existing systems?",
-        answer: "Yes. We provide REST APIs, GraphQL endpoints, and custom connectors for popular enterprise software. Our solutions are designed to work within your existing technology ecosystem."
+        q: "Do you build custom AI models or use existing tools?",
+        a: "Both. We assess what's needed for your use case. Many problems can be solved with existing tools; others require custom models trained on your data. We recommend the approach that delivers the best results at the right cost."
       },
       {
-        question: "How do you ensure model performance doesn't degrade?",
-        answer: "We implement continuous monitoring for data drift, concept drift, and model performance. Automated alerts notify you of any issues, and our retraining pipelines ensure models stay current."
+        q: "How do you ensure AI solutions work in African contexts?",
+        a: "We build and train solutions with local data, test with real African use cases, and design for the infrastructure realities of the region. Our team has deep experience implementing technology in African markets."
       }
     ]
   },
   {
-    title: "Security & Compliance",
-    faqs: [
+    category: "Cost & ROI",
+    questions: [
       {
-        question: "Is QENAI compliant with data privacy regulations?",
-        answer: "Yes. We are SOC 2 Type II certified and fully compliant with GDPR, CCPA, and HIPAA. All data is encrypted in transit and at rest. We can deploy solutions entirely within your infrastructure if needed."
+        q: "How much does AI automation cost?",
+        a: "Costs vary based on complexity. Simple automations start in the thousands of dollars; comprehensive transformations can be larger investments. We always structure projects to prove ROI before major commitments."
       },
       {
-        question: "Who owns the data and models?",
-        answer: "You do. All data, models, and IP created during our engagement belong to you. We never share your data with third parties or use it to train models for other clients."
+        q: "What kind of ROI can I expect?",
+        a: "Typical clients see significant time savings on automated processes, reduced error rates, and freed capacity for higher-value work. We provide specific ROI projections during the audit phase based on your situation."
       },
       {
-        question: "What security measures are in place?",
-        answer: "We implement end-to-end encryption, role-based access control, regular security audits, and compliance monitoring. All our engineers undergo security training and background checks."
+        q: "Is there a free consultation available?",
+        a: "Yes. We offer free initial consultations to understand your challenges and explore whether we're a good fit. No obligation, no pressure."
       }
     ]
   },
   {
-    title: "Pricing & Support",
-    faqs: [
+    category: "Security & Support",
+    questions: [
       {
-        question: "How does pricing work?",
-        answer: "We offer flexible pricing models including project-based, subscription, and consumption-based options. Pricing depends on your specific requirements, scale, and support needs. Contact us for a custom quote."
+        q: "How do you handle data security?",
+        a: "Data security is paramount. We follow industry best practices for encryption, access control, and data handling. For sensitive industries, we can deploy solutions in your own infrastructure."
       },
       {
-        question: "What support do you provide?",
-        answer: "We offer 24/7 enterprise support with guaranteed response times. Support includes bug fixes, performance optimization, and feature enhancements. We also provide training and documentation."
+        q: "What support do you provide after implementation?",
+        a: "We offer ongoing support packages that include monitoring, maintenance, and optimization. We also provide training to ensure your team can manage day-to-day operations."
       },
       {
-        question: "Can we start with a pilot project?",
-        answer: "Absolutely. We recommend starting with a focused pilot to demonstrate value before scaling. Most pilots run 8-12 weeks and include a clear success criteria and ROI measurement."
+        q: "Will you train our team to use the AI systems?",
+        a: "Absolutely. Knowledge transfer is part of every engagement. We want your team to understand and own the systems we implement, not be dependent on us forever."
       }
     ]
   }
@@ -76,120 +87,77 @@ const FAQ_CATEGORIES = [
 
 export default function FAQPage() {
   return (
-    <main className="flex-1">
+    <main className="flex-1 bg-[#E0E5EC]">
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://qenai.com" },
+          { name: "Resources", url: "https://qenai.com/resources" },
+          { name: "FAQs", url: "https://qenai.com/faq" },
+        ]}
+      />
+
       {/* Hero Section */}
-      <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-32 overflow-hidden">
-        <div className="absolute inset-0 hero-bg pointer-events-none -z-10"></div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge variant="secondary" className="mb-8">FAQ</Badge>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
-            Frequently Asked <span className="text-primary">Questions</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Everything you need to know about QENAI and our enterprise AI solutions.
-          </p>
-        </div>
+      <section className="pt-40 pb-20 px-4 text-center max-w-4xl mx-auto">
+        <NeuTag className="mb-6">Support</NeuTag>
+        <h1 className="text-4xl md:text-6xl font-serif text-gray-800 mb-6 leading-tight">
+          Frequently Asked <span className="text-primary italic">Questions</span>
+        </h1>
+        <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+          Got questions about AI automation? We&apos;ve got answers. If you don&apos;t find what 
+          you&apos;re looking for, reach out - we&apos;re happy to help.
+        </p>
       </section>
 
       {/* FAQ Sections */}
-      <section className="py-24 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16">
-            {FAQ_CATEGORIES.map((category, categoryIndex) => (
-              <div key={categoryIndex}>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
-                    {categoryIndex + 1}
-                  </div>
-                  {category.title}
-                </h2>
-                <Accordion type="single" collapsible className="space-y-4">
-                  {category.faqs.map((faq, faqIndex) => (
-                    <AccordionItem
-                      key={faqIndex}
-                      value={`${categoryIndex}-${faqIndex}`}
-                      className="border rounded-lg px-6 bg-card hover:border-primary/50 transition-colors"
-                    >
-                      <AccordionTrigger className="text-left hover:no-underline">
-                        <span className="font-semibold text-foreground pr-4">{faq.question}</span>
-                      </AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground leading-relaxed pb-6 pt-2">
-                        {faq.answer}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
-            ))}
+      <section className="py-16 px-4 max-w-4xl mx-auto">
+        {FAQS.map((section, i) => (
+          <div key={i} className="mb-12">
+            <h2 className="text-xl font-bold text-gray-700 mb-6">{section.category}</h2>
+            <div className="space-y-4">
+              {section.questions.map((faq, j) => (
+                <NeuCard key={j} className="p-6" hover={false}>
+                  <h3 className="font-bold text-gray-800 mb-3">{faq.q}</h3>
+                  <p className="text-gray-500 leading-relaxed">{faq.a}</p>
+                </NeuCard>
+              ))}
+            </div>
           </div>
-        </div>
+        ))}
       </section>
 
       {/* Quick Links */}
-      <section className="py-24 bg-muted/30 border-y">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Explore More</h2>
-            <p className="text-lg text-muted-foreground">
-              Find additional resources and information.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: "description",
-                title: "Documentation",
-                description: "Detailed technical guides and API references",
-                link: "/resources"
-              },
-              {
-                icon: "school",
-                title: "Tutorials",
-                description: "Step-by-step guides to get started",
-                link: "/resources"
-              },
-              {
-                icon: "support_agent",
-                title: "Contact Support",
-                description: "Get help from our team",
-                link: "/contact"
-              }
-            ].map((item, i) => (
-              <div key={i} className="text-center p-8 rounded-xl bg-background border hover:border-primary/50 hover:shadow-lg transition-all">
-                <div className="w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4">
-                  <span className="material-symbols-outlined text-3xl">{item.icon}</span>
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4">{item.description}</p>
-                <Button variant="outline" size="sm" asChild>
-                  <Link href={item.link}>Learn More</Link>
-                </Button>
-              </div>
-            ))}
-          </div>
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-8">
+          <h2 className="text-xl font-bold text-gray-700">Explore More</h2>
+        </div>
+        <div className="flex flex-wrap gap-4">
+          <Link href="/resources">
+            <NeuButton variant="secondary">Resources →</NeuButton>
+          </Link>
+          <Link href="/services/audits">
+            <NeuButton variant="secondary">AI Readiness Audit →</NeuButton>
+          </Link>
+          <Link href="/contact">
+            <NeuButton variant="secondary">Contact Us →</NeuButton>
+          </Link>
         </div>
       </section>
 
-      {/* Still Have Questions */}
-      <section className="py-24 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="material-symbols-outlined text-5xl text-primary mb-6 block">help</span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight text-foreground">
+      {/* CTA Section */}
+      <section className="py-20 px-4 max-w-4xl mx-auto text-center">
+        <NeuCard className="p-12">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
             Still Have Questions?
           </h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            Our team is here to help. Get in touch and we'll respond within 24 hours.
+          <p className="text-gray-500 text-lg mb-8 max-w-2xl mx-auto">
+            We&apos;re here to help. Reach out and we&apos;ll get back to you with answers.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" asChild>
-              <Link href="/contact">Contact Us</Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link href="/audit">Start Free AI Audit</Link>
-            </Button>
-          </div>
-        </div>
+          <Link href="/contact">
+            <NeuButton variant="primary" size="lg">
+              Contact Us
+            </NeuButton>
+          </Link>
+        </NeuCard>
       </section>
     </main>
   );

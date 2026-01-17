@@ -1,354 +1,252 @@
+import { Metadata } from "next";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import Image from "next/image";
+import { NeuCard } from "@/components/ui/neu-card";
+import { NeuButton } from "@/components/ui/neu-button";
+import { NeuIconContainer } from "@/components/ui/neu-icon-container";
+import { NeuTag } from "@/components/ui/neu-tag";
+import ServiceSchema from "@/components/seo/ServiceSchema";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-const SERVICE_TYPES = [
+export const metadata: Metadata = {
+  title: "AI Strategic Advisory & Capacity Building | QENAI - AI Automation Agency Kenya",
+  description: "Expert AI strategy consulting for African businesses. We help you develop AI governance frameworks, build internal capabilities, and create long-term AI roadmaps.",
+  keywords: ["AI strategic advisory", "AI consulting Kenya", "AI governance", "AI capacity building", "AI automation agency Kenya"],
+  alternates: {
+    canonical: "/services/advisory",
+  },
+  openGraph: {
+    title: "AI Strategic Advisory & Capacity Building | QENAI",
+    description: "Expert guidance on AI strategy, governance, and building internal AI capabilities.",
+    url: "https://qenai.com/services/advisory",
+  },
+};
+
+const ADVISORY_SERVICES = [
   {
-    id: "executive",
-    title: "Executive AI Strategy Advisory",
-    engagement: "Quarterly strategic advisory + monthly check-ins",
-    features: [
-      "Quarterly strategic planning sessions with leadership team",
-      "AI opportunity identification and prioritization",
-      "Technology evaluation and vendor selection guidance",
-      "AI governance framework development",
-      "Risk assessment and mitigation planning",
-      "ROI tracking and success metrics definition",
-      "Competitive intelligence on AI trends relevant to your industry",
-      "Monthly check-in calls for ongoing guidance"
-    ]
+    icon: "strategy",
+    title: "AI Strategy Development",
+    description: "Define your AI vision, prioritize initiatives, and create a multi-year transformation roadmap."
   },
   {
-    id: "technical",
-    title: "Technical Training & Capacity Building",
-    engagement: "Custom training programs",
-    features: [
-      "Hands-on training for technical teams on AI tools and platforms",
-      "Best practices for AI implementation and maintenance",
-      "Code reviews and technical guidance",
-      "Architecture design support",
-      "Troubleshooting and problem-solving sessions",
-      "Knowledge transfer to build internal expertise"
-    ]
+    icon: "gavel",
+    title: "AI Governance Frameworks",
+    description: "Establish ethical guidelines, risk management protocols, and decision-making structures."
   },
   {
-    id: "change",
-    title: "Change Management & Adoption Support",
-    engagement: "Project-based or ongoing",
-    features: [
-      "Organizational change management strategy",
-      "Stakeholder engagement and communication plans",
-      "Training programs for end users",
-      "Adoption monitoring and support",
-      "Feedback collection and iteration",
-      "Success story documentation and sharing"
-    ]
+    icon: "school",
+    title: "Team Training & Upskilling",
+    description: "Build AI literacy across your organization - from executives to front-line staff."
   },
   {
-    id: "ongoing",
-    title: "Ongoing Advisory & Support",
-    engagement: "Monthly or quarterly retainer",
-    features: [
-      "Regular check-ins and progress reviews",
-      "Strategic guidance as you scale AI initiatives",
-      "Technology updates and recommendations",
-      "Risk monitoring and mitigation",
-      "Team coaching and mentorship",
-      "Access to QEN AI expertise on-demand"
-    ]
+    icon: "diversity_3",
+    title: "Change Management",
+    description: "Navigate the human side of AI adoption with communication and transition planning."
+  },
+  {
+    icon: "verified",
+    title: "Vendor Evaluation",
+    description: "Independent assessment of AI vendors and solutions to ensure you make the right choices."
+  },
+  {
+    icon: "trending_up",
+    title: "Performance Optimization",
+    description: "Review and improve existing AI implementations for better results and ROI."
   }
 ];
 
-const IMPACT_METRICS = [
-  {
-    title: "Strategic Clarity",
-    description: "Clear, actionable AI roadmap aligned with business objectives"
-  },
-  {
-    title: "Risk Reduction",
-    description: "Avoid costly mistakes through expert guidance"
-  },
-  {
-    title: "Team Capability",
-    description: "Build internal expertise reducing dependency on external consultants"
-  },
-  {
-    title: "Adoption Success",
-    description: "Higher success rates for AI initiatives through proper change management"
-  }
-];
-
-export default function AdvisoryServicePage() {
+export default function AdvisoryPage() {
   return (
-    <main className="flex-1">
-      <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-32 overflow-hidden">
-        <div className="absolute inset-0 hero-bg pointer-events-none -z-10"></div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge variant="secondary" className="mb-8">Service</Badge>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
-            Advisory & <span className="text-primary">Capacity Building</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
-            Strategic AI Guidance For Long-Term Success. Build organizational capability, establish governance, and develop a coherent AI strategy.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="h-12 px-8 text-base" asChild>
-              <Link href="/contact">Schedule Consultation</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base" asChild>
-              <Link href="/audit">Request Proposal</Link>
-            </Button>
-          </div>
+    <main className="flex-1 bg-[#E0E5EC]">
+      <ServiceSchema
+        name="AI Strategic Advisory & Capacity Building"
+        description="Expert AI strategy consulting, governance frameworks, and team training for African businesses"
+        url="https://qenai.com/services/advisory"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://qenai.com" },
+          { name: "Services", url: "https://qenai.com/services" },
+          { name: "Strategic Advisory", url: "https://qenai.com/services/advisory" },
+        ]}
+      />
+
+      {/* Hero Section */}
+      <section className="pt-40 pb-20 px-4 text-center max-w-4xl mx-auto">
+        <NeuTag className="mb-6">Advisory Services</NeuTag>
+        <h1 className="text-4xl md:text-6xl font-serif text-gray-800 mb-6 leading-tight">
+          AI Strategic <span className="text-primary italic">Advisory</span>
+        </h1>
+        <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+          AI adoption isn&apos;t just about technology - it&apos;s about strategy, people, and governance. 
+          Our advisory services help you navigate the complexity of AI transformation with 
+          expert guidance tailored to African business contexts.
+        </p>
+        <div className="flex justify-center gap-4 flex-wrap">
+          <Link href="/contact">
+            <NeuButton variant="primary" size="lg">
+              Schedule a Strategy Session
+            </NeuButton>
+          </Link>
+          <Link href="/services/audits">
+            <NeuButton variant="secondary" size="lg">
+              Start With an Audit
+            </NeuButton>
+          </Link>
         </div>
       </section>
 
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">What is Advisory & Capacity Building?</h2>
-            <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
-              <p>
-                AI transformation isn't just about implementing technology—it's about building organizational capability, establishing 
-                governance, training teams, and developing a coherent strategy. Our Advisory & Capacity Building services help leadership 
-                teams navigate AI adoption thoughtfully, ensure responsible implementation, and build internal expertise for sustained success.
+      {/* Feature Section */}
+      <section className="py-12 px-4 max-w-6xl mx-auto">
+        <NeuCard className="p-6 md:p-8 flex flex-col md:flex-row items-center gap-8 overflow-hidden">
+          <div className="w-full md:w-1/2 h-64 md:h-80 rounded-2xl overflow-hidden shadow-inner">
+            <Image
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
+              alt="AI Strategic Advisory - Business strategy meeting"
+              width={800}
+              height={400}
+              className="w-full h-full object-cover"
+              priority
+            />
+          </div>
+          <div className="w-full md:w-1/2">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+              Navigate AI Transformation with Confidence
+            </h2>
+            <p className="text-gray-500 leading-relaxed mb-6">
+              AI hype is everywhere, but clarity is rare. We cut through the noise to help 
+              you make informed decisions about where to invest, what to build, and how to 
+              bring your team along on the journey.
+            </p>
+            <ul className="space-y-2 mb-6">
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Vendor-agnostic recommendations
+              </li>
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Deep understanding of African contexts
+              </li>
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Practical, implementation-focused advice
+              </li>
+            </ul>
+          </div>
+        </NeuCard>
+      </section>
+
+      {/* Advisory Services */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-700 mb-2">Advisory Services</h2>
+          <p className="text-gray-500">Expert guidance for every stage of your AI journey</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {ADVISORY_SERVICES.map((service, i) => (
+            <NeuCard key={i} className="p-6">
+              <NeuIconContainer size="sm" className="mb-4">
+                <span className="material-symbols-outlined text-2xl">{service.icon}</span>
+              </NeuIconContainer>
+              <h3 className="font-bold text-lg text-gray-800 mb-2">{service.title}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                {service.description}
               </p>
-              <p>
-                Whether you need strategic guidance for C-suite executives, hands-on training for technical teams, change management 
-                support for organization-wide adoption, or ongoing advisory as you scale your AI initiatives, we provide the expertise 
-                and support you need.
-              </p>
-            </div>
-            <div className="mt-12">
-              <h3 className="text-2xl font-bold text-foreground mb-4">Who This Is For</h3>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <span className="material-symbols-outlined text-primary mt-0.5">check_circle</span>
-                  <span>Leadership teams developing AI strategies</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="material-symbols-outlined text-primary mt-0.5">check_circle</span>
-                  <span>Organizations beginning AI adoption journeys</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="material-symbols-outlined text-primary mt-0.5">check_circle</span>
-                  <span>Companies needing to build internal AI literacy</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="material-symbols-outlined text-primary mt-0.5">check_circle</span>
-                  <span>Teams implementing AI requiring change management support</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="material-symbols-outlined text-primary mt-0.5">check_circle</span>
-                  <span>Businesses wanting ongoing strategic AI guidance</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+            </NeuCard>
+          ))}
         </div>
       </section>
 
-      <section className="py-24 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Business Impact</h2>
-            <p className="text-lg text-muted-foreground">
-              Strategic clarity and long-term value for your AI journey.
+      {/* Capacity Building */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-700 mb-2">Capacity Building Programs</h2>
+          <p className="text-gray-500">Build lasting AI capabilities within your organization</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <NeuCard className="p-8">
+            <h3 className="font-bold text-xl text-gray-800 mb-4">Executive AI Literacy</h3>
+            <p className="text-gray-500 mb-4">
+              Half-day workshops for leadership teams covering AI fundamentals, strategic implications, 
+              and decision-making frameworks.
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            {IMPACT_METRICS.map((metric, i) => (
-              <Card key={i}>
-                <CardHeader>
-                  <CardTitle>{metric.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{metric.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <div className="max-w-3xl mx-auto">
-            <h3 className="text-xl font-semibold text-foreground mb-4 text-center">Long-Term Value</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex items-start gap-2">
-                <span className="material-symbols-outlined text-primary mt-0.5">trending_up</span>
-                <span className="text-muted-foreground">Sustainable AI practice within organization</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="material-symbols-outlined text-primary mt-0.5">lightbulb</span>
-                <span className="text-muted-foreground">Informed decision-making on AI investments</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="material-symbols-outlined text-primary mt-0.5">security</span>
-                <span className="text-muted-foreground">Ethical and responsible AI adoption</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="material-symbols-outlined text-primary mt-0.5">star</span>
-                <span className="text-muted-foreground">Competitive advantage through strategic AI use</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            <ul className="space-y-2 text-sm text-gray-500">
+              <li className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary text-sm">check</span>
+                What AI can and cannot do
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary text-sm">check</span>
+                Evaluating AI opportunities
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary text-sm">check</span>
+                Risk and governance considerations
+              </li>
+            </ul>
+          </NeuCard>
 
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Service Types</h2>
-            <p className="text-lg text-muted-foreground">
-              Comprehensive advisory services tailored to your needs.
+          <NeuCard className="p-8">
+            <h3 className="font-bold text-xl text-gray-800 mb-4">Technical Team Training</h3>
+            <p className="text-gray-500 mb-4">
+              Multi-day hands-on training for IT and data teams on implementing and maintaining 
+              AI solutions.
             </p>
-          </div>
-          <Accordion type="single" collapsible className="w-full space-y-4">
-            {SERVICE_TYPES.map((service) => (
-              <AccordionItem key={service.id} value={service.id} className="border rounded-lg px-6">
-                <AccordionTrigger className="text-left">
-                  <div>
-                    <h3 className="text-xl font-bold text-foreground">{service.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">{service.engagement}</p>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="pt-4 space-y-3">
-                    <h4 className="font-semibold text-foreground mb-3">What You Get:</h4>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2 text-muted-foreground">
-                          <span className="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+            <ul className="space-y-2 text-sm text-gray-500">
+              <li className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary text-sm">check</span>
+                AI/ML fundamentals
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary text-sm">check</span>
+                Integration best practices
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary text-sm">check</span>
+                Monitoring and maintenance
+              </li>
+            </ul>
+          </NeuCard>
         </div>
       </section>
 
-      <section className="py-24 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Engagement Models</h2>
-            <p className="text-lg text-muted-foreground">
-              Flexible engagement options to fit your organization's needs.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Quarterly Advisory</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Quarterly strategic planning sessions with monthly check-ins. Best for organizations with established AI initiatives.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Training Programs</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Custom training programs for technical teams or end users. Project-based or ongoing.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Ongoing Support</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Monthly or quarterly retainer for ongoing guidance, coaching, and strategic support.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-          <div className="mt-12 text-center">
-            <p className="text-muted-foreground">
-              <strong>Engagement:</strong> Custom engagement models based on your needs, scope, and duration. Contact us for a tailored proposal.
-            </p>
-          </div>
+      {/* Related Services */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-8">
+          <h2 className="text-xl font-bold text-gray-700">Related Services</h2>
+        </div>
+        <div className="flex flex-wrap gap-4">
+          <Link href="/services/audits">
+            <NeuButton variant="secondary">AI Readiness Audit →</NeuButton>
+          </Link>
+          <Link href="/services/automation">
+            <NeuButton variant="secondary">AI Workflow Automation →</NeuButton>
+          </Link>
+          <Link href="/services/custom-models">
+            <NeuButton variant="secondary">Custom AI Models →</NeuButton>
+          </Link>
         </div>
       </section>
 
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Related Services</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="group hover:shadow-xl transition-all">
-              <CardHeader>
-                <CardTitle>AI Readiness & Workflow Audits</CardTitle>
-                <CardDescription>Start with understanding your opportunities</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button variant="ghost" className="w-full group-hover:bg-primary/5" asChild>
-                  <Link href="/services/audits">
-                    Learn More
-                    <span className="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-            <Card className="group hover:shadow-xl transition-all">
-              <CardHeader>
-                <CardTitle>AI Automation Design & Deployment</CardTitle>
-                <CardDescription>Implement the solutions we help you plan</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button variant="ghost" className="w-full group-hover:bg-primary/5" asChild>
-                  <Link href="/services/automation">
-                    Learn More
-                    <span className="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-            <Card className="group hover:shadow-xl transition-all">
-              <CardHeader>
-                <CardTitle>Custom AI Model Development</CardTitle>
-                <CardDescription>For advanced use cases we identify</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button variant="ghost" className="w-full group-hover:bg-primary/5" asChild>
-                  <Link href="/services/custom-models">
-                    Learn More
-                    <span className="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-primary text-primary-foreground">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
-            Ready to Build Your AI Strategy?
+      {/* CTA Section */}
+      <section className="py-20 px-4 max-w-4xl mx-auto text-center">
+        <NeuCard className="p-12">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            Get Expert Guidance for Your AI Journey
           </h2>
-          <p className="text-xl mb-10 max-w-2xl mx-auto opacity-90">
-            Let's discuss how our advisory services can help you navigate AI adoption thoughtfully and build long-term capability.
+          <p className="text-gray-500 text-lg mb-8 max-w-2xl mx-auto">
+            Whether you&apos;re just starting to explore AI or looking to optimize existing 
+            implementations, our advisory team can help.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="h-12 px-8 text-base" asChild>
-              <Link href="/contact">Schedule Consultation</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base bg-transparent border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-              <Link href="/audit">Request Proposal</Link>
-            </Button>
-          </div>
-        </div>
+          <Link href="/contact">
+            <NeuButton variant="primary" size="lg">
+              Book a Strategy Session
+            </NeuButton>
+          </Link>
+        </NeuCard>
       </section>
     </main>
   );
 }
-

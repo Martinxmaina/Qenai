@@ -1,163 +1,172 @@
+import { Metadata } from "next";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+import { NeuCard } from "@/components/ui/neu-card";
+import { NeuButton } from "@/components/ui/neu-button";
+import { NeuIconContainer } from "@/components/ui/neu-icon-container";
+import { NeuTag } from "@/components/ui/neu-tag";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-const RESOURCES = [
+export const metadata: Metadata = {
+  title: "AI Resources & Guides | QENAI - AI Automation Agency Kenya",
+  description: "Free AI resources for African businesses. Download whitepapers, guides, and templates to help you understand and implement AI automation effectively.",
+  keywords: ["AI resources", "AI guides Kenya", "AI whitepaper", "AI automation guide", "AI automation agency Kenya"],
+  alternates: {
+    canonical: "/resources",
+  },
+};
+
+const WHITEPAPERS = [
   {
-    category: "WEEKLY UPDATE",
-    title: "The Blog",
-    description: "Deep dives into the latest industry shifts, LLM benchmarks, and AI governance frameworks.",
-    link: "/blog",
-    linkText: "Read latest articles",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000"
+    title: "AI Readiness Assessment Framework",
+    description: "A structured approach to evaluating your organization's readiness for AI adoption.",
+    type: "Whitepaper",
+    icon: "description"
   },
   {
-    category: "TECHNICAL RESEARCH",
-    title: "Whitepapers",
-    description: "Rigorous technical research on scalable AI architecture and security.",
-    link: "/resources#whitepapers",
-    linkText: "Download Library →",
-    dark: true
+    title: "ROI Calculator for Workflow Automation",
+    description: "Estimate the potential returns from automating your key business processes.",
+    type: "Tool",
+    icon: "calculate"
+  },
+  {
+    title: "AI Governance Best Practices",
+    description: "Guidelines for implementing AI responsibly in your organization.",
+    type: "Guide",
+    icon: "gavel"
   }
 ];
 
-const FAQ_TAGS = ["Deployment", "Privacy", "Pricing"];
+const GUIDES = [
+  {
+    title: "Getting Started with AI Automation",
+    description: "A beginner's guide to understanding what AI can do for your business.",
+    readTime: "10 min read"
+  },
+  {
+    title: "Choosing the Right AI Use Cases",
+    description: "How to identify which processes are best suited for AI automation.",
+    readTime: "8 min read"
+  },
+  {
+    title: "Building an AI-Ready Team",
+    description: "Skills and structures needed to successfully adopt AI in your organization.",
+    readTime: "12 min read"
+  }
+];
 
 export default function ResourcesPage() {
   return (
-    <main className="flex-1">
+    <main className="flex-1 bg-[#E0E5EC]">
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://qenai.com" },
+          { name: "Resources", url: "https://qenai.com/resources" },
+        ]}
+      />
+
       {/* Hero Section */}
-      <section className="hero-gradient min-h-[60vh] flex flex-col items-center justify-center text-center px-4 relative overflow-hidden pt-24">
-        <div className="relative z-10 max-w-4xl mx-auto">
-          <h1 className="text-white text-5xl md:text-8xl font-serif leading-tight tracking-tight mb-6" style={{ fontFamily: 'Lora, Georgia, serif' }}>
-            Knowledge Hub
-          </h1>
-          <p className="text-white/90 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed mb-8">
-            Explore the frontier of Enterprise AI. Insights, tools, and technical research 
-            curated for strategic transformation.
-          </p>
-          <Button variant="secondary" size="lg" className="rounded-full px-8">
-            Browse All Content
-          </Button>
+      <section className="pt-40 pb-20 px-4 text-center max-w-4xl mx-auto">
+        <NeuTag className="mb-6">Learning Center</NeuTag>
+        <h1 className="text-4xl md:text-6xl font-serif text-gray-800 mb-6 leading-tight">
+          AI Resources & <span className="text-primary italic">Guides</span>
+        </h1>
+        <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+          Knowledge is the first step to transformation. Explore our collection of free resources 
+          designed to help African businesses understand and leverage AI automation.
+        </p>
+      </section>
+
+      {/* Whitepapers Section */}
+      <section className="py-16 px-4 max-w-6xl mx-auto" id="whitepapers">
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-700 mb-2">Whitepapers & Tools</h2>
+          <p className="text-gray-500">In-depth resources for strategic planning</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {WHITEPAPERS.map((paper, i) => (
+            <NeuCard key={i} className="p-8">
+              <NeuIconContainer size="sm" className="mb-4">
+                <span className="material-symbols-outlined text-2xl">{paper.icon}</span>
+              </NeuIconContainer>
+              <NeuTag variant="primary" className="mb-4">{paper.type}</NeuTag>
+              <h3 className="font-bold text-lg text-gray-800 mb-2">{paper.title}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed mb-4">
+                {paper.description}
+              </p>
+              <Link href="/contact">
+                <NeuButton variant="secondary" size="sm">
+                  Download →
+                </NeuButton>
+              </Link>
+            </NeuCard>
+          ))}
         </div>
       </section>
 
-      {/* Resource Directory */}
-      <section className="py-16 px-6 md:px-20 lg:px-40 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between mb-12">
-            <h2 className="text-3xl font-bold text-slate-900">Resource Directory</h2>
-            <div className="flex gap-2">
-              <Button variant="ghost" size="icon">
-                <span className="material-symbols-outlined">grid_view</span>
-              </Button>
-              <Button variant="ghost" size="icon">
-                <span className="material-symbols-outlined">view_list</span>
-              </Button>
-            </div>
-          </div>
+      {/* Guides Section */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-700 mb-2">Quick Guides</h2>
+          <p className="text-gray-500">Easy-to-digest articles on key AI topics</p>
+        </div>
 
-          {/* Bento Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
-            {/* Blog Card - Large */}
-            <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card className="border-slate-200">
-                <CardContent className="p-6">
-                  <span className="text-primary font-bold tracking-widest text-xs uppercase">{RESOURCES[0].category}</span>
-                  <h3 className="text-2xl font-bold mt-2 mb-3">{RESOURCES[0].title}</h3>
-                  <p className="text-slate-500 mb-6">{RESOURCES[0].description}</p>
-                  <Link href={RESOURCES[0].link} className="text-primary font-bold text-sm flex items-center gap-1 hover:underline">
-                    {RESOURCES[0].linkText} <span className="material-symbols-outlined text-sm">arrow_forward</span>
+        <div className="space-y-4">
+          {GUIDES.map((guide, i) => (
+            <NeuCard key={i} className="p-6" hover={false}>
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                  <h3 className="font-bold text-lg text-gray-800 mb-1">{guide.title}</h3>
+                  <p className="text-sm text-gray-500">{guide.description}</p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="text-xs text-gray-400">{guide.readTime}</span>
+                  <Link href="/blog">
+                    <NeuButton variant="secondary" size="sm">
+                      Read →
+                    </NeuButton>
                   </Link>
-                </CardContent>
-              </Card>
-              
-              <div 
-                className="rounded-xl overflow-hidden min-h-[250px] bg-cover bg-center"
-                style={{ backgroundImage: `url('${RESOURCES[0].image}')` }}
-              />
-            </div>
-
-            {/* Whitepapers Card - Dark */}
-            <Card className="bg-slate-900 text-white border-slate-800">
-              <CardContent className="p-6 flex flex-col h-full">
-                <div className="size-12 rounded-lg bg-white/10 flex items-center justify-center mb-6">
-                  <span className="material-symbols-outlined text-white">description</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-3">{RESOURCES[1].title}</h3>
-                <p className="text-slate-400 mb-6 flex-1">{RESOURCES[1].description}</p>
-                <Link href={RESOURCES[1].link} className="text-primary font-bold text-sm hover:underline">
-                  {RESOURCES[1].linkText}
-                </Link>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Second Row */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* AI Readiness Tool */}
-            <Card className="bg-primary text-white">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-3">AI Readiness Tool</h3>
-                <p className="text-blue-100 mb-6 text-sm">
-                  Benchmark your organization against industry standards in 5 minutes.
-                </p>
-                <Button variant="secondary" className="w-full" asChild>
-                  <Link href="/assessment">
-                    <span className="material-symbols-outlined mr-2 text-sm">analytics</span>
-                    Start Assessment
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Support & FAQs */}
-            <Card className="border-slate-200 lg:col-span-2">
-              <CardContent className="p-6 flex items-center gap-8">
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-2">Support & FAQs</h3>
-                  <p className="text-slate-500 text-sm mb-4">
-                    Find answers to common implementation questions and technical support details.
-                  </p>
-                  <div className="flex gap-2 flex-wrap">
-                    {FAQ_TAGS.map((tag, i) => (
-                      <span key={i} className="px-3 py-1 bg-slate-100 rounded-full text-sm text-slate-600">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div className="hidden md:flex size-24 rounded-full bg-slate-100 items-center justify-center">
-                  <span className="material-symbols-outlined text-4xl text-slate-400">help</span>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+              </div>
+            </NeuCard>
+          ))}
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section className="py-24 px-6 bg-slate-50">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-4">Stay ahead of the curve</h2>
-          <p className="text-slate-500 mb-8">
-            Join 5,000+ AI leaders receiving our weekly strategic briefing.
-          </p>
-          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <Input 
-              type="email" 
-              placeholder="work@company.com" 
-              className="h-12 flex-1"
-            />
-            <Button type="submit" className="h-12 px-8">
-              Subscribe
-            </Button>
-          </form>
-          <p className="text-xs text-slate-400 mt-4">
-            By subscribing, you agree to our Privacy Policy.
-          </p>
+      {/* Quick Links */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-8">
+          <h2 className="text-xl font-bold text-gray-700">Explore More</h2>
         </div>
+        <div className="flex flex-wrap gap-4">
+          <Link href="/blog">
+            <NeuButton variant="secondary">Blog Articles →</NeuButton>
+          </Link>
+          <Link href="/assessment">
+            <NeuButton variant="secondary">AI Assessment Tool →</NeuButton>
+          </Link>
+          <Link href="/faq">
+            <NeuButton variant="secondary">FAQs →</NeuButton>
+          </Link>
+        </div>
+      </section>
+
+      {/* Newsletter CTA */}
+      <section className="py-20 px-4 max-w-4xl mx-auto text-center">
+        <NeuCard className="p-12">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            Stay Updated on AI Trends
+          </h2>
+          <p className="text-gray-500 text-lg mb-8 max-w-2xl mx-auto">
+            Get monthly insights on AI automation, case studies, and practical tips delivered 
+            to your inbox.
+          </p>
+          <Link href="/contact">
+            <NeuButton variant="primary" size="lg">
+              Subscribe to Newsletter
+            </NeuButton>
+          </Link>
+        </NeuCard>
       </section>
     </main>
   );

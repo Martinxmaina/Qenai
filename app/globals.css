@@ -44,7 +44,8 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
-  /* QENAI custom colors */
+  /* Neumorphic custom colors */
+  --color-neu-base: var(--neu-base);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-border-light: var(--border-light);
@@ -54,85 +55,47 @@
 
 :root {
   --radius: 0.625rem;
-  /* QENAI Brand Colors - Blue primary */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0.022 265);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0.022 265);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0.022 265);
-  /* Primary Blue - #2563EB */
-  --primary: oklch(0.546 0.245 264.052);
-  --primary-foreground: oklch(0.985 0 0);
-  --primary-dark: oklch(0.496 0.240 264);
-  --secondary: oklch(0.97 0.003 264);
-  --secondary-foreground: oklch(0.205 0.022 265);
-  --muted: oklch(0.97 0.003 264);
-  --muted-foreground: oklch(0.556 0.022 265);
-  --accent: oklch(0.97 0.003 264);
-  --accent-foreground: oklch(0.205 0.022 265);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0.008 264);
-  --border-light: oklch(0.922 0.008 264);
-  --input: oklch(0.922 0.008 264);
-  --ring: oklch(0.546 0.245 264.052);
-  /* Text colors from QENAI design */
-  --text-primary: oklch(0.145 0.022 265);
-  --text-secondary: oklch(0.556 0.022 265);
-  --background-subtle: oklch(0.985 0 0);
+  /* Neumorphic Design System */
+  --neu-base: #E0E5EC;
+  --background: #E0E5EC;
+  --foreground: #4A5568;
+  --card: #E0E5EC;
+  --card-foreground: #2D3748;
+  --popover: #E0E5EC;
+  --popover-foreground: #2D3748;
+  /* Primary Blue - #2721f7 (Logo Blue) */
+  --primary: #2721f7;
+  --primary-foreground: #ffffff;
+  --primary-dark: #1e1bba;
+  --secondary: #E0E5EC;
+  --secondary-foreground: #4A5568;
+  --muted: #CBD5E0;
+  --muted-foreground: #718096;
+  --accent: #E0E5EC;
+  --accent-foreground: #2D3748;
+  --destructive: #E53E3E;
+  --border: rgba(163, 177, 198, 0.4);
+  --border-light: rgba(255, 255, 255, 0.5);
+  --input: #E0E5EC;
+  --ring: #2721f7;
+  /* Text colors */
+  --text-primary: #2D3748;
+  --text-secondary: #718096;
+  --background-subtle: #E8ECF1;
   /* Charts */
-  --chart-1: oklch(0.546 0.245 264.052);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0.022 265);
-  --sidebar-primary: oklch(0.546 0.245 264.052);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0.003 264);
-  --sidebar-accent-foreground: oklch(0.205 0.022 265);
-  --sidebar-border: oklch(0.922 0.008 264);
-  --sidebar-ring: oklch(0.546 0.245 264.052);
-}
-
-.dark {
-  --background: oklch(0.145 0.022 265);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0.022 265);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0.022 265);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.546 0.245 264.052);
-  --primary-foreground: oklch(0.985 0 0);
-  --primary-dark: oklch(0.496 0.240 264);
-  --secondary: oklch(0.269 0.022 265);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0.022 265);
-  --muted-foreground: oklch(0.708 0.022 265);
-  --accent: oklch(0.269 0.022 265);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --border-light: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.546 0.245 264.052);
-  --text-primary: oklch(0.985 0 0);
-  --text-secondary: oklch(0.708 0.022 265);
-  --background-subtle: oklch(0.205 0.022 265);
-  --chart-1: oklch(0.546 0.245 264.052);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0.022 265);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.546 0.245 264.052);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0.022 265);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.546 0.245 264.052);
+  --chart-1: #2721f7;
+  --chart-2: #38B2AC;
+  --chart-3: #ED8936;
+  --chart-4: #9F7AEA;
+  --chart-5: #48BB78;
+  --sidebar: #E0E5EC;
+  --sidebar-foreground: #2D3748;
+  --sidebar-primary: #2721f7;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #E8ECF1;
+  --sidebar-accent-foreground: #2D3748;
+  --sidebar-border: rgba(163, 177, 198, 0.4);
+  --sidebar-ring: #2721f7;
 }
 
 @layer base {
@@ -141,95 +104,213 @@
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    background-color: #E0E5EC;
   }
 }
 
-/* QENAI Cluely-style Hero Gradient Background */
-.hero-gradient {
-  background: linear-gradient(180deg, #1e3a8a 0%, #3b82f6 35%, #93c5fd 55%, #fdba74 80%, #fed7aa 100%);
-  position: relative;
-  overflow: hidden;
+/* ========================================
+   NEUMORPHIC DESIGN SYSTEM
+   ======================================== */
+
+/* Neumorphic Shadow Utilities */
+.shadow-neu-flat {
+  box-shadow: 
+    9px 9px 16px rgba(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.5);
 }
 
-.hero-gradient::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 40%;
-  background: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=2070') center bottom / cover no-repeat;
-  opacity: 0.25;
-  filter: contrast(1.2) brightness(0.7) grayscale(0.5);
-  mask-image: linear-gradient(to top, black 30%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to top, black 30%, transparent 100%);
-  pointer-events: none;
+.shadow-neu-pressed {
+  box-shadow: 
+    inset 6px 6px 10px rgba(163, 177, 198, 0.7),
+    inset -6px -6px 10px rgba(255, 255, 255, 0.8);
 }
 
-/* Alternative hero gradient (purple-blue) */
-.hero-gradient-alt {
-  background: linear-gradient(180deg, #312e81 0%, #4f46e5 40%, #818cf8 70%, #c4b5fd 100%);
+.shadow-neu-button {
+  box-shadow: 
+    6px 6px 10px rgba(163, 177, 198, 0.4),
+    -6px -6px 10px rgba(255, 255, 255, 0.8);
 }
 
-/* Navigation link styles */
+.shadow-neu-sm {
+  box-shadow: 
+    4px 4px 8px rgba(163, 177, 198, 0.5),
+    -4px -4px 8px rgba(255, 255, 255, 0.7);
+}
+
+.shadow-neu-lg {
+  box-shadow: 
+    12px 12px 24px rgba(163, 177, 198, 0.6),
+    -12px -12px 24px rgba(255, 255, 255, 0.5);
+}
+
+/* Neumorphic Card Base */
+.neu-card {
+  @apply bg-[#E0E5EC] rounded-3xl;
+  box-shadow: 
+    9px 9px 16px rgba(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.neu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    12px 12px 20px rgba(163, 177, 198, 0.6),
+    -12px -12px 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Neumorphic Button Styles */
+.neu-button {
+  @apply px-6 py-3 rounded-full font-medium transition-all;
+  background: #E0E5EC;
+  box-shadow: 
+    6px 6px 10px rgba(163, 177, 198, 0.4),
+    -6px -6px 10px rgba(255, 255, 255, 0.8);
+}
+
+.neu-button:hover {
+  @apply text-primary;
+}
+
+.neu-button:active {
+  box-shadow: 
+    inset 4px 4px 8px rgba(163, 177, 198, 0.6),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.7);
+  transform: scale(0.98);
+}
+
+.neu-button-primary {
+  @apply px-6 py-3 rounded-full font-medium text-white transition-all;
+  background: var(--primary);
+  box-shadow: 
+    6px 6px 12px rgba(39, 33, 247, 0.3),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
+}
+
+.neu-button-primary:hover {
+  background: var(--primary-dark);
+}
+
+.neu-button-primary:active {
+  transform: scale(0.98);
+}
+
+/* Neumorphic Input Styles */
+.neu-input {
+  @apply w-full bg-[#E0E5EC] rounded-xl px-4 py-3 transition-shadow;
+  box-shadow: 
+    inset 6px 6px 10px rgba(163, 177, 198, 0.7),
+    inset -6px -6px 10px rgba(255, 255, 255, 0.8);
+}
+
+.neu-input:focus {
+  @apply outline-none ring-2 ring-primary/50;
+}
+
+/* Neumorphic Icon Container */
+.neu-icon {
+  @apply w-16 h-16 rounded-2xl bg-[#E0E5EC] flex items-center justify-center text-primary;
+  box-shadow: 
+    inset 6px 6px 10px rgba(163, 177, 198, 0.7),
+    inset -6px -6px 10px rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+
+/* Serif Display Font */
+.font-serif-display {
+  font-family: 'Playfair Display', var(--font-serif), Georgia, serif;
+}
+
+/* Text Colors */
+.text-neu-primary {
+  color: #2D3748;
+}
+
+.text-neu-secondary {
+  color: #718096;
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+
+/* Floating Navbar */
+.nav-floating {
+  @apply fixed top-6 left-0 right-0 flex justify-center z-40 px-4;
+}
+
+.nav-card {
+  @apply flex items-center justify-between px-6 py-3 w-full max-w-5xl bg-[#E0E5EC] rounded-3xl;
+  box-shadow: 
+    9px 9px 16px rgba(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+}
+
 .nav-link {
-  @apply text-sm font-medium text-white/90 hover:text-white transition-colors;
+  @apply text-xs font-medium transition-colors uppercase tracking-wider text-gray-500;
 }
 
-.nav-link-dark {
-  @apply text-sm font-medium text-foreground/80 hover:text-foreground transition-colors;
+.nav-link:hover,
+.nav-link-active {
+  @apply text-primary font-bold;
 }
 
-/* Bento card styles */
+/* ========================================
+   HERO & SECTIONS
+   ======================================== */
+
+/* Hero Section */
+.hero-neu {
+  @apply pt-40 pb-20 px-4 text-center;
+  background: #E0E5EC;
+}
+
+/* Feature Row */
+.feature-row {
+  @apply p-4 md:p-6 mb-12 flex flex-col md:flex-row items-center gap-8 md:gap-12 overflow-hidden;
+}
+
+/* Stats Card */
+.stats-card {
+  @apply flex flex-col items-center justify-center py-12 px-6 cursor-default;
+}
+
+/* ========================================
+   BENTO GRID
+   ======================================== */
+
 .bento-card {
   @apply rounded-2xl overflow-hidden transition-all duration-500 border border-border;
 }
 
 .bento-card:hover {
   @apply shadow-2xl;
+  transform: translateY(-4px);
 }
 
-/* Glass morphism effects */
-.glass {
-  @apply bg-white/10 backdrop-blur-xl border border-white/20;
+/* ========================================
+   CHAT WIDGET
+   ======================================== */
+
+.chat-widget {
+  @apply fixed bottom-6 right-6 z-50;
 }
 
-.glass-dark {
-  @apply bg-black/20 backdrop-blur-xl border border-white/10;
+.chat-bubble {
+  @apply rounded-2xl p-4;
+  background: #E0E5EC;
+  box-shadow: 
+    6px 6px 12px rgba(163, 177, 198, 0.5),
+    -6px -6px 12px rgba(255, 255, 255, 0.7);
 }
 
-/* Chat bubble styles */
-.chat-bubble-ai {
-  @apply bg-primary text-white rounded-2xl rounded-tr-none p-4 shadow-lg;
-}
-
-.chat-bubble-user {
-  @apply bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-2xl rounded-tl-none p-4;
-}
-
-/* Glow button effect */
-.glow-button {
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
-}
-
-.glow-button:hover {
-  box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
-}
-
-/* Serif heading font */
-.font-serif-display {
-  font-family: 'Instrument Serif', 'Lora', Georgia, serif;
-}
-
-/* Legacy hero-bg for backwards compatibility */
-.hero-bg {
-  background-size: 50px 50px;
-  background-image: 
-    linear-gradient(to right, oklch(0.922 0.008 264 / 0.5) 1px, transparent 1px),
-    linear-gradient(to bottom, oklch(0.922 0.008 264 / 0.5) 1px, transparent 1px);
-  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-}
+/* ========================================
+   ANIMATIONS
+   ======================================== */
 
 /* Fade in up animation */
 @keyframes fadeInUp {
@@ -253,10 +334,89 @@
     opacity: 1;
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.7;
   }
 }
 
 .animate-pulse-slow {
   animation: pulseSlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Hover lift animation */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* ========================================
+   UTILITIES
+   ======================================== */
+
+/* Glass morphism on neumorphic */
+.glass-neu {
+  @apply bg-white/30 backdrop-blur-xl border border-white/40;
+}
+
+/* Progress bar */
+.progress-bar {
+  @apply w-full h-1 bg-gray-300 rounded-full overflow-hidden;
+}
+
+.progress-fill {
+  @apply h-full rounded-full transition-all duration-500;
+}
+
+/* Tag/Badge */
+.neu-tag {
+  @apply inline-block px-4 py-1.5 rounded-full bg-[#E0E5EC] text-xs font-bold uppercase tracking-widest;
+  box-shadow: 
+    4px 4px 8px rgba(163, 177, 198, 0.5),
+    -4px -4px 8px rgba(255, 255, 255, 0.7);
+}
+
+/* Image container with inner shadow */
+.image-neu {
+  @apply rounded-2xl overflow-hidden;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .nav-card {
+    @apply px-4 py-2;
+  }
+  
+  .neu-card {
+    @apply rounded-2xl;
+  }
+  
+  .shadow-neu-flat {
+    box-shadow: 
+      6px 6px 12px rgba(163, 177, 198, 0.5),
+      -6px -6px 12px rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* ========================================
+   LEGACY COMPATIBILITY
+   ======================================== */
+
+/* Legacy hero gradient - kept for backwards compatibility */
+.hero-gradient {
+  background: linear-gradient(180deg, #E0E5EC 0%, #CBD5E0 100%);
+}
+
+/* Legacy button glow */
+.glow-button {
+  box-shadow: 0 0 30px rgba(39, 33, 247, 0.3);
+}
+
+.glow-button:hover {
+  box-shadow: 0 0 40px rgba(39, 33, 247, 0.5);
 }

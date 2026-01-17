@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# QENAI - Quest for the Next AI
+
+QENAI is Kenya's leading AI automation agency, delivering enterprise-grade AI workflow automation and custom AI models built specifically for African businesses ready to scale.
+
+## About
+
+QENAI helps businesses transform their operations through intelligent automation and AI solutions. We specialize in making complex AI accessible and practical for African markets.
+
+## Tech Stack
+
+- **Framework:** Next.js 16.1.1 (App Router)
+- **Language:** TypeScript 5
+- **Styling:** Tailwind CSS 4
+- **UI Components:** Radix UI primitives with custom neumorphic design system
+- **Deployment:** Optimized for Vercel
+
+## Features
+
+- Server-side rendered pages for optimal SEO
+- Neumorphic design system with custom UI components
+- Fully responsive mobile-first design
+- Google Analytics integration
+- Structured data (JSON-LD) for enhanced search visibility
+- AI-powered chat widget integration
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 20+ 
+- npm or yarn
+
+### Installation
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+qenai/
+├── app/                    # Next.js App Router pages
+│   ├── assessment/         # AI Assessment tool
+│   ├── audit/             # Free AI Audit page
+│   ├── blog/              # Blog posts
+│   ├── contact/           # Contact form
+│   ├── faq/               # Frequently Asked Questions
+│   ├── resources/         # Resources hub
+│   ├── services/          # Service pages (automation, custom models, etc.)
+│   ├── solutions/         # Industry solutions
+│   ├── story/             # Company story
+│   ├── team/              # Team members
+│   ├── technology/        # Technology overview
+│   ├── values/            # Company values
+│   ├── layout.tsx         # Root layout with analytics
+│   └── page.tsx           # Homepage
+├── components/            # React components
+│   ├── seo/              # SEO components (schemas, breadcrumbs)
+│   ├── team/             # Team member cards
+│   ├── ui/               # Reusable UI components (neumorphic design)
+│   ├── ChatWidget.tsx    # AI chat interface
+│   ├── Footer.tsx        # Site footer
+│   └── Header.tsx        # Navigation header
+├── lib/                   # Utilities
+│   └── utils.ts          # Helper functions
+└── public/               # Static assets
+    ├── team/             # Team member photos
+    ├── favicon.svg       # Site icon
+    └── qenai-logo.png    # Company logo
+```
 
-## Learn More
+## Analytics
 
-To learn more about Next.js, take a look at the following resources:
+The site includes Google Analytics tracking with ID: `G-6Y5EHT3TSR`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Deploy to Vercel (Recommended)
 
-## Deploy on Vercel
+1. Push code to GitHub repository
+2. Connect repository to Vercel
+3. Deploy with default Next.js settings
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Vercel will automatically detect the Next.js configuration and deploy with optimal settings.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Manual Deployment
+
+```bash
+# Build production bundle
+npm run build
+
+# Start production server
+npm start
+```
+
+The production build will be available in the `.next` folder.
+
+## Development
+
+```bash
+# Run development server with hot reload
+npm run dev
+
+# Run linter
+npm run lint
+```
+
+## License
+
+© 2025 QENAI. All rights reserved.
+
+## Contact
+
+- Website: [qenai.com](https://qenai.com)
+- Email: Contact through website form
+- LinkedIn: Connect with our founders
+  - [Martin Maina](https://www.linkedin.com/in/martinxmaina/)
+  - [Glory Munoru](https://www.linkedin.com/in/glory-munoru-93020b147/)

@@ -1,173 +1,187 @@
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Metadata } from "next";
+import Link from "next/link";
+import { NeuCard } from "@/components/ui/neu-card";
+import { NeuButton } from "@/components/ui/neu-button";
+import { NeuIconContainer } from "@/components/ui/neu-icon-container";
+import { NeuTag } from "@/components/ui/neu-tag";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
+
+export const metadata: Metadata = {
+  title: "Our Values & Approach | QENAI - AI Automation Agency Kenya",
+  description: "Discover the principles that guide QENAI's work. We build AI solutions with integrity, impact, and a deep commitment to African business success.",
+  keywords: ["QENAI values", "AI ethics Kenya", "AI automation agency Kenya", "responsible AI Africa"],
+  alternates: {
+    canonical: "/values",
+  },
+};
 
 const VALUES = [
   {
-    icon: "hearing",
-    title: "Deep Listening",
-    description: "Before recommending any technology, we invest time in understanding your operations, your team, your constraints, and your goals. This isn't a sales pitch—it's a discovery process. We map workflows, identify bottlenecks, talk to the people doing the work, and understand what success really looks like for your organization. Our solutions are effective because they're built on genuine understanding, not assumptions.",
-    color: "bg-blue-50 text-blue-600"
+    icon: "lightbulb",
+    title: "Innovation with Purpose",
+    description: "We don't pursue technology for its own sake. Every solution we build solves a real problem for real businesses."
   },
   {
-    icon: "trending_up",
-    title: "Practical Impact",
-    description: "We measure success by operational improvements, not by technical complexity. Every solution we design must deliver measurable business value—whether that's time saved, costs reduced, revenue increased, or customer satisfaction improved. We focus on high-impact automation opportunities first, ensuring you see ROI quickly. Our implementations are pragmatic, tested, and proven to work in real business environments.",
-    color: "bg-green-50 text-green-600"
+    icon: "handshake",
+    title: "Integrity in Everything",
+    description: "We're honest about what AI can and can't do. We make recommendations based on client benefit, not our revenue."
+  },
+  {
+    icon: "target",
+    title: "Impact Over Impressiveness",
+    description: "A simple solution that works beats a sophisticated one that doesn't. We optimize for results, not complexity."
   },
   {
     icon: "public",
-    title: "Context Awareness",
-    description: "African businesses operate in unique contexts—different infrastructure realities, regulatory environments, market dynamics, and resource constraints. We design solutions that work within these contexts, not against them. Our systems account for intermittent connectivity, local data protection requirements, budget considerations, and the need for solutions that teams can actually adopt and maintain.",
-    color: "bg-purple-50 text-purple-600"
+    title: "Local Understanding",
+    description: "We build for African contexts because we understand them. Our solutions work with local realities, not against them."
   },
   {
-    icon: "security",
-    title: "Integrity & Responsibility",
-    description: "Trust is foundational to AI adoption. We are transparent about what AI can and cannot do. We protect client data rigorously, recommend only what serves your best interests, and ensure every solution includes human oversight and accountability. We're building for the long term—both for your organization and for responsible AI adoption across Africa.",
-    color: "bg-teal-50 text-teal-600"
+    icon: "diversity_3",
+    title: "Client Partnership",
+    description: "We succeed when our clients succeed. We're invested in your outcomes, not just deliverables."
+  },
+  {
+    icon: "school",
+    title: "Knowledge Transfer",
+    description: "We build your capabilities, not just your systems. Your team should understand and own the AI we implement."
   }
 ];
 
-const PRINCIPLES = [
+const APPROACH_PRINCIPLES = [
   {
-    number: "01",
-    title: "Start with the Problem",
-    description: "We don't deploy AI for its own sake. Every solution addresses a specific business challenge with measurable outcomes."
+    title: "Start with Business Problems",
+    description: "We don't lead with technology. We start by understanding your challenges and work backward to the right solution."
   },
   {
-    number: "02",
-    title: "Build for the Future",
-    description: "Scalable architecture and modular design ensure your AI infrastructure evolves with your organization."
+    title: "Prove Value Early",
+    description: "We structure projects to deliver quick wins before major investments. You'll see ROI before you're deeply committed."
   },
   {
-    number: "03",
-    title: "Iterate Relentlessly",
-    description: "Continuous improvement is baked into our process. We measure, learn, and optimize at every stage."
+    title: "Build for Sustainability",
+    description: "Our solutions are designed to be maintained and evolved by your team, not to create permanent dependency on us."
   },
   {
-    number: "04",
-    title: "Empower Your Team",
-    description: "We transfer knowledge, not just technology. Your team gains the skills to maintain and extend AI capabilities."
+    title: "Stay Technology Agnostic",
+    description: "We recommend the best tools for your situation, not the ones that make us the most money."
   }
 ];
 
 export default function ValuesPage() {
   return (
-    <main className="flex-1">
+    <main className="flex-1 bg-[#E0E5EC]">
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://qenai.com" },
+          { name: "About", url: "https://qenai.com/story" },
+          { name: "Values & Approach", url: "https://qenai.com/values" },
+        ]}
+      />
+
       {/* Hero Section */}
-      <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-32 overflow-hidden">
-        <div className="absolute inset-0 hero-bg pointer-events-none -z-10"></div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge variant="secondary" className="mb-8">Our Values</Badge>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
-            Principles That <span className="text-primary">Guide Us</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Our approach to AI is shaped by a commitment to integrity, innovation, and impact. These values drive every decision we make.
-          </p>
+      <section className="pt-40 pb-20 px-4 text-center max-w-4xl mx-auto">
+        <NeuTag className="mb-6">Our Principles</NeuTag>
+        <h1 className="text-4xl md:text-6xl font-serif text-gray-800 mb-6 leading-tight">
+          Values & <span className="text-primary italic">Approach</span>
+        </h1>
+        <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+          How we work matters as much as what we deliver. These principles guide every 
+          decision we make - from which projects to take on to how we build and deploy solutions.
+        </p>
+      </section>
+
+      {/* Values Grid */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-700 mb-2">Our Core Values</h2>
+          <p className="text-gray-500">What we stand for</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {VALUES.map((value, i) => (
+            <NeuCard key={i} className="p-8">
+              <NeuIconContainer size="sm" className="mb-4">
+                <span className="material-symbols-outlined text-2xl">{value.icon}</span>
+              </NeuIconContainer>
+              <h3 className="font-bold text-lg text-gray-800 mb-2">{value.title}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                {value.description}
+              </p>
+            </NeuCard>
+          ))}
         </div>
       </section>
 
-      {/* Core Values Grid */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Core Values</h2>
-            <p className="text-lg text-muted-foreground">
-              The non-negotiable principles that define how we build, deliver, and support AI solutions.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {VALUES.map((value, i) => (
-              <Card key={i} className="hover:shadow-lg transition-all duration-300 group border-2 hover:border-primary/20">
-                <CardHeader>
-                  <div className={`w-16 h-16 rounded-xl ${value.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                    <span className="material-symbols-outlined text-3xl">{value.icon}</span>
-                  </div>
-                  <CardTitle className="text-2xl mb-4">{value.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed text-base">{value.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+      {/* Approach Section */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-700 mb-2">Our Approach</h2>
+          <p className="text-gray-500">How we deliver results</p>
         </div>
-      </section>
 
-      {/* Our Approach */}
-      <section className="py-24 bg-muted/30 border-y">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Our Approach</h2>
-            <p className="text-lg text-muted-foreground">
-              How we turn principles into practice through our structured methodology.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {PRINCIPLES.map((principle, i) => (
-              <div key={i} className="flex gap-6 group">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-2xl font-bold group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                    {principle.number}
-                  </div>
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {APPROACH_PRINCIPLES.map((principle, i) => (
+            <NeuCard key={i} className="p-8" hover={false}>
+              <div className="flex items-start gap-4">
+                <span className="text-4xl font-bold text-primary/20">0{i + 1}</span>
                 <div>
-                  <h3 className="text-xl font-bold text-foreground mb-3">{principle.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{principle.description}</p>
+                  <h3 className="font-bold text-lg text-gray-800 mb-2">{principle.title}</h3>
+                  <p className="text-gray-500 leading-relaxed">
+                    {principle.description}
+                  </p>
                 </div>
               </div>
-            ))}
-          </div>
+            </NeuCard>
+          ))}
         </div>
       </section>
 
-      {/* Quote Section */}
-      <section className="py-24 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <span className="material-symbols-outlined text-6xl text-primary mb-6 block">format_quote</span>
-            <blockquote className="text-2xl md:text-3xl font-medium text-foreground mb-8 leading-relaxed">
-              "AI should enhance human capability, not create new complexity. Our mission is to make enterprise-grade AI accessible, practical, and impactful for African organizations."
-            </blockquote>
-            <div className="flex flex-col items-center gap-2">
-              <p className="font-semibold text-lg">Glory Munoru</p>
-              <p className="text-muted-foreground">Co-Founder & Chief Strategy Officer, QEN AI</p>
-            </div>
-          </div>
+      {/* Commitment Section */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <NeuCard className="p-8 md:p-12 text-center">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">Our Commitment to Responsible AI</h2>
+          <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
+            AI is powerful, and power requires responsibility. We design our solutions with 
+            transparency, fairness, and accountability built in. We help clients understand 
+            how our systems make decisions and ensure they can be audited and explained.
+          </p>
+        </NeuCard>
+      </section>
+
+      {/* Navigation */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-8">
+          <h2 className="text-xl font-bold text-gray-700">Learn More About Us</h2>
+        </div>
+        <div className="flex flex-wrap gap-4">
+          <Link href="/story">
+            <NeuButton variant="secondary">Our Story →</NeuButton>
+          </Link>
+          <Link href="/team">
+            <NeuButton variant="secondary">Our Team →</NeuButton>
+          </Link>
+          <Link href="/cases">
+            <NeuButton variant="secondary">Case Studies →</NeuButton>
+          </Link>
         </div>
       </section>
 
-      {/* Commitments */}
-      <section className="py-24 bg-muted/30 border-t">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Our Commitments</h2>
-            <p className="text-lg text-muted-foreground">
-              Measurable promises we make to every client and partner.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: "verified_user", text: "SOC 2 Type II & GDPR Compliant" },
-              { icon: "update", text: "Quarterly Model Audits" },
-              { icon: "support_agent", text: "24/7 Enterprise Support" },
-              { icon: "insights", text: "Full Explainability Reports" },
-              { icon: "lock", text: "Zero Data Retention Policy" },
-              { icon: "speed", text: "99.9% Uptime SLA" }
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-4 p-6 rounded-lg border bg-background hover:shadow-md transition-shadow">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-50 text-green-600 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-xl">{item.icon}</span>
-                </div>
-                <span className="font-medium text-foreground">{item.text}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+      {/* CTA Section */}
+      <section className="py-20 px-4 max-w-4xl mx-auto text-center">
+        <NeuCard className="p-12">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            Experience Our Values in Action
+          </h2>
+          <p className="text-gray-500 text-lg mb-8 max-w-2xl mx-auto">
+            The best way to understand how we work is to work with us. Let&apos;s discuss 
+            how we can help your organization.
+          </p>
+          <Link href="/contact">
+            <NeuButton variant="primary" size="lg">
+              Start a Conversation
+            </NeuButton>
+          </Link>
+        </NeuCard>
       </section>
     </main>
   );

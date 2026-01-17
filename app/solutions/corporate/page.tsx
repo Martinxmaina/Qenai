@@ -1,354 +1,179 @@
+import { Metadata } from "next";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import Image from "next/image";
+import { NeuCard } from "@/components/ui/neu-card";
+import { NeuButton } from "@/components/ui/neu-button";
+import { NeuIconContainer } from "@/components/ui/neu-icon-container";
+import { NeuTag } from "@/components/ui/neu-tag";
+import { Logo } from "@/components/icons/Logo";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-const CHALLENGES = [
-  {
-    title: "Complex Multi-Department Workflows",
-    description: "Large organizations struggle with coordinating processes across multiple departments, leading to bottlenecks and inefficiencies."
+export const metadata: Metadata = {
+  title: "Enterprise AI Solutions | QENAI - AI Automation Agency Kenya",
+  description: "Transform your enterprise with AI. Scale operations, accelerate decision-making, and drive efficiency with our corporate AI solutions tailored for large organizations.",
+  keywords: ["Enterprise AI solutions", "corporate AI Kenya", "AI automation agency Kenya", "large business AI", "enterprise workflow automation"],
+  alternates: {
+    canonical: "/solutions/corporate",
   },
-  {
-    title: "Enterprise System Integration",
-    description: "Integrating AI solutions with existing enterprise systems (ERP, CRM, legacy systems) requires specialized expertise."
-  },
-  {
-    title: "Compliance & Security Requirements",
-    description: "Corporate environments demand strict compliance with regulations and robust security frameworks for AI implementations."
-  },
-  {
-    title: "Scale & Performance",
-    description: "Enterprise solutions must handle high volumes, maintain performance, and scale seamlessly as operations grow."
-  }
-];
+};
 
-const SOLUTIONS = [
+const TRANSFORMATION_AREAS = [
   {
-    icon: "workflow",
-    title: "AI Readiness & Workflow Audits",
-    description: "Comprehensive assessment of enterprise operations to identify high-impact automation opportunities.",
-    href: "/services/audits"
+    icon: "analytics",
+    title: "Data-Driven Decision Making",
+    description: "Turn your data into actionable insights with AI analytics that surface patterns humans miss."
   },
   {
-    icon: "settings",
-    title: "AI Automation Design & Deployment",
-    description: "End-to-end automation solutions that integrate seamlessly with enterprise systems.",
-    href: "/services/automation"
+    icon: "account_tree",
+    title: "Process Optimization",
+    description: "Identify and automate inefficient processes across departments with intelligent workflow analysis."
+  },
+  {
+    icon: "groups",
+    title: "Employee Productivity",
+    description: "Equip your workforce with AI tools that handle routine tasks and surface relevant information."
   },
   {
     icon: "support_agent",
-    title: "AI-Powered Customer Experience",
-    description: "Enterprise-grade customer support automation with multi-channel deployment.",
-    href: "/services/customer-experience"
-  },
-  {
-    icon: "database",
-    title: "Productivity & Knowledge Systems",
-    description: "Enterprise knowledge management systems for large-scale organizations.",
-    href: "/services/knowledge-systems"
+    title: "Customer Operations",
+    description: "Scale customer service without proportionally scaling costs using AI-powered support."
   }
 ];
 
-const USE_CASES = [
-  {
-    title: "Financial Services Client Onboarding",
-    challenge: "3-5 day onboarding process with 30+ documents and compliance verification",
-    solution: "Intelligent multi-step forms, automated document collection, AI-powered compliance checks",
-    impact: "Onboarding time reduced to 4-8 hours, 100% compliance, 3x client capacity"
-  },
-  {
-    title: "Invoice Processing Automation",
-    challenge: "200+ vendor invoices monthly requiring manual data entry and approval routing",
-    solution: "AI-powered data extraction, automatic PO matching, smart approval routing",
-    impact: "90% reduction in manual entry, 3 days to 4 hours processing time, significant annual savings"
-  },
-  {
-    title: "Enterprise Knowledge Management",
-    challenge: "Distributed team of 120+ employees with inconsistent information access",
-    solution: "AI-powered internal chatbot, automated documentation, smart search across systems",
-    impact: "85% of routine questions answered instantly, 15 hours/week leadership time saved"
-  }
-];
-
-export default function CorporateSolutionsPage() {
+export default function CorporatePage() {
   return (
-    <main className="flex-1">
+    <main className="flex-1 bg-[#E0E5EC]">
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://qenai.com" },
+          { name: "Solutions", url: "https://qenai.com/solutions" },
+          { name: "Corporate Enterprises", url: "https://qenai.com/solutions/corporate" },
+        ]}
+      />
+
       {/* Hero Section */}
-      <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-32 overflow-hidden">
-        <div className="absolute inset-0 hero-bg pointer-events-none -z-10"></div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge variant="secondary" className="mb-8">Corporate Solutions</Badge>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
-            Enterprise-Grade AI Solutions for <span className="text-primary">Large Organizations</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
-            Transform complex, multi-department operations with AI automation designed for enterprise scale, security, and compliance.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="h-12 px-8 text-base" asChild>
-              <Link href="/contact">Schedule Enterprise Consultation</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base" asChild>
-              <Link href="/cases">View Case Studies</Link>
-            </Button>
-          </div>
+      <section className="pt-40 pb-20 px-4 text-center max-w-4xl mx-auto">
+        <NeuTag className="mb-6">Enterprise Solutions</NeuTag>
+        <Logo size="lg" className="mx-auto mb-6" />
+        <h1 className="text-4xl md:text-6xl font-serif text-gray-800 mb-6 leading-tight">
+          Enterprise AI <span className="text-primary italic">Solutions</span>
+        </h1>
+        <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+          Large organizations face unique challenges - complex processes, siloed data, and the need to 
+          coordinate change across thousands of people. Our enterprise AI solutions are built to handle 
+          that complexity while delivering measurable results.
+        </p>
+        <div className="flex justify-center gap-4 flex-wrap">
+          <Link href="/contact">
+            <NeuButton variant="primary" size="lg">
+              Request Enterprise Demo
+            </NeuButton>
+          </Link>
+          <Link href="/services/audits">
+            <NeuButton variant="secondary" size="lg">
+              Start With an Audit
+            </NeuButton>
+          </Link>
         </div>
       </section>
 
-      {/* Industry Overview */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Built for Enterprise Scale</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Corporate enterprises face unique challenges: complex workflows spanning multiple departments, 
-              integration with legacy systems, strict compliance requirements, and the need for solutions that 
-              scale with organizational growth. QEN AI specializes in enterprise-grade AI implementations that 
-              account for these realities, delivering automation that integrates seamlessly with your existing 
-              infrastructure while maintaining the security and compliance standards your organization requires.
+      {/* Feature Section */}
+      <section className="py-12 px-4 max-w-6xl mx-auto">
+        <NeuCard className="p-6 md:p-8 flex flex-col md:flex-row items-center gap-8 overflow-hidden">
+          <div className="w-full md:w-1/2 h-64 md:h-80 rounded-2xl overflow-hidden shadow-inner">
+            <Image
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+              alt="Enterprise AI - Modern corporate office"
+              width={800}
+              height={400}
+              className="w-full h-full object-cover"
+              priority
+            />
+          </div>
+          <div className="w-full md:w-1/2">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+              AI That Scales With Your Complexity
+            </h2>
+            <p className="text-gray-500 leading-relaxed mb-6">
+              Enterprise AI isn&apos;t about point solutions - it&apos;s about transformation at scale. 
+              We help you identify the highest-impact opportunities, build a strategic roadmap, 
+              and execute with precision.
             </p>
+            <ul className="space-y-2">
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Integration with existing enterprise systems
+              </li>
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Enterprise-grade security and compliance
+              </li>
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Change management and training included
+              </li>
+            </ul>
           </div>
+        </NeuCard>
+      </section>
+
+      {/* Transformation Areas */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-700 mb-2">Transformation Areas</h2>
+          <p className="text-gray-500">Where we drive enterprise impact</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {TRANSFORMATION_AREAS.map((area, i) => (
+            <NeuCard key={i} className="p-8">
+              <NeuIconContainer size="sm" className="mb-4">
+                <span className="material-symbols-outlined text-2xl">{area.icon}</span>
+              </NeuIconContainer>
+              <h3 className="font-bold text-xl text-gray-800 mb-2">{area.title}</h3>
+              <p className="text-gray-500 leading-relaxed">
+                {area.description}
+              </p>
+            </NeuCard>
+          ))}
         </div>
       </section>
 
-      {/* Key Challenges */}
-      <section className="py-24 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Common Enterprise Challenges</h2>
-            <p className="text-lg text-muted-foreground">
-              We understand the complexities large organizations face and design solutions accordingly.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {CHALLENGES.map((challenge, i) => (
-              <Card key={i} className="hover:shadow-lg transition-all">
-                <CardHeader>
-                  <CardTitle className="text-xl">{challenge.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{challenge.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+      {/* Relevant Services */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-8">
+          <h2 className="text-xl font-bold text-gray-700">Recommended Services</h2>
         </div>
-      </section>
-
-      {/* Solutions We Offer */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Solutions for Corporate Enterprises</h2>
-            <p className="text-lg text-muted-foreground">
-              Our enterprise-focused services address the unique needs of large organizations.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {SOLUTIONS.map((solution, i) => (
-              <Card key={i} className="group hover:shadow-xl transition-all border-2 hover:border-primary/20">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                    <span className="material-symbols-outlined text-2xl text-primary">{solution.icon}</span>
-                  </div>
-                  <CardTitle className="text-xl">{solution.title}</CardTitle>
-                  <CardDescription className="text-base mt-2">{solution.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button variant="ghost" className="w-full group-hover:bg-primary/5" asChild>
-                    <Link href={solution.href}>
-                      Learn More
-                      <span className="material-symbols-outlined ml-2 text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Use Cases */}
-      <section className="py-24 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Enterprise Success Stories</h2>
-            <p className="text-lg text-muted-foreground">
-              Real examples of how we've helped large organizations transform their operations.
-            </p>
-          </div>
-          <div className="space-y-6">
-            {USE_CASES.map((useCase, i) => (
-              <Card key={i} className="hover:shadow-lg transition-all">
-                <CardHeader>
-                  <CardTitle className="text-xl">{useCase.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-sm text-muted-foreground mb-2">Challenge</h4>
-                    <p className="text-foreground">{useCase.challenge}</p>
-                  </div>
-                  <Separator />
-                  <div>
-                    <h4 className="font-semibold text-sm text-muted-foreground mb-2">Solution</h4>
-                    <p className="text-foreground">{useCase.solution}</p>
-                  </div>
-                  <Separator />
-                  <div>
-                    <h4 className="font-semibold text-sm text-muted-foreground mb-2">Impact</h4>
-                    <p className="text-foreground font-medium">{useCase.impact}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Business Impact */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Enterprise Business Impact</h2>
-            <p className="text-lg text-muted-foreground">
-              Measurable results from our corporate implementations.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center">
-              <CardHeader>
-                <div className="text-5xl font-bold text-primary mb-2">400%</div>
-                <CardTitle>Average ROI</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">Typical return on investment for enterprise automation projects</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardHeader>
-                <div className="text-5xl font-bold text-primary mb-2">50-80%</div>
-                <CardTitle>Time Reduction</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">Average reduction in processing time for automated workflows</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardHeader>
-                <CardTitle>Significant Annual Savings</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">Ongoing operational cost reduction depending on scale</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose QEN AI */}
-      <section className="py-24 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-8 text-center">Why Choose QEN AI for Enterprise Solutions</h2>
-            <div className="space-y-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-primary">security</span>
-                    Enterprise Security & Compliance
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    We design every solution with enterprise security standards in mind, ensuring compliance 
-                    with industry regulations and your organization's security policies.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-primary">integration_instructions</span>
-                    Seamless Integration
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Our solutions integrate with your existing enterprise systems—ERP, CRM, legacy systems—without 
-                    disrupting current operations.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-primary">trending_up</span>
-                    Proven at Scale
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    We've implemented solutions for large organizations handling high volumes, ensuring 
-                    performance and scalability from day one.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Related Industries */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Explore Other Industries</h2>
-            <p className="text-lg text-muted-foreground">
-              See how we serve different sectors with tailored solutions.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            <Button variant="outline" asChild>
-              <Link href="/solutions/smes">SMEs & Startups</Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="/solutions/ngos">NGOs</Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="/solutions/professional-services">Professional Services</Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="/solutions/ecommerce">E-commerce</Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="/solutions/financial">Financial Services</Link>
-            </Button>
-          </div>
+        <div className="flex flex-wrap gap-4">
+          <Link href="/services/audits">
+            <NeuButton variant="secondary">AI Readiness Audit →</NeuButton>
+          </Link>
+          <Link href="/services/automation">
+            <NeuButton variant="secondary">Workflow Automation →</NeuButton>
+          </Link>
+          <Link href="/services/advisory">
+            <NeuButton variant="secondary">Strategic Advisory →</NeuButton>
+          </Link>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-primary text-primary-foreground">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
-            Ready to Transform Your Enterprise Operations?
+      <section className="py-20 px-4 max-w-4xl mx-auto text-center">
+        <NeuCard className="p-12">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            Ready to Transform Your Enterprise?
           </h2>
-          <p className="text-xl mb-10 max-w-2xl mx-auto opacity-90">
-            Let's discuss how QEN AI can address your enterprise challenges with scalable, secure AI solutions.
+          <p className="text-gray-500 text-lg mb-8 max-w-2xl mx-auto">
+            Let&apos;s discuss your enterprise AI strategy and identify the highest-impact opportunities 
+            for your organization.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="h-12 px-8 text-base" asChild>
-              <Link href="/contact">Schedule Consultation</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base bg-transparent border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-              <Link href="/audit">Request Enterprise Assessment</Link>
-            </Button>
-          </div>
-        </div>
+          <Link href="/contact">
+            <NeuButton variant="primary" size="lg">
+              Schedule Executive Briefing
+            </NeuButton>
+          </Link>
+        </NeuCard>
       </section>
     </main>
   );
 }
-

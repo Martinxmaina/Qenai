@@ -1,318 +1,179 @@
+import { Metadata } from "next";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import Image from "next/image";
+import { NeuCard } from "@/components/ui/neu-card";
+import { NeuButton } from "@/components/ui/neu-button";
+import { NeuIconContainer } from "@/components/ui/neu-icon-container";
+import { NeuTag } from "@/components/ui/neu-tag";
+import { Logo } from "@/components/icons/Logo";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-const CHALLENGES = [
-  {
-    title: "Resource Optimization",
-    description: "NGOs need to maximize impact with limited resources, requiring efficient operations and cost-effective solutions."
+export const metadata: Metadata = {
+  title: "AI for NGOs & Non-Profits | QENAI - AI Automation Agency Kenya",
+  description: "Maximize your impact with AI. Our NGO solutions help humanitarian organizations stretch resources further and reach more people who need help.",
+  keywords: ["AI for NGOs", "non-profit AI Kenya", "humanitarian AI solutions", "NGO automation", "AI automation agency Kenya"],
+  alternates: {
+    canonical: "/solutions/ngos",
   },
-  {
-    title: "Impact Measurement & Reporting",
-    description: "Donors and stakeholders require detailed reporting on program outcomes and impact metrics."
-  },
-  {
-    title: "Field Operations Support",
-    description: "Remote field operations need streamlined processes for data collection, beneficiary management, and coordination."
-  },
-  {
-    title: "Donor Engagement",
-    description: "Maintaining donor relationships and communication requires efficient systems for engagement and reporting."
-  }
-];
+};
 
-const SOLUTIONS = [
+const NGO_APPLICATIONS = [
   {
-    icon: "analytics",
-    title: "Impact Measurement Systems",
-    description: "Automated data collection and reporting systems for program outcomes and donor reporting.",
-    href: "/services/automation"
+    icon: "monitoring",
+    title: "Program Monitoring",
+    description: "Track program outcomes and impact with AI-powered analytics and reporting."
+  },
+  {
+    icon: "volunteer_activism",
+    title: "Donor Relations",
+    description: "Automate donor communications and create personalized engagement at scale."
+  },
+  {
+    icon: "assignment",
+    title: "Grant Management",
+    description: "Streamline grant applications, compliance tracking, and reporting requirements."
   },
   {
     icon: "groups",
-    title: "Beneficiary Management",
-    description: "AI-powered systems for tracking beneficiaries, managing programs, and coordinating field operations.",
-    href: "/services/automation"
-  },
-  {
-    icon: "description",
-    title: "Donor Reporting Automation",
-    description: "Automated generation of donor reports, impact summaries, and communication workflows.",
-    href: "/services/automation"
+    title: "Beneficiary Services",
+    description: "Improve service delivery with AI-powered case management and resource allocation."
   }
 ];
 
-const USE_CASES = [
-  {
-    title: "NGO Field Operations Automation",
-    challenge: "Manual data collection and beneficiary tracking across multiple field locations",
-    solution: "Mobile data collection, automated beneficiary management, real-time reporting dashboard",
-    impact: "60% reduction in administrative time, real-time program visibility, improved data accuracy"
-  },
-  {
-    title: "NGO Beneficiary Information System",
-    challenge: "Scattered information across documents, difficulty answering beneficiary questions quickly",
-    solution: "AI-powered knowledge base with RAG system, accessible via WhatsApp and SMS",
-    impact: "80% of routine questions answered instantly, field staff time saved, consistent information delivery"
-  }
-];
-
-export default function NGOSolutionsPage() {
+export default function NGOsPage() {
   return (
-    <main className="flex-1">
-      <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-32 overflow-hidden">
-        <div className="absolute inset-0 hero-bg pointer-events-none -z-10"></div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge variant="secondary" className="mb-8">NGO Solutions</Badge>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
-            AI Solutions for <span className="text-primary">Mission-Driven Organizations</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
-            Optimize resources, measure impact, and scale your programs with AI automation designed for NGOs and humanitarian organizations.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="h-12 px-8 text-base" asChild>
-              <Link href="/contact">Schedule Consultation</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base" asChild>
-              <Link href="/cases">View Case Studies</Link>
-            </Button>
-          </div>
+    <main className="flex-1 bg-[#E0E5EC]">
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://qenai.com" },
+          { name: "Solutions", url: "https://qenai.com/solutions" },
+          { name: "NGOs & Non-Profits", url: "https://qenai.com/solutions/ngos" },
+        ]}
+      />
+
+      {/* Hero Section */}
+      <section className="pt-40 pb-20 px-4 text-center max-w-4xl mx-auto">
+        <NeuTag className="mb-6">NGO Solutions</NeuTag>
+        <Logo size="lg" className="mx-auto mb-6" />
+        <h1 className="text-4xl md:text-6xl font-serif text-gray-800 mb-6 leading-tight">
+          AI for NGOs & <span className="text-primary italic">Non-Profits</span>
+        </h1>
+        <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+          Every dollar matters when you&apos;re working to change the world. Our NGO solutions 
+          help you maximize impact by automating administrative work, improving program delivery, 
+          and making data-driven decisions.
+        </p>
+        <div className="flex justify-center gap-4 flex-wrap">
+          <Link href="/contact">
+            <NeuButton variant="primary" size="lg">
+              Discuss Your Mission
+            </NeuButton>
+          </Link>
+          <Link href="/cases">
+            <NeuButton variant="secondary" size="lg">
+              See NGO Case Studies
+            </NeuButton>
+          </Link>
         </div>
       </section>
 
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Maximizing Impact with Limited Resources</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              NGOs and humanitarian organizations face unique challenges: maximizing program impact with limited resources, 
-              meeting donor reporting requirements, and coordinating field operations across remote locations. QEN AI specializes 
-              in cost-effective automation solutions that help NGOs operate more efficiently, measure impact more effectively, 
-              and focus resources on their core mission. We understand the constraints NGOs work within and design solutions 
-              that are affordable, easy to adopt, and deliver measurable value.
+      {/* Feature Section */}
+      <section className="py-12 px-4 max-w-6xl mx-auto">
+        <NeuCard className="p-6 md:p-8 flex flex-col md:flex-row items-center gap-8 overflow-hidden">
+          <div className="w-full md:w-1/2 h-64 md:h-80 rounded-2xl overflow-hidden shadow-inner">
+            <Image
+              src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80"
+              alt="AI for NGOs - Community work and impact"
+              width={800}
+              height={400}
+              className="w-full h-full object-cover"
+              priority
+            />
+          </div>
+          <div className="w-full md:w-1/2">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+              More Impact, Less Administration
+            </h2>
+            <p className="text-gray-500 leading-relaxed mb-6">
+              Your team joined your organization to change lives, not to fill out spreadsheets. 
+              Our AI solutions handle the administrative burden so your people can focus on 
+              the work that matters.
             </p>
+            <ul className="space-y-2">
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Special pricing for registered non-profits
+              </li>
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Integration with common NGO platforms
+              </li>
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Data privacy and compliance built-in
+              </li>
+            </ul>
           </div>
+        </NeuCard>
+      </section>
+
+      {/* Applications */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-700 mb-2">AI Applications for NGOs</h2>
+          <p className="text-gray-500">Where AI drives the most impact</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {NGO_APPLICATIONS.map((app, i) => (
+            <NeuCard key={i} className="p-8">
+              <NeuIconContainer size="sm" className="mb-4">
+                <span className="material-symbols-outlined text-2xl">{app.icon}</span>
+              </NeuIconContainer>
+              <h3 className="font-bold text-xl text-gray-800 mb-2">{app.title}</h3>
+              <p className="text-gray-500 leading-relaxed">
+                {app.description}
+              </p>
+            </NeuCard>
+          ))}
         </div>
       </section>
 
-      <section className="py-24 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Challenges We Solve</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {CHALLENGES.map((challenge, i) => (
-              <Card key={i} className="hover:shadow-lg transition-all">
-                <CardHeader>
-                  <CardTitle className="text-xl">{challenge.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{challenge.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+      {/* Relevant Services */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-8">
+          <h2 className="text-xl font-bold text-gray-700">Relevant Services</h2>
+        </div>
+        <div className="flex flex-wrap gap-4">
+          <Link href="/services/automation">
+            <NeuButton variant="secondary">Workflow Automation →</NeuButton>
+          </Link>
+          <Link href="/services/knowledge-systems">
+            <NeuButton variant="secondary">Knowledge Systems →</NeuButton>
+          </Link>
+          <Link href="/services/audits">
+            <NeuButton variant="secondary">AI Readiness Audit →</NeuButton>
+          </Link>
         </div>
       </section>
 
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Solutions for NGOs</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {SOLUTIONS.map((solution, i) => (
-              <Card key={i} className="group hover:shadow-xl transition-all border-2 hover:border-primary/20">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                    <span className="material-symbols-outlined text-2xl text-primary">{solution.icon}</span>
-                  </div>
-                  <CardTitle className="text-xl">{solution.title}</CardTitle>
-                  <CardDescription className="text-base mt-2">{solution.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button variant="ghost" className="w-full group-hover:bg-primary/5" asChild>
-                    <Link href={solution.href}>
-                      Learn More
-                      <span className="material-symbols-outlined ml-2 text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Success Stories</h2>
-          </div>
-          <div className="space-y-6">
-            {USE_CASES.map((useCase, i) => (
-              <Card key={i} className="hover:shadow-lg transition-all">
-                <CardHeader>
-                  <CardTitle className="text-xl">{useCase.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-sm text-muted-foreground mb-2">Challenge</h4>
-                    <p className="text-foreground">{useCase.challenge}</p>
-                  </div>
-                  <Separator />
-                  <div>
-                    <h4 className="font-semibold text-sm text-muted-foreground mb-2">Solution</h4>
-                    <p className="text-foreground">{useCase.solution}</p>
-                  </div>
-                  <Separator />
-                  <div>
-                    <h4 className="font-semibold text-sm text-muted-foreground mb-2">Impact</h4>
-                    <p className="text-foreground font-medium">{useCase.impact}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Impact Metrics</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center">
-              <CardHeader>
-                <div className="text-5xl font-bold text-primary mb-2">60%</div>
-                <CardTitle>Time Saved</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">Average reduction in administrative time</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardHeader>
-                <div className="text-5xl font-bold text-primary mb-2">80%</div>
-                <CardTitle>Questions Automated</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">Routine inquiries handled by AI systems</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardHeader>
-                <div className="text-5xl font-bold text-primary mb-2">Real-time</div>
-                <CardTitle>Program Visibility</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">Live dashboards for impact tracking</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-8 text-center">Why Choose QEN AI for NGOs</h2>
-            <div className="space-y-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-primary">volunteer_activism</span>
-                    Mission-Aligned Solutions
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    We understand NGO constraints and design solutions that maximize impact while respecting budget limitations.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-primary">analytics</span>
-                    Impact Measurement
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Automated systems for tracking program outcomes and generating donor reports efficiently.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-primary">public</span>
-                    Field Operations Support
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Solutions designed for remote field operations, including mobile data collection and low-bandwidth access.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Explore Other Industries</h2>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            <Button variant="outline" asChild>
-              <Link href="/solutions/corporate">Corporate</Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="/solutions/smes">SMEs & Startups</Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="/solutions/professional-services">Professional Services</Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="/solutions/ecommerce">E-commerce</Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="/solutions/financial">Financial Services</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-primary text-primary-foreground">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
-            Ready to Maximize Your Impact?
+      {/* CTA Section */}
+      <section className="py-20 px-4 max-w-4xl mx-auto text-center">
+        <NeuCard className="p-12">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            Let Technology Multiply Your Impact
           </h2>
-          <p className="text-xl mb-10 max-w-2xl mx-auto opacity-90">
-            Let's discuss how AI automation can help your organization operate more efficiently and measure impact more effectively.
+          <p className="text-gray-500 text-lg mb-8 max-w-2xl mx-auto">
+            We believe in your mission and want to help you achieve it. Let&apos;s discuss how 
+            AI can help you do more with what you have.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="h-12 px-8 text-base" asChild>
-              <Link href="/contact">Schedule Consultation</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base bg-transparent border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-              <Link href="/audit">Request Assessment</Link>
-            </Button>
-          </div>
-        </div>
+          <Link href="/contact">
+            <NeuButton variant="primary" size="lg">
+              Start the Conversation
+            </NeuButton>
+          </Link>
+        </NeuCard>
       </section>
     </main>
   );
 }
-
-
-
-

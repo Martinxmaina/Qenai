@@ -1,415 +1,198 @@
+import { Metadata } from "next";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Image from "next/image";
+import { NeuCard } from "@/components/ui/neu-card";
+import { NeuButton } from "@/components/ui/neu-button";
+import { NeuIconContainer } from "@/components/ui/neu-icon-container";
+import { NeuTag } from "@/components/ui/neu-tag";
+import ServiceSchema from "@/components/seo/ServiceSchema";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-const PHASES = [
+export const metadata: Metadata = {
+  title: "AI-Powered Customer Experience | QENAI - AI Automation Agency Kenya",
+  description: "Transform customer interactions with AI-powered chatbots, sentiment analysis, and personalized experiences. Deliver 24/7 support that scales without adding headcount.",
+  keywords: ["AI customer experience", "AI chatbot Kenya", "customer service automation", "AI automation agency Kenya", "conversational AI Africa"],
+  alternates: {
+    canonical: "/services/customer-experience",
+  },
+  openGraph: {
+    title: "AI-Powered Customer Experience | QENAI",
+    description: "AI solutions that transform how you engage with customers - from chatbots to sentiment analysis.",
+    url: "https://qenai.com/services/customer-experience",
+  },
+};
+
+const CX_FEATURES = [
   {
-    id: "mapping",
-    title: "Customer Journey Mapping",
-    duration: "1-2 weeks",
-    activities: [
-      "Analysis of current customer inquiry patterns",
-      "Identification of common questions and request types",
-      "Support ticket categorization and volume analysis",
-      "Customer pain point identification",
-      "Success metrics definition"
-    ],
-    deliverable: "Customer interaction analysis report"
+    icon: "smart_toy",
+    title: "AI Chatbots",
+    description: "Intelligent chatbots that handle inquiries, process orders, and resolve issues around the clock."
   },
   {
-    id: "design",
-    title: "Solution Design",
-    duration: "2-3 weeks",
-    activities: [
-      "Conversational flow design",
-      "Knowledge base organization and enrichment",
-      "Escalation logic and handoff procedures",
-      "Integration planning (CRM, ticketing, business systems)",
-      "Channel strategy (web chat, WhatsApp, email, SMS)",
-      "Brand voice and tone guidelines for AI"
-    ],
-    deliverable: "Comprehensive design document with conversation flow diagrams"
+    icon: "sentiment_satisfied",
+    title: "Sentiment Analysis",
+    description: "Understand customer emotions in real-time to prioritize and personalize responses."
   },
   {
-    id: "development",
-    title: "Development & Training",
-    duration: "4-8 weeks",
-    activities: [
-      "AI model selection and fine-tuning",
-      "Knowledge base integration (RAG system implementation)",
-      "Conversational interface development",
-      "CRM and business system integration",
-      "Multi-channel deployment",
-      "Human handoff workflow implementation"
-    ],
-    deliverable: "Functional AI customer experience system in staging"
+    icon: "route",
+    title: "Smart Routing",
+    description: "Automatically route complex issues to the right agent with full context."
   },
   {
-    id: "testing",
-    title: "Testing & Refinement",
-    duration: "2-3 weeks",
-    activities: [
-      "Internal testing with real customer scenarios",
-      "Beta testing with select customers",
-      "Accuracy and tone refinement",
-      "Performance optimization",
-      "Edge case handling",
-      "Staff training on AI collaboration"
-    ],
-    deliverable: "Production-ready system with test results"
+    icon: "translate",
+    title: "Multilingual Support",
+    description: "Serve customers in English, Swahili, and other local languages seamlessly."
   },
   {
-    id: "launch",
-    title: "Launch & Optimization",
-    duration: "Ongoing",
-    activities: [
-      "Phased rollout (starting with limited hours or channels)",
-      "Performance monitoring and analytics",
-      "Continuous learning and improvement",
-      "Monthly optimization based on interaction data",
-      "Quarterly knowledge base updates"
-    ],
-    deliverable: "Live system with performance dashboards"
+    icon: "trending_up",
+    title: "Predictive Service",
+    description: "Anticipate customer needs and reach out proactively before problems escalate."
+  },
+  {
+    icon: "analytics",
+    title: "CX Analytics",
+    description: "Deep insights into customer journeys, satisfaction drivers, and improvement opportunities."
   }
 ];
 
-const USE_CASES = [
-  {
-    title: "E-Commerce Customer Support",
-    challenge: "High volume of customer inquiries, need for 24/7 support, inconsistent response quality",
-    solution: "AI-powered chatbot with product knowledge, order tracking, return processing, human handoff",
-    impact: "70%+ inquiries handled by AI, 60-80% cost reduction, 25-40% CSAT improvement, 15-25% revenue increase"
-  },
-  {
-    title: "Financial Services Client Onboarding Assistant",
-    challenge: "Complex onboarding with multiple documents and compliance requirements",
-    solution: "AI assistant guiding clients through onboarding, document collection, compliance verification",
-    impact: "Onboarding time reduced by 60%, improved client experience, reduced support burden"
-  }
-];
-
-
-export default function CustomerExperienceServicePage() {
+export default function CustomerExperiencePage() {
   return (
-    <main className="flex-1">
-      <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-32 overflow-hidden">
-        <div className="absolute inset-0 hero-bg pointer-events-none -z-10"></div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge variant="secondary" className="mb-8">Service</Badge>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
-            AI-Powered Customer <span className="text-primary">Experience Solutions</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
-            Delight Customers While Scaling Support. Intelligent automation handling routine inquiries instantly, while your human team focuses on complex issues.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="h-12 px-8 text-base" asChild>
-              <Link href="/contact">Schedule Consultation</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base" asChild>
-              <Link href="/audit">Request Proposal</Link>
-            </Button>
-          </div>
+    <main className="flex-1 bg-[#E0E5EC]">
+      <ServiceSchema
+        name="AI-Powered Customer Experience"
+        description="Transform customer interactions with AI chatbots, sentiment analysis, and automated support"
+        url="https://qenai.com/services/customer-experience"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://qenai.com" },
+          { name: "Services", url: "https://qenai.com/services" },
+          { name: "Customer Experience AI", url: "https://qenai.com/services/customer-experience" },
+        ]}
+      />
+
+      {/* Hero Section */}
+      <section className="pt-40 pb-20 px-4 text-center max-w-4xl mx-auto">
+        <NeuTag className="mb-6">Customer Experience</NeuTag>
+        <h1 className="text-4xl md:text-6xl font-serif text-gray-800 mb-6 leading-tight">
+          AI-Powered Customer <span className="text-primary italic">Experience</span>
+        </h1>
+        <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+          Your customers expect instant, personalized service. Our AI customer experience solutions 
+          deliver 24/7 support that scales without adding headcount - while making every interaction 
+          feel human.
+        </p>
+        <div className="flex justify-center gap-4 flex-wrap">
+          <Link href="/contact">
+            <NeuButton variant="primary" size="lg">
+              Transform Your CX
+            </NeuButton>
+          </Link>
+          <Link href="/cases">
+            <NeuButton variant="secondary" size="lg">
+              See Results
+            </NeuButton>
+          </Link>
         </div>
       </section>
 
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">What is AI-Powered Customer Experience?</h2>
-            <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
-              <p>
-                Modern customers expect instant, accurate, helpful responses—24/7. But hiring enough support staff to meet those expectations 
-                is prohibitively expensive for most businesses. Our AI-Powered Customer Experience Solutions give you the best of both worlds: 
-                intelligent automation handling routine inquiries instantly, while your human team focuses on complex issues and relationship building.
-              </p>
-              <p>
-                We build conversational AI systems that actually understand your business, provide accurate information, handle transactions, 
-                and escalate gracefully when human intervention is needed. These aren't generic chatbots—they're custom-trained systems 
-                integrated with your knowledge base, CRM, and business systems, able to handle the specific queries your customers have.
-              </p>
-            </div>
-            <div className="mt-12">
-              <h3 className="text-2xl font-bold text-foreground mb-4">Who This Is For</h3>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <span className="material-symbols-outlined text-primary mt-0.5">check_circle</span>
-                  <span>Businesses with high-volume customer inquiries</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="material-symbols-outlined text-primary mt-0.5">check_circle</span>
-                  <span>Companies struggling with long response times</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="material-symbols-outlined text-primary mt-0.5">check_circle</span>
-                  <span>Organizations wanting to offer 24/7 support without 24/7 staffing</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="material-symbols-outlined text-primary mt-0.5">check_circle</span>
-                  <span>Teams dealing with repetitive customer questions</span>
-                </li>
-              </ul>
-            </div>
+      {/* Feature Section */}
+      <section className="py-12 px-4 max-w-6xl mx-auto">
+        <NeuCard className="p-6 md:p-8 flex flex-col md:flex-row items-center gap-8 overflow-hidden">
+          <div className="w-full md:w-1/2 h-64 md:h-80 rounded-2xl overflow-hidden shadow-inner">
+            <Image
+              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
+              alt="AI Customer Experience - Happy customer interaction"
+              width={800}
+              height={400}
+              className="w-full h-full object-cover"
+              priority
+            />
           </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Business Impact</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="text-center">
-              <CardHeader>
-                <div className="text-4xl font-bold text-primary mb-2">&lt;30s</div>
-                <CardTitle>Response Time</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">For 70%+ of inquiries (from hours/days)</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardHeader>
-                <div className="text-4xl font-bold text-primary mb-2">5-10x</div>
-                <CardTitle>Support Capacity</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">Handle more inquiries with same team</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardHeader>
-                <div className="text-4xl font-bold text-primary mb-2">60-80%</div>
-                <CardTitle>Cost Reduction</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">Reduce cost-per-interaction</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardHeader>
-                <div className="text-4xl font-bold text-primary mb-2">25-40%</div>
-                <CardTitle>CSAT Improvement</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">Through instant, accurate responses</p>
-              </CardContent>
-            </Card>
-          </div>
-          <div className="mt-12 text-center">
-            <p className="text-lg text-muted-foreground">
-              <strong>Revenue Impact:</strong> Faster response times increase conversion rates by 20-35%. 
-              24/7 availability captures inquiries during off-hours (15-25% revenue increase for e-commerce).
+          <div className="w-full md:w-1/2">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+              Be There for Every Customer, Every Time
+            </h2>
+            <p className="text-gray-500 leading-relaxed mb-6">
+              Missed calls mean lost customers. Slow responses mean frustrated customers. 
+              Our AI customer experience solutions ensure you&apos;re always available, always 
+              helpful, and always improving.
             </p>
+            <ul className="space-y-2 mb-6">
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Instant response to common inquiries
+              </li>
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Seamless handoff to human agents when needed
+              </li>
+              <li className="flex items-center gap-2 text-gray-600">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                Works on WhatsApp, web, and social channels
+              </li>
+            </ul>
           </div>
+        </NeuCard>
+      </section>
+
+      {/* CX Features */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-700 mb-2">CX AI Capabilities</h2>
+          <p className="text-gray-500">Transform every touchpoint of the customer journey</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {CX_FEATURES.map((feature, i) => (
+            <NeuCard key={i} className="p-6">
+              <NeuIconContainer size="sm" className="mb-4">
+                <span className="material-symbols-outlined text-2xl">{feature.icon}</span>
+              </NeuIconContainer>
+              <h3 className="font-bold text-lg text-gray-800 mb-2">{feature.title}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                {feature.description}
+              </p>
+            </NeuCard>
+          ))}
         </div>
       </section>
 
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">What's Included</h2>
-          </div>
-          <Tabs defaultValue="mapping" className="w-full">
-            <TabsList className="grid w-full grid-cols-5 mb-8">
-              {PHASES.map((phase) => (
-                <TabsTrigger key={phase.id} value={phase.id} className="text-xs">
-                  {phase.title.split(" ")[0]}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-            {PHASES.map((phase) => (
-              <TabsContent key={phase.id} value={phase.id} className="space-y-6">
-                <Card>
-                  <CardHeader>
-                    <div className="flex items-center justify-between">
-                      <CardTitle className="text-2xl">{phase.title}</CardTitle>
-                      <Badge variant="outline">{phase.duration}</Badge>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-3">Activities:</h4>
-                      <ul className="space-y-2">
-                        {phase.activities.map((activity, i) => (
-                          <li key={i} className="flex items-start gap-2 text-muted-foreground">
-                            <span className="material-symbols-outlined text-primary text-sm mt-0.5">arrow_right</span>
-                            <span>{activity}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <Separator />
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-2">Deliverable:</h4>
-                      <p className="text-muted-foreground">{phase.deliverable}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-            ))}
-          </Tabs>
+      {/* Related Services */}
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="mb-8">
+          <h2 className="text-xl font-bold text-gray-700">Related Services</h2>
+        </div>
+        <div className="flex flex-wrap gap-4">
+          <Link href="/services/automation">
+            <NeuButton variant="secondary">AI Workflow Automation →</NeuButton>
+          </Link>
+          <Link href="/services/custom-models">
+            <NeuButton variant="secondary">Custom AI Models →</NeuButton>
+          </Link>
+          <Link href="/services/knowledge-systems">
+            <NeuButton variant="secondary">Knowledge Systems →</NeuButton>
+          </Link>
         </div>
       </section>
 
-      <section className="py-24 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Technology & Tools</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>AI Platforms</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  <Badge>Custom RAG Systems</Badge>
-                  <Badge>Claude/GPT-4</Badge>
-                  <Badge>Voice AI (Vapi, Retell)</Badge>
-                </div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Channels</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  <Badge>Web Chat</Badge>
-                  <Badge>WhatsApp</Badge>
-                  <Badge>SMS</Badge>
-                  <Badge>Email</Badge>
-                  <Badge>Voice</Badge>
-                </div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Integrations</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  <Badge>CRM Systems</Badge>
-                  <Badge>Helpdesk Platforms</Badge>
-                  <Badge>E-commerce Platforms</Badge>
-                  <Badge>Payment Processing</Badge>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Use Cases</h2>
-          </div>
-          <div className="space-y-6">
-            {USE_CASES.map((useCase, i) => (
-              <Card key={i} className="hover:shadow-lg transition-all">
-                <CardHeader>
-                  <CardTitle className="text-xl">{useCase.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-sm text-muted-foreground mb-2">Challenge</h4>
-                    <p className="text-foreground">{useCase.challenge}</p>
-                  </div>
-                  <Separator />
-                  <div>
-                    <h4 className="font-semibold text-sm text-muted-foreground mb-2">Solution</h4>
-                    <p className="text-foreground">{useCase.solution}</p>
-                  </div>
-                  <Separator />
-                  <div>
-                    <h4 className="font-semibold text-sm text-muted-foreground mb-2">Impact</h4>
-                    <p className="text-foreground font-medium">{useCase.impact}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">Related Services</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="group hover:shadow-xl transition-all">
-              <CardHeader>
-                <CardTitle>AI Automation Design & Deployment</CardTitle>
-                <CardDescription>For internal process automation</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button variant="ghost" className="w-full group-hover:bg-primary/5" asChild>
-                  <Link href="/services/automation">
-                    Learn More
-                    <span className="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-            <Card className="group hover:shadow-xl transition-all">
-              <CardHeader>
-                <CardTitle>Productivity & Knowledge Systems</CardTitle>
-                <CardDescription>For knowledge base systems</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button variant="ghost" className="w-full group-hover:bg-primary/5" asChild>
-                  <Link href="/services/knowledge-systems">
-                    Learn More
-                    <span className="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-            <Card className="group hover:shadow-xl transition-all">
-              <CardHeader>
-                <CardTitle>AI Readiness & Workflow Audits</CardTitle>
-                <CardDescription>Identify customer experience opportunities</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button variant="ghost" className="w-full group-hover:bg-primary/5" asChild>
-                  <Link href="/services/audits">
-                    Learn More
-                    <span className="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-primary text-primary-foreground">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
-            Ready to Scale Your Customer Support?
+      {/* CTA Section */}
+      <section className="py-20 px-4 max-w-4xl mx-auto text-center">
+        <NeuCard className="p-12">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            Your Competitors Are Already Using AI for CX
           </h2>
-          <p className="text-xl mb-10 max-w-2xl mx-auto opacity-90">
-            Let's discuss how AI can help you provide 24/7 support while reducing costs.
+          <p className="text-gray-500 text-lg mb-8 max-w-2xl mx-auto">
+            Don&apos;t let slow response times cost you customers. Let&apos;s discuss how AI can 
+            transform your customer experience.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="h-12 px-8 text-base" asChild>
-              <Link href="/contact">Schedule Consultation</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base bg-transparent border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-              <Link href="/audit">Request Proposal</Link>
-            </Button>
-          </div>
-        </div>
+          <Link href="/contact">
+            <NeuButton variant="primary" size="lg">
+              Upgrade Your CX
+            </NeuButton>
+          </Link>
+        </NeuCard>
       </section>
     </main>
   );
 }
-
