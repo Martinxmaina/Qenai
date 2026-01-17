@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -169,9 +170,36 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Iubenda Cookie Consent - Must be high in head */}
+        <Script
+          id="iubenda-config"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              var _iub = _iub || [];
+              _iub.csConfiguration = {"siteId":4392069,"cookiePolicyId":34078816,"lang":"en","storage":{"useSiteId":true}};
+            `,
+          }}
+        />
+        <Script
+          src="https://cs.iubenda.com/autoblocking/4392069.js"
+          strategy="beforeInteractive"
+        />
+        <Script
+          src="//cdn.iubenda.com/cs/gpp/stub.js"
+          strategy="beforeInteractive"
+        />
+        <Script
+          src="//cdn.iubenda.com/cs/iubenda_cs.js"
+          strategy="beforeInteractive"
+          async
+        />
+        
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Y5EHT3TSR"></script>
-        <script
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-6Y5EHT3TSR" strategy="afterInteractive" />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];

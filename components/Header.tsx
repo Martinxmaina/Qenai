@@ -52,22 +52,26 @@ export const Header = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <div className="w-full bg-[#E0E5EC] py-6 px-4">
-            <div className="max-w-7xl mx-auto flex items-center justify-between">
-                {/* Logo */}
-                <Link href="/" className="flex items-center group">
-                    <Image 
-                        src="/qenai-logo.png" 
-                        alt="QENAI Logo" 
-                        width={160} 
-                        height={160} 
-                        className="h-20 md:h-24 w-auto group-hover:scale-105 transition-transform"
-                        priority
-                    />
-                </Link>
+        <>
+            {/* Logo - Absolute positioned, floats above content */}
+            <div className="absolute top-0 left-0 w-full z-40 pointer-events-none">
+                <div className="max-w-6xl mx-auto px-4 pt-0">
+                    <Link href="/" className="flex items-center group pointer-events-auto">
+                        <Image 
+                            src="/qenai-logo.png" 
+                            alt="QENAI Logo" 
+                            width={300} 
+                            height={20} 
+                            className="h-40 md:h-48 w-auto group-hover:scale-105 transition-transform"
+                            priority
+                        />
+                    </Link>
+                </div>
+            </div>
 
-                {/* Menu Bar */}
-                <nav className="flex items-center justify-center px-4 md:px-6 py-2 bg-[#E0E5EC] rounded-2xl shadow-neu-flat">
+            {/* Menu Bar - Fixed and centered, wider */}
+            <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+                <nav className="flex items-center justify-center px-6 md:px-8 py-2 bg-[#E0E5EC] rounded-2xl shadow-neu-flat min-w-[600px] md:min-w-[700px]">
                     {/* Desktop Navigation */}
                     <div className="hidden lg:flex items-center gap-1">
                     {/* Home */}
@@ -343,7 +347,7 @@ export const Header = () => {
                     </Sheet>
                 </nav>
             </div>
-        </div>
+        </>
     );
 };
 

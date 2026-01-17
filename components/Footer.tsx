@@ -58,7 +58,7 @@ export const Footer = () => {
                         {/* Social Links */}
                         <div className="flex gap-4">
                             <a
-                                href="https://linkedin.com/company/qenai"
+                                href="https://www.linkedin.com/company/qenaico/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 rounded-xl bg-[#E0E5EC] shadow-neu-sm flex items-center justify-center text-gray-500 hover:text-primary transition-colors"
@@ -160,14 +160,6 @@ export const Footer = () => {
                     <p className="text-xs text-gray-400">
                         © {new Date().getFullYear()} QENAI Technologies. All rights reserved.
                     </p>
-                    <div className="flex gap-8 text-xs text-gray-400">
-                        <Link href="/privacy" className="hover:text-primary transition-colors">
-                            Privacy Policy
-                        </Link>
-                        <Link href="/terms" className="hover:text-primary transition-colors">
-                            Terms of Service
-                        </Link>
-                    </div>
                 </div>
             </div>
         </footer>
