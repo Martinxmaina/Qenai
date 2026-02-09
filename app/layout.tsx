@@ -170,10 +170,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Iubenda Cookie Consent - Must be high in head */}
+        {/* Iubenda Cookie Consent - Relaxed strategy to prevent blocking */}
         <Script
           id="iubenda-config"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               var _iub = _iub || [];
@@ -183,18 +183,18 @@ export default function RootLayout({
         />
         <Script
           src="https://cs.iubenda.com/autoblocking/4392069.js"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
         <Script
           src="//cdn.iubenda.com/cs/gpp/stub.js"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
         <Script
           src="//cdn.iubenda.com/cs/iubenda_cs.js"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           async
         />
-        
+
         {/* Google tag (gtag.js) */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-6Y5EHT3TSR" strategy="afterInteractive" />
         <Script
@@ -209,6 +209,8 @@ export default function RootLayout({
             `,
           }}
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"

@@ -33,7 +33,7 @@ export const ChatWidget = () => {
                   <p className="text-xs text-white/70">AI Powered</p>
                 </div>
               </div>
-              <button 
+              <button
                 onClick={() => setIsOpen(false)}
                 className="p-1 hover:bg-white/10 rounded-lg transition-colors"
                 aria-label="Close chat"
@@ -52,7 +52,7 @@ export const ChatWidget = () => {
               </div>
               <div className="bg-white/50 rounded-2xl rounded-tl-none p-3 max-w-[80%]">
                 <p className="text-sm text-gray-700">
-                  Hi! I&apos;m the QENAI assistant. I can help you learn about our AI automation services. 
+                  Hi! I&apos;m the QENAI assistant. I can help you learn about our AI automation services.
                   How can I assist you today?
                 </p>
               </div>
@@ -76,7 +76,7 @@ export const ChatWidget = () => {
                 className="flex-1 bg-white/50 rounded-xl px-4 py-2 text-sm shadow-neu-pressed focus:outline-none focus:ring-2 focus:ring-primary/50"
                 disabled
               />
-              <button 
+              <button
                 className="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center shadow-neu-button opacity-50 cursor-not-allowed"
                 disabled
                 aria-label="Send message"

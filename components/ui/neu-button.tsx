@@ -1,16 +1,20 @@
 import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
 import { cn } from "@/lib/utils";
 
 interface NeuButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary";
   size?: "sm" | "md" | "lg";
+  asChild?: boolean;
   children: React.ReactNode;
 }
 
 const NeuButton = React.forwardRef<HTMLButtonElement, NeuButtonProps>(
-  ({ children, className = "", variant = "secondary", size = "md", ...props }, ref) => {
-    const baseStyle = "rounded-full font-medium transition-all active:scale-95 duration-200";
-    
+  ({ children, className = "", variant = "secondary", size = "md", asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button";
+
+    const baseStyle = "inline-flex items-center justify-center rounded-full font-medium transition-all active:scale-95 duration-200 border-none outline-none";
+
     const sizeStyles = {
       sm: "px-4 py-2 text-xs",
       md: "px-6 py-3 text-sm",
@@ -31,13 +35,13 @@ const NeuButton = React.forwardRef<HTMLButtonElement, NeuButtonProps>(
     };
 
     return (
-      <button
+      <Comp
         ref={ref}
         className={cn(baseStyle, sizeStyles[size], variantStyles[variant], className)}
         {...props}
       >
         {children}
-      </button>
+      </Comp>
     );
   }
 );

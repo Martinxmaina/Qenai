@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const TEAM_MEMBERS = [
   {
     name: "Martin Maina",
-    title: "Founder & AI Engineer",
+    title: "Co-Founder & AI Engineer",
     image: "/team/martin-maina.jpg",
     linkedin: "https://www.linkedin.com/in/martinxmaina/",
     bio: "Martin is an AI engineer with extensive experience in automation systems, operational design, and AI integration. He leads solution architecture at QENAI, specializing in custom Python development, LLM fine-tuning, and making complex AI accessible to non-technical stakeholders.",
