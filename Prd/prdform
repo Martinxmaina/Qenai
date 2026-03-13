@@ -1,0 +1,132 @@
+Qenai.co requires an automated blog publishing system that enables AI-generated content to be seamlessly pushed via automation tools (n8n) and rendered with exceptional performance for SEO optimization.
+1.2 Business Context
+As an AI automation consultancy, Qenai needs to:
+Publish technical content regularly to establish thought leadership
+Automate content creation and publishing workflows
+Achieve superior page load speeds for SEO ranking
+Maintain a modern, neuromorphic design aesthetic
+1.3 Solution Approach
+Build a fully automated blog system using:
+Frontend: Next.js 14 (App Router) + shadcn/ui
+Backend: Convex (Database + API + File Storage)
+Content: Markdown (MDX) with rich media support
+Automation: n8n integration via Convex HTTP Actions
+🎯 2. Goals & Objectives
+2.1 Primary Goals
+Goal
+Metric
+Target
+SEO Performance
+PageSpeed score
+≥95/100
+Content Automation
+Time from creation to publish
+<5 seconds
+Developer Experience
+Setup time for new posts
+<1 minute
+User Experience
+Blog page load time
+<1 second
+Scalability
+Concurrent blog posts
+1000+
+2.2 Success Criteria
+✅ Must Have:
+Automated blog creation via API
+MDX rendering with syntax highlighting
+Image and video embedding
+SEO-optimized metadata
+Draft/Published workflow
+Fast page loads (<1s)
+✅ Should Have:
+Real-time preview
+Tag categorization
+Related posts
+Social sharing
+Analytics integration
+✅ Nice to Have:
+AI content suggestions
+A/B testing
+Newsletter integration
+Comment system
+👥 3. User Personas
+3.1 Content Creator (Internal)
+Needs: Push AI-generated content via automation
+Pain Points: Manual publishing is time-consuming
+Goals: Automated, scheduled content publishing
+3.2 Website Visitor (External)
+Needs: Fast-loading, well-formatted technical content
+Pain Points: Slow websites, poor mobile experience
+Goals: Consume AI/automation insights quickly
+3.3 Developer (Internal)
+Needs: Maintainable, scalable codebase
+Pain Points: Complex infrastructure, slow deployments
+Goals: Simple stack, fast iteration
+📝 4. User Stories & Features
+4.1 Core Features
+Feature 1: Automated Blog Creation
+123
+Acceptance Criteria:
+✅ Accepts JSON payload with title, content, metadata
+✅ Validates API key authentication
+✅ Returns created post ID
+✅ Supports both draft and published status
+✅ Response time <500ms
+Feature 2: MDX Content Rendering
+123
+Acceptance Criteria:
+✅ Renders Markdown with proper formatting
+✅ Supports code syntax highlighting
+✅ Handles images and videos
+✅ Mobile-responsive layout
+✅ Fast initial render (<500ms)
+Feature 3: Blog CRUD Operations
+123
+Acceptance Criteria:
+✅ Create new post (draft/published)
+✅ Update existing post
+✅ Delete post
+✅ List all posts with filtering
+✅ Get single post by slug
+Feature 4: Media Management
+123
+Acceptance Criteria:
+✅ Upload images via Convex storage
+✅ Embed YouTube/Vimeo videos
+✅ Support image galleries
+✅ Lazy loading for media
+✅ Optimized image delivery
+Feature 5: SEO Optimization
+123
+Acceptance Criteria:
+✅ Custom meta titles and descriptions
+✅ Open Graph tags
+✅ Twitter Card support
+✅ Structured data (Schema.org)
+✅ XML sitemap generation
+✅ Canonical URLs
+🛠️ 5. Technical Specifications
+5.1 Tech Stack
+Layer
+Technology
+Purpose
+Frontend
+Next.js 14 (App Router)
+React framework with SSR
+Styling
+shadcn/ui + Tailwind CSS
+Component library + styling
+Backend
+Convex
+Database + API + Auth
+Content
+MDX
+Markdown with React components
+Syntax Highlight
+rehype-pretty-code
+Code block formatting
+Images
+next/image
+Optimized image delivery
+Hosting
