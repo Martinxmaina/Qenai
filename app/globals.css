@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-serif);
+
+  /* Brand Colors - matched to QEN AI logo */
+  --color-primary: #2721f7;
+  --color-primary-dark: #1e1bba;
+
+  /* Override Tailwind blue palette to match brand */
+  --color-blue-50: #eef0ff;
+  --color-blue-100: #d9dbff;
+  --color-blue-200: #b3b7ff;
+  --color-blue-300: #8d8fff;
+  --color-blue-400: #5a55f9;
+  --color-blue-500: #3830f8;
+  --color-blue-600: #2721f7;
+  --color-blue-700: #1e1bba;
+  --color-blue-800: #17147e;
+  --color-blue-900: #100e52;
+
+  /* Enterprise Theme Colors */
+  --color-qen-dark: #0f172a;
+  /* Deep corporate slate/blue */
+  --color-qen-dark-surface: #1e293b;
+  --color-qen-light: #F8FAFC;
+  /* Warm off-white */
+  --color-qen-light-surface: #FFFFFF;
+
+  --color-background: #F8FAFC;
+  --color-foreground: #0f172a;
+  --color-muted-foreground: #64748b;
+  --color-border: rgba(148, 163, 184, 0.2);
+}
+
+@layer base {
+  body {
+    @apply bg-qen-light text-foreground font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif font-medium tracking-tight text-foreground;
+  }
+}
+
+@layer utilities {
+  .container-wide {
+    @apply max-w-7xl mx-auto px-6 md:px-12;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32;
+  }
+
+  .section-padding-sm {
+    @apply py-16 md:py-20;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Enterprise Gradients/Utilities */
+  .bg-hero-gradient {
+    background: linear-gradient(135deg, var(--color-qen-dark) 0%, #1e1b4b 100%);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60;
+  }
+}
+
+@layer components {
+  /* Standardized Typography */
+  .heading-1 {
+    @apply font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900;
+  }
+  .heading-2 {
+    @apply font-serif text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900;
+  }
+  .heading-3 {
+    @apply font-serif text-2xl md:text-3xl font-bold tracking-tight text-gray-900;
+  }
+  .heading-4 {
+    @apply font-serif text-xl md:text-2xl font-bold tracking-tight text-gray-900;
+  }
+  .body-text {
+    @apply font-sans text-base md:text-lg text-gray-600 leading-relaxed;
+  }
+  .subtext {
+    @apply font-sans text-sm md:text-base text-gray-500 leading-relaxed;
+  }
+
+  /* Standardized Buttons */
+  .btn-primary {
+    @apply inline-flex justify-center items-center px-8 py-4 bg-blue-700 text-white font-semibold rounded-lg hover:bg-blue-800 transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply inline-flex justify-center items-center px-8 py-4 bg-white text-gray-900 font-semibold rounded-lg border-2 border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Standardized Layouts & Cards */
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 md:px-12 w-full;
+  }
+  .card-standard {
+    @apply bg-white rounded-3xl shadow-lg border border-gray-100 p-8 hover:shadow-xl transition-shadow;
+  }
+  .card-primary {
+    @apply bg-blue-50 rounded-3xl shadow-md border border-blue-100 p-8 hover:border-blue-300 transition-colors;
+  }
+}
