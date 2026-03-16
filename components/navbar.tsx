@@ -81,11 +81,12 @@ export default function Navbar() {
                 <Link href="/" className="absolute left-0 flex items-center">
                     <div className="relative h-32 w-96">
                         <Image
-                            src="/logo.png"
+                            src="/qenai-logo.png"
                             alt="QENAI"
                             fill
                             className="object-contain object-left"
                             priority
+                            unoptimized
                         />
                     </div>
                 </Link>

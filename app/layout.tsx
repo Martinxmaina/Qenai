@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "Qenai | AI Transformation Partner",
   description:
     "Consulting-grade AI transformation. We help organizations Audit, Build, and Adopt AI correctly.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

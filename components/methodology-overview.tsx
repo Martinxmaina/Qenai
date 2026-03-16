@@ -5,17 +5,17 @@ export function MethodologyOverview() {
         {
             title: "Audit",
             desc: `Understand how work really happens. We map workflows, data, and decisions before writing a single line of code.`,
-            icon: "/icons/audit.png",
+            icon: "/Images/audit.png",
         },
         {
             title: "Build",
             desc: `Design and implement fit-for-purpose AI systems. No generic templates—only what your operation actually needs.`,
-            icon: "/icons/build.png",
+            icon: "/Images/build.png",
         },
         {
             title: "Adopt",
             desc: `Ensure AI is used, trusted, and sustained. Technology without adoption is just a cost center.`,
-            icon: "/icons/adopt.png",
+            icon: "/Images/adopt1.png",
         },
     ];
 

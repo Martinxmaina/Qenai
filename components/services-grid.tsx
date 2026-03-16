@@ -5,13 +5,13 @@ const services = [
     title: "Audit",
     description:
       "Understand how work really happens. We map workflows, data, and decisions before writing a single line of code.",
-    image: "/audit.png",
+    image: "/Images/audit.png",
   },
   {
     title: "Build",
     description:
       "Design and implement fit-for-purpose AI systems. No generic templates—only what your operation actually needs.",
-    image: "/build.png",
+    image: "/Images/build.png",
   },
   {
     title: "Adopt",
