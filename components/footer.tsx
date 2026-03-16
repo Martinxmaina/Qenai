@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { Logo } from "@/components/icons/Logo";
 
 export function Footer() {
     return (
@@ -11,15 +11,7 @@ export function Footer() {
 
                     {/* Brand */}
                     <div className="space-y-4 max-w-xs">
-                        <div className="brightness-0 invert opacity-80">
-                            <Image
-                                src="/logo.png"
-                                alt="QEN AI"
-                                width={100}
-                                height={100}
-                                className="h-8 w-auto object-contain"
-                            />
-                        </div>
+                        <Logo size="sm" className="opacity-80" />
                         <p className="text-white/50 text-sm leading-relaxed">
                             Quest for the Next AI.<br />
                             Strategic AI consulting for forward-thinking organizations.

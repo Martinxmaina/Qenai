@@ -24,12 +24,16 @@
     "@radix-ui/react-tabs": "^1.1.13",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "convex": "^1.21.0",
+    "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.6.0",
     "lucide-react": "^0.562.0",
     "next": "^16.1.6",
+    "next-mdx-remote": "^5.0.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "recharts": "^2.15.4",
+    "sugar-high": "^0.9.5",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {

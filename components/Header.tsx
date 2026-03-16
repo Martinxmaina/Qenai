@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { NeuButton } from "@/components/ui/neu-button";
 import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import {
@@ -196,11 +195,12 @@ export const Header = () => {
 
                     {/* CTA Button */}
                     <div className="hidden lg:block ml-2">
-                        <NeuButton variant="primary" size="sm" className="text-xs px-4 py-1.5" asChild>
-                            <Link href="/contact">
-                                Contact Us
-                            </Link>
-                        </NeuButton>
+                        <Link
+                            href="/contact"
+                            className="inline-flex items-center justify-center rounded-full font-medium text-xs px-4 py-1.5 bg-primary text-white shadow-[6px_6px_12px_rgba(39,33,247,0.3),-6px_-6px_12px_rgba(255,255,255,0.8)] hover:bg-primary-dark transition-all active:scale-95 duration-200"
+                        >
+                            Contact Us
+                        </Link>
                     </div>
 
                     {/* Mobile Menu Trigger */}
@@ -336,11 +336,13 @@ export const Header = () => {
 
                                     {/* Contact CTA */}
                                     <div className="pt-6 px-4">
-                                        <NeuButton variant="primary" className="w-full" asChild>
-                                            <Link href="/contact" onClick={() => setOpen(false)}>
-                                                Contact Us
-                                            </Link>
-                                        </NeuButton>
+                                        <Link
+                                            href="/contact"
+                                            onClick={() => setOpen(false)}
+                                            className="flex items-center justify-center w-full rounded-full font-medium px-6 py-3 text-sm bg-primary text-white shadow-[6px_6px_12px_rgba(39,33,247,0.3),-6px_-6px_12px_rgba(255,255,255,0.8)] hover:bg-primary-dark transition-all active:scale-95 duration-200"
+                                        >
+                                            Contact Us
+                                        </Link>
                                     </div>
                                 </nav>
                             </div>
