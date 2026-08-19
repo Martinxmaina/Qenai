@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Navbar from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { HeroBackgroundMesh } from "@/components/hero-background-mesh";
 
 const team = [
     {
@@ -57,8 +58,13 @@ export default function AboutPage() {
             <Navbar />
 
             {/* Hero */}
-            <section className="page-hero pt-[17rem]">
-                <div className="section-container mx-auto flex max-w-4xl flex-col items-center">
+            <section className="page-hero relative overflow-hidden pt-[20rem]">
+                <HeroBackgroundMesh />
+                <div className="section-container relative z-10 mx-auto flex max-w-4xl flex-col items-center">
+                    <p className="text-xs font-semibold uppercase tracking-[.22em] text-cyan-400">
+                        The People Behind Qenai
+                    </p>
+                    <div className="mt-4 mb-6 h-px w-16 bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
                     <h1 className="max-w-3xl text-balance text-4xl md:text-6xl font-bold font-serif tracking-tight mb-6 leading-tight">
                         Save Time. Cut Costs. <span className="text-cyan-400">Scale Faster.</span>
                     </h1>
@@ -70,7 +76,7 @@ export default function AboutPage() {
             </section>
 
             {/* Our Story */}
-            <section id="our-story" className="section-padding flex flex-col items-center bg-white">
+            <section id="our-story" className="section-padding scroll-mt-44 flex flex-col items-center bg-white">
                 <div className="section-container max-w-6xl text-center mx-auto">
                     <h2 className="text-4xl md:text-5xl font-bold font-serif text-gray-900 mb-4">
                         Our Story
@@ -87,7 +93,7 @@ export default function AboutPage() {
             </section>
 
             {/* Team */}
-            <section id="team" className="section-padding bg-transparent">
+            <section id="team" className="section-padding scroll-mt-44 bg-transparent">
                 <div className="section-container max-w-5xl mx-auto">
                     <h2 className="text-3xl md:text-4xl font-bold font-serif text-gray-900 mb-16">
                         Team
@@ -129,7 +135,7 @@ export default function AboutPage() {
             </section>
 
             {/* Our Approach */}
-            <section id="approach" className="section-padding bg-white">
+            <section id="approach" className="section-padding scroll-mt-44 bg-white">
                 <div className="section-container max-w-5xl mx-auto">
                     <h2 className="text-3xl md:text-4xl font-bold font-serif text-gray-900 mb-4">
                         Our Approach
@@ -143,9 +149,9 @@ export default function AboutPage() {
                         {approach.map((step, i) => (
                             <div
                                 key={i}
-                                className="rounded-3xl border border-[#000080] bg-[#000080] p-8 shadow-lg shadow-blue-950/20 hover:bg-[#00044A]"
+                                className="rounded-3xl border border-slate-700 bg-slate-900 p-8 shadow-lg shadow-black/20 hover:bg-slate-800"
                             >
-                                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-white text-sm font-bold text-[#000080]">
+                                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-cyan-400 text-sm font-bold text-slate-900">
                                     {i + 1}
                                 </div>
                                 <h3 className="mb-3 text-lg font-bold font-serif text-white">{step.title}</h3>

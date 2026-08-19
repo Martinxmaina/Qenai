@@ -40,13 +40,13 @@ export default function TeamPage() {
       </section>
       <section className="border-t border-slate-700/80 bg-slate-950 px-6 py-20 sm:px-10 lg:px-14 lg:py-28">
         <div className="mx-auto grid max-w-[1500px] gap-12 md:grid-cols-3">
-          {team.map((member, index) => <article key={member.name} className="rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 via-slate-50 to-blue-100/70 p-6 pt-6 shadow-lg shadow-blue-950/15 ring-1 ring-white/70">
-            <div className="mb-7 text-sm text-slate-600"><span>0{index + 1}</span></div>
-            <div className="relative mb-8 aspect-[4/5] overflow-hidden rounded-2xl bg-blue-100 ring-1 ring-blue-200"><Image src={member.image} alt={member.name} fill className="object-cover object-top grayscale transition duration-500 hover:scale-105 hover:grayscale-0" sizes="(min-width: 768px) 33vw, 100vw" /></div>
-            <h2 className="text-3xl font-normal tracking-[-.045em] text-slate-900">{member.name}</h2>
-            <p className="mt-2 text-sm font-medium text-cyan-700">{member.title}</p>
-            <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-slate-600 transition hover:text-cyan-700">Connect on LinkedIn <ArrowUpRight className="size-4" /></a>
-            <p className="mt-5 text-base leading-7 text-slate-600">{member.bio}</p>
+          {team.map((member, index) => <article key={member.name} className="rounded-3xl border border-slate-700 bg-slate-900 p-6 pt-6 shadow-lg shadow-black/20">
+            <div className="mb-7 text-sm text-slate-400"><span>0{index + 1}</span></div>
+            <div className="relative mb-8 aspect-[4/5] overflow-hidden rounded-2xl bg-slate-800 ring-1 ring-slate-700"><Image src={member.image} alt={member.name} fill className="object-cover object-top grayscale transition duration-500 hover:scale-105 hover:grayscale-0" sizes="(min-width: 768px) 33vw, 100vw" /></div>
+            <h2 className="text-3xl font-normal tracking-[-.045em] text-white">{member.name}</h2>
+            <p className="mt-2 text-sm font-medium text-cyan-400">{member.title}</p>
+            <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-slate-300 transition hover:text-cyan-400">Connect on LinkedIn <ArrowUpRight className="size-4" /></a>
+            <p className="mt-5 text-base leading-7 text-slate-300">{member.bio}</p>
           </article>)}
         </div>
       </section>

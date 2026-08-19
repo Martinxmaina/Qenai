@@ -1,14 +1,12 @@
 import Link from "next/link";
 import { AnimatedSphere } from "./animated-sphere";
+import { HeroBackgroundMesh } from "./hero-background-mesh";
 
 export function Hero() {
     return (
         <>
             <section className="relative min-h-[82vh] bg-slate-900 overflow-hidden pt-[calc(2rem+3cm)] pb-16">
-                {/* Subtle background accent */}
-                <div className="absolute inset-0 overflow-hidden opacity-5">
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
-                </div>
+                <HeroBackgroundMesh />
 
                 <div className="relative z-10 flex items-center justify-center h-full">
                     {/* Two-column layout: ~55% text, ~45% visual */}
