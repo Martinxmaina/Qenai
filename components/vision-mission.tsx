@@ -43,9 +43,9 @@ export function VisionMission() {
                 </div>
             </section>
 
-            <section className="section-padding bg-transparent text-white px-6">
+            <section className="section-padding bg-white text-slate-900 px-6">
                 <div className="section-container mx-auto">
-                    <h2 className="heading-2 text-cyan-400 mb-12 text-center md:text-left">
+                    <h2 className="heading-2 text-cyan-600 mb-12 text-center md:text-left">
                         Core Values
                     </h2>
 
@@ -53,7 +53,7 @@ export function VisionMission() {
                         {coreValues.map((val, i) => (
                             <div
                                 key={i}
-                                className="bg-slate-800/50 border border-slate-700 rounded-lg p-7 hover:bg-slate-800/80 transition-colors"
+                                className="bg-slate-900 border border-slate-700 rounded-lg p-7 hover:bg-slate-800 transition-colors"
                             >
                                 <div className="w-8 h-1 bg-cyan-400 rounded mb-5" />
                                 <h4 className="heading-4 mb-3 text-white">{val.title}</h4>
