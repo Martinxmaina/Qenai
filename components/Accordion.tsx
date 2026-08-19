@@ -11,13 +11,13 @@ export default function Accordion({ items }: { items: AccordionItem[] }) {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
-        <div className="divide-y divide-blue-100 border-t border-b border-blue-100">
+        <div className="divide-y divide-slate-700 border-t border-b border-slate-700">
             {items.map((item, i) => (
                 <div key={i}>
                     <button
                         type="button"
                         onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                        className="w-full flex items-center justify-between py-5 text-left text-gray-900 hover:text-blue-700 transition-colors"
+                        className="w-full flex items-center justify-between py-5 text-left text-white hover:text-cyan-400 transition-colors"
                     >
                         <span className="text-base font-semibold pr-4">{item.title}</span>
                         <svg
@@ -31,7 +31,7 @@ export default function Accordion({ items }: { items: AccordionItem[] }) {
                         </svg>
                     </button>
                     {openIndex === i && (
-                        <div className="pb-5 text-gray-600 leading-relaxed text-sm">
+                        <div className="pb-5 text-slate-300 leading-relaxed text-sm">
                             {item.content}
                         </div>
                     )}

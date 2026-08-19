@@ -36,7 +36,7 @@ export default function AuditPage() {
     };
 
     return (
-        <main className="min-h-screen bg-white text-black">
+        <main className="page-shell">
             <Navbar />
             <section className="pt-40 pb-20 px-6 section-container max-w-3xl mx-auto">
                 <h1 className="text-4xl md:text-5xl font-bold font-serif text-gray-900 mb-6 text-center">
@@ -47,14 +47,14 @@ export default function AuditPage() {
                 </p>
 
                 {submitted ? (
-                    <div className="p-8 bg-blue-50 border border-blue-100 rounded-2xl text-center">
+                    <div className="form-surface p-8 text-center">
                         <h2 className="text-2xl font-bold text-gray-900 mb-2">Thank you.</h2>
                         <p className="text-gray-700">
                             Our team will review your information and reach out shortly to schedule your AI audit.
                         </p>
                     </div>
                 ) : (
-                    <form onSubmit={handleSubmit} className="space-y-6 bg-gray-50 p-8 rounded-2xl border border-gray-100">
+                    <form onSubmit={handleSubmit} className="form-surface space-y-6 p-8">
                         {/* Configure this value in your .env.local file */}
                         <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY} />
                         <input type="hidden" name="subject" value="New AI Audit Request" />

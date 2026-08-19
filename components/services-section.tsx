@@ -11,7 +11,7 @@ export function ServicesSection() {
             outcome: "You get: Reliable, scalable, and governance-compliant AI solutions tailored to your operations.",
         },
         {
-            title: "Adopt",
+            title: "Integrate",
             description: "Change management, team training, and embedding AI into daily operations to ensure long-term value.",
             outcome: "You get: A workforce capable of leveraging AI, with measured adoption and clear ROI.",
         },

@@ -1,60 +1,45 @@
-import Image from "next/image";
-
 const services = [
   {
     title: "Audit",
     description:
       "Understand how work really happens. We map workflows, data, and decisions before writing a single line of code.",
-    image: "/Images/audit.png",
   },
   {
     title: "Build",
     description:
       "Design and implement fit-for-purpose AI systems. No generic templates—only what your operation actually needs.",
-    image: "/Images/build.png",
   },
   {
-    title: "Adopt",
+    title: "Integrate",
     description:
       "Ensure AI is used, trusted, and sustained. Technology without adoption is just a cost center.",
-    image: "/Images/adopt1.png",
   },
 ];
 
 export default function ServicesGrid() {
   return (
-    <section className="section-padding bg-gray-50">
-      <div className="section-container grid md:grid-cols-3 gap-10">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className="card-standard p-0 overflow-hidden"
-          >
-
-            {/* Image Section */}
-            <div className="h-60 relative bg-gray-50 rounded-t-3xl overflow-hidden">
-              <div className="absolute inset-0">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  className="object-cover object-top"
-                />
-              </div>
-            </div>
-
-            {/* Text Section */}
-            <div className="p-8">
-              <h3 className="heading-3 text-blue-700 mb-4">
+    <section className="section-padding bg-slate-900">
+      <div className="section-container">
+        <div className="text-center mb-16">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-400 mb-4">What We Do</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">One outcome: AI your team actually uses.</h2>
+        </div>
+        <div className="grid md:grid-cols-3 gap-10">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="bg-slate-800/50 border border-slate-700 rounded-lg p-8 hover:bg-slate-800/80 transition-colors"
+            >
+              <div className="text-cyan-400 text-lg font-bold mb-4">0{index + 1}</div>
+              <h3 className="heading-3 text-white mb-4">
                 {service.title}
               </h3>
-              <p className="body-text">
+              <p className="text-slate-300">
                 {service.description}
               </p>
             </div>
-
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

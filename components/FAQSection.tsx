@@ -4,9 +4,9 @@ import Accordion from "@/components/Accordion";
 
 export default function FAQSection() {
     return (
-        <section className="section-container section-padding" id="faqs">
+        <section className="section-container section-padding bg-slate-900" id="faqs">
             <div className="mb-8 text-center sm:text-left">
-                <h2 className="heading-2 text-blue-700">
+                <h2 className="heading-2 text-cyan-400">
                     Frequently Asked Questions
                 </h2>
             </div>
@@ -16,7 +16,7 @@ export default function FAQSection() {
                     {
                         title: "What does an AI Audit include?",
                         content: (
-                            <div className="space-y-4 body-text text-base">
+                            <div className="space-y-4 body-text text-base text-slate-300">
                                 <p>
                                     Our AI Audit is a comprehensive deep dive into your organization's operational reality. We don't just look at code—we look at workflows, data maturity, team capabilities, and existing software infrastructure.
                                 </p>
@@ -29,7 +29,7 @@ export default function FAQSection() {
                     {
                         title: "Do you build with Microsoft 365 (SharePoint, Teams) and existing tools?",
                         content: (
-                            <div className="space-y-4 body-text text-base">
+                            <div className="space-y-4 body-text text-base text-slate-300">
                                 <p>
                                     Absolutely. The best AI solution is often the one that integrates seamlessly into the tools your team already uses daily.
                                 </p>
@@ -42,7 +42,7 @@ export default function FAQSection() {
                     {
                         title: "How long does it take to deploy something useful?",
                         content: (
-                            <div className="space-y-4 body-text text-base">
+                            <div className="space-y-4 body-text text-base text-slate-300">
                                 <p>
                                     Speed to value is critical. For scoped functional automations (like a customer service bot or an automated invoice processor), we typically transition from kickoff to a working, integrated pilot within 3 to 6 weeks.
                                 </p>
@@ -55,7 +55,7 @@ export default function FAQSection() {
                     {
                         title: "What makes QEN AI different?",
                         content: (
-                            <div className="space-y-4 body-text text-base">
+                            <div className="space-y-4 body-text text-base text-slate-300">
                                 <p>
                                     We are practitioners, not just strategists. Many consultancies will hand you a slide deck about AI; we hand you working systems.
                                 </p>

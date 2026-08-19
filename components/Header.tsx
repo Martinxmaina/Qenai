@@ -61,7 +61,7 @@ export const Header = () => {
                             alt="QENAI Logo"
                             width={300}
                             height={20}
-                            className="h-40 md:h-48 w-auto group-hover:scale-105 transition-transform"
+                            className="h-40 md:h-48 w-auto group-hover:scale-105 transition-transform brightness-0 invert"
                             priority
                         />
                     </Link>
@@ -220,7 +220,7 @@ export const Header = () => {
                                         alt="QENAI Logo"
                                         width={112}
                                         height={112}
-                                        className="h-28 w-auto"
+                                        className="h-28 w-auto brightness-0 invert"
                                         priority
                                     />
                                 </Link>

@@ -1,163 +1,57 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { NeuCard } from "@/components/ui/neu-card";
-import { NeuButton } from "@/components/ui/neu-button";
-import { NeuTag } from "@/components/ui/neu-tag";
-import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
-import TeamMemberCard from "@/components/team/TeamMemberCard";
+import { ArrowUpRight, Linkedin } from "lucide-react";
+import Navbar from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Our Team | QENAI - AI Automation Agency Kenya",
-  description: "Meet the QENAI team. AI engineers, business strategists, and domain experts working together to transform African businesses with intelligent automation.",
-  keywords: ["QENAI team", "AI experts Kenya", "AI automation agency Kenya", "AI consultants Africa"],
-  alternates: {
-    canonical: "/team",
-  },
+  title: "Our Team | QENAI",
+  description: "Meet the people helping organizations turn AI ambition into practical systems.",
 };
 
-const TEAM_MEMBERS = [
-  {
-    name: "Martin Maina",
-    title: "Co-Founder & AI Engineer",
-    image: "/team/martin-maina.jpg",
-    linkedin: "https://www.linkedin.com/in/martinxmaina/",
-    bio: "Martin is an AI engineer with extensive experience in automation systems, operational design, and AI integration. He leads solution architecture at QENAI, specializing in custom Python development, LLM fine-tuning, and making complex AI accessible to non-technical stakeholders.",
-    skills: [
-      "Automation Systems",
-      "Operational Design",
-      "AI Integration",
-      "Python Development",
-      "LLM Fine-tuning"
-    ]
-  },
-  {
-    name: "Glory Munoru",
-    title: "Co-Founder & Chief Strategy Officer",
-    image: "/team/glory-munoru.jpg",
-    linkedin: "https://www.linkedin.com/in/glory-munoru-93020b147/",
-    bio: "Glory specializes in AI strategy and change management, bridging the gap between technical possibility and organizational reality. She oversees client relationships and strategic partnerships at QENAI, ensuring smooth AI adoption across teams.",
-    skills: [
-      "AI Strategy & Adoption",
-      "Change Management",
-      "Stakeholder Engagement",
-      "Operations & Workflow Design",
-      "Client Success & Training"
-    ]
-  }
+const team = [
+  { name: "Martin Maina", title: "Co-Founder & CTO", image: "/team/martin-maina.jpg", linkedin: "https://www.linkedin.com/in/martinxmaina/", bio: "Martin is the heart of the technical build. He owns the engineering architecture, builds the platform engines, and brings the technical product vision to life." },
+  { name: "Glory Munoru", title: "Co-Founder & CSO", image: "/team/glory-munoru.jpg", linkedin: "https://www.linkedin.com/in/glory-munoru-93020b147/", bio: "Glory defines the company's direction and shapes the long-term vision. She designs product-market fit, develops core business models, and ensures strategic alignment across all initiatives." },
+  { name: "Hansie Zefy", title: "Co-Founder & COO", image: "/team/hansie-zefy.jpg", linkedin: "https://www.linkedin.com/in/hansiezefy/", bio: "Hansie drives relationships, ecosystem partnerships, and execution. He manages partner and stakeholder relationships, accelerates client growth, and keeps the operational engine running smoothly." },
 ];
 
 export default function TeamPage() {
   return (
-    <main className="flex-1 bg-[#E0E5EC]">
-      <BreadcrumbSchema
-        items={[
-          { name: "Home", url: "https://qenai.com" },
-          { name: "About", url: "https://qenai.com/story" },
-          { name: "Team", url: "https://qenai.com/team" },
-        ]}
-      />
-
-      {/* Hero Section */}
-      <section className="pt-40 pb-20 px-4 text-center max-w-4xl mx-auto">
-        <NeuTag className="mb-6">Our People</NeuTag>
-        <h1 className="text-4xl md:text-6xl font-serif text-gray-800 mb-6 leading-tight">
-          Meet Our <span className="text-primary italic">Team</span>
-        </h1>
-        <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-          QENAI brings together AI engineers, business strategists, and domain experts who share 
-          one thing: a passion for making AI work in African contexts. We&apos;re not just building 
-          technology - we&apos;re building the future of business operations on the continent.
-        </p>
+    <main className="min-h-screen bg-slate-900 text-white">
+      <Navbar />
+      <section className="px-6 pb-24 pt-48 text-center sm:px-10 lg:pt-56">
+        <p className="text-xs font-semibold uppercase tracking-[.22em] text-cyan-400">The people behind Qenai</p>
+        <h1 className="mx-auto mt-7 max-w-5xl text-5xl font-normal leading-[.94] tracking-[-.065em] sm:text-7xl lg:text-[7.25rem]">Built by people who believe AI should <span className="text-cyan-400">work for people.</span></h1>
+        <p className="mx-auto mt-10 max-w-3xl text-lg leading-8 text-slate-300">We combine technical craft with operational understanding to make AI useful in the real world.</p>
       </section>
-
-      {/* Team Members */}
-      <section className="py-16 px-4 max-w-6xl mx-auto">
-        <div className="mb-12 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-700 mb-2">Our Leadership</h2>
-          <p className="text-gray-500">The founders behind QENAI&apos;s impact</p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-          {TEAM_MEMBERS.map((member, i) => (
-            <TeamMemberCard key={member.name} member={member} index={i} />
-          ))}
-        </div>
-      </section>
-
-      {/* Culture Section */}
-      <section className="py-16 px-4 max-w-6xl mx-auto">
-        <NeuCard className="p-8 md:p-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">How We Work</h2>
-              <p className="text-gray-500 leading-relaxed mb-6">
-                We believe the best solutions come from diverse perspectives working together. 
-                Our team combines deep technical expertise with real-world business understanding - because 
-                AI that doesn&apos;t solve real problems isn&apos;t worth building.
+      <section className="border-t border-slate-700/80 px-6 py-16 sm:px-10 lg:px-14 lg:py-20">
+        <div className="mx-auto max-w-[1500px]">
+          <p className="text-xs font-semibold uppercase tracking-[.22em] text-cyan-400">Businesses we work with</p>
+          <div className="mt-8 grid border-y border-slate-700/80 sm:grid-cols-3 sm:divide-x sm:divide-slate-700/80">
+            {['Real Estate', 'Dental Clinics', 'Logistics'].map((business, index) => (
+              <p key={business} className="flex items-center gap-4 border-slate-700/80 py-5 text-2xl tracking-[-.04em] text-white sm:px-8 sm:py-7 sm:first:pl-0">
+                <span className="text-sm text-cyan-400">0{index + 1}</span>
+                {business}
               </p>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
-                  Cross-functional collaboration on every project
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
-                  Client-embedded delivery approach
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
-                  Continuous learning and knowledge sharing
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Join Our Team</h2>
-              <p className="text-gray-500 leading-relaxed mb-6">
-                We&apos;re always looking for talented people who want to build AI that matters. 
-                If you&apos;re passionate about technology and its potential to transform African 
-                businesses, we want to hear from you.
-              </p>
-              <Link href="/contact">
-                <NeuButton variant="primary">
-                  View Open Positions
-                </NeuButton>
-              </Link>
-            </div>
+            ))}
           </div>
-        </NeuCard>
-      </section>
-
-      {/* Navigation */}
-      <section className="py-16 px-4 max-w-6xl mx-auto">
-        <div className="mb-8">
-          <h2 className="text-xl font-bold text-gray-700">Learn More About Us</h2>
-        </div>
-        <div className="flex flex-wrap gap-4">
-          <Link href="/story">
-            <NeuButton variant="secondary">Our Story →</NeuButton>
-          </Link>
-          <Link href="/values">
-            <NeuButton variant="secondary">Our Values →</NeuButton>
-          </Link>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-4 max-w-4xl mx-auto text-center">
-        <NeuCard className="p-12">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">
-            Work With Us
-          </h2>
-          <p className="text-gray-500 text-lg mb-8 max-w-2xl mx-auto">
-            Ready to see what our team can do for your organization? Let&apos;s start a conversation.
-          </p>
-          <Link href="/contact">
-            <NeuButton variant="primary" size="lg">
-              Get in Touch
-            </NeuButton>
-          </Link>
-        </NeuCard>
+      <section className="border-t border-slate-700/80 bg-slate-950 px-6 py-20 sm:px-10 lg:px-14 lg:py-28">
+        <div className="mx-auto grid max-w-[1500px] gap-12 md:grid-cols-3">
+          {team.map((member, index) => <article key={member.name} className="rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 via-slate-50 to-blue-100/70 p-6 pt-6 shadow-lg shadow-blue-950/15 ring-1 ring-white/70">
+            <div className="mb-7 text-sm text-slate-600"><span>0{index + 1}</span></div>
+            <div className="relative mb-8 aspect-[4/5] overflow-hidden rounded-2xl bg-blue-100 ring-1 ring-blue-200"><Image src={member.image} alt={member.name} fill className="object-cover object-top grayscale transition duration-500 hover:scale-105 hover:grayscale-0" sizes="(min-width: 768px) 33vw, 100vw" /></div>
+            <h2 className="text-3xl font-normal tracking-[-.045em] text-slate-900">{member.name}</h2>
+            <p className="mt-2 text-sm font-medium text-cyan-700">{member.title}</p>
+            <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-slate-600 transition hover:text-cyan-700">Connect on LinkedIn <ArrowUpRight className="size-4" /></a>
+            <p className="mt-5 text-base leading-7 text-slate-600">{member.bio}</p>
+          </article>)}
+        </div>
       </section>
+      <section className="border-t border-slate-700/80 bg-slate-900 px-6 py-24 text-center sm:px-10"><p className="text-sm uppercase tracking-[.18em] text-slate-400">Start a conversation</p><h2 className="mx-auto mt-5 max-w-3xl text-4xl font-normal tracking-[-.055em] text-white md:text-6xl">Ready to make AI a practical advantage?</h2><Link href="/contact" className="mt-10 inline-flex items-center gap-3 rounded-md bg-white px-6 py-4 text-xs font-bold uppercase tracking-[.14em] text-slate-950 transition hover:bg-cyan-400">Get in touch <Linkedin className="size-4" /></Link></section>
+      <Footer />
     </main>
   );
 }

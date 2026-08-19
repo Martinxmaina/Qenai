@@ -1,38 +1,86 @@
 import Link from "next/link";
+import { AnimatedSphere } from "./animated-sphere";
 
 export function Hero() {
     return (
-        <section className="pt-48 pb-20 bg-gradient-to-b from-blue-50 to-white border-b border-blue-100">
-            <div className="section-container">
-                <div className="max-w-5xl mx-auto text-center">
-                    <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05] text-black">
-                        Quest for the <span className="text-blue-700">Next AI</span>
-                    </h1>
+        <>
+            <section className="relative min-h-[82vh] bg-slate-900 overflow-hidden pt-[calc(2rem+3cm)] pb-16">
+                {/* Subtle background accent */}
+                <div className="absolute inset-0 overflow-hidden opacity-5">
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+                </div>
 
-                    <p className="mt-6 body-text md:text-xl max-w-4xl mx-auto">
-                        Kenya&apos;s leading AI automation agency, delivering enterprise-grade{" "}
-                        <span className="text-blue-700">AI workflow automation</span> and{" "}
-                        <span className="text-blue-700">custom AI models</span> built specifically
-                        for African businesses ready to scale.
-                    </p>
+                <div className="relative z-10 flex items-center justify-center h-full">
+                    {/* Two-column layout: ~55% text, ~45% visual */}
+                    <div className="w-full max-w-7xl px-6 lg:px-12">
+                        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-8 lg:gap-16 items-center">
+                            {/* Left column: text content */}
+                            <div>
+                                {/* Eyebrow label */}
+                                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-400 mb-5">
+                                    AI Automation for African Businesses
+                                </p>
 
-                    <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link
-                            href="/audit"
-                            className="btn-primary"
-                        >
-                            Get Your Free AI Audit
-                        </Link>
+                                {/* Headline with controlled line breaks */}
+                                <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-7xl font-bold text-white mb-7" style={{ lineHeight: "1.05", maxWidth: "90%" }}>
+                                    Scale Faster With <span className="text-cyan-400">AI Automation</span>
+                                </h1>
 
-                        <Link
-                            href="/consultation"
-                            className="btn-secondary"
-                        >
-                            Book a Consultation
-                        </Link>
+                                {/* Paragraph */}
+                                <p className="text-lg md:text-lg lg:text-xl text-slate-300 leading-relaxed mb-10" style={{ maxWidth: "520px" }}>
+                                    From lead generation to customer support and operations, we build AI systems
+                                    that save time, cut costs, and drive growth.
+                                </p>
+
+                                {/* CTA buttons */}
+                                <div className="flex flex-col sm:flex-row gap-4 mt-2">
+                                    <Link
+                                        href="/audit"
+                                        className="px-8 py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-slate-100 transition-colors text-center whitespace-nowrap"
+                                    >
+                                        Get Your Free AI Audit
+                                    </Link>
+
+                                    <Link
+                                        href="/consultation"
+                                        className="px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-colors text-center whitespace-nowrap"
+                                    >
+                                        Book a Consultation
+                                    </Link>
+                                </div>
+                            </div>
+
+                            {/* Right column: animated sphere */}
+                            <div className="hidden md:flex justify-center items-center min-h-[500px] lg:min-h-[600px]">
+                                <div className="w-full max-w-md lg:max-w-lg">
+                                    <AnimatedSphere />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Mobile: sphere below text, scaled down */}
+                        <div className="md:hidden flex justify-center items-center mt-8 mb-4">
+                            <div className="w-full max-w-xs scale-75 origin-center">
+                                <AnimatedSphere />
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            <section className="bg-slate-900 border-t border-slate-700/80 py-6 px-6">
+                <div className="mx-auto max-w-7xl px-2 lg:px-12">
+                    <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-medium uppercase tracking-[0.16em] text-white">
+                        <span>Real Estate</span>
+                        <span className="text-slate-400">•</span>
+                        <span>Dental Clinics</span>
+                        <span className="text-slate-400">•</span>
+                        <span>Logistics</span>
+                        <span className="text-slate-400">•</span>
+                        <span>Professional Services</span>
+                    </div>
+                </div>
+            </section>
+        </>
     );
 }

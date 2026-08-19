@@ -24,9 +24,9 @@ const NeuButton = React.forwardRef<HTMLButtonElement, NeuButtonProps>(
         "hover:bg-primary-dark"
       ),
       secondary: cn(
-        "bg-[#E0E5EC] text-gray-700",
-        "shadow-neu-button",
-        "hover:text-primary"
+        "bg-[#000080] text-white",
+        "shadow-[0_0.75rem_1.5rem_rgba(0,4,128,0.2)]",
+        "hover:bg-[#00044A]"
       ),
     };
 

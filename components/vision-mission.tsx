@@ -20,23 +20,22 @@ const coreValues = [
 export function VisionMission() {
     return (
         <>
-            {/* Vision & Mission — dark background */}
-            <section className="section-padding bg-qen-dark text-white px-6">
+            <section className="section-padding rounded-[2rem] border border-blue-950 bg-[#071a3d] text-white px-6 shadow-[0_1.5rem_4rem_rgba(2,11,26,0.28)]">
                 <div className="section-container mx-auto">
                     <div className="grid md:grid-cols-2 gap-12">
                         <div>
-                            <h2 className="heading-2 text-blue-400 mb-4">
+                            <h2 className="heading-2 text-cyan-400 mb-4">
                                 Vision
                             </h2>
-                            <p className="body-text text-white/80">
+                            <p className="body-text text-slate-300">
                                 A future where African organizations operate on intelligent, ethical automation tailored to their unique realities.
                             </p>
                         </div>
                         <div>
-                            <h2 className="heading-2 text-blue-400 mb-4">
+                            <h2 className="heading-2 text-cyan-400 mb-4">
                                 Mission
                             </h2>
-                            <p className="body-text text-white/80">
+                            <p className="body-text text-slate-300">
                                 To design and deploy automation systems that enable organizations to operate smarter, faster, and at scale.
                             </p>
                         </div>
@@ -44,10 +43,9 @@ export function VisionMission() {
                 </div>
             </section>
 
-            {/* Core Values — light background */}
-            <section className="section-padding bg-blue-50 text-gray-900 px-6">
+            <section className="section-padding bg-transparent text-white px-6">
                 <div className="section-container mx-auto">
-                    <h2 className="heading-2 text-blue-600 mb-12 text-center md:text-left">
+                    <h2 className="heading-2 text-cyan-400 mb-12 text-center md:text-left">
                         Core Values
                     </h2>
 
@@ -55,11 +53,11 @@ export function VisionMission() {
                         {coreValues.map((val, i) => (
                             <div
                                 key={i}
-                                className="card-primary p-7"
+                                className="bg-slate-800/50 border border-slate-700 rounded-lg p-7 hover:bg-slate-800/80 transition-colors"
                             >
-                                <div className="w-8 h-1 bg-blue-600 rounded mb-5" />
-                                <h4 className="heading-4 mb-3 text-gray-900">{val.title}</h4>
-                                <p className="subtext">{val.desc}</p>
+                                <div className="w-8 h-1 bg-cyan-400 rounded mb-5" />
+                                <h4 className="heading-4 mb-3 text-white">{val.title}</h4>
+                                <p className="text-slate-300 text-sm leading-relaxed">{val.desc}</p>
                             </div>
                         ))}
                     </div>

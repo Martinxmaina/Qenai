@@ -5,21 +5,28 @@ import { Footer } from "@/components/footer";
 const team = [
     {
         name: "Martin Maina",
-        title: "Co-Founder & Head of Solution Architecture",
+        title: "Co-Founder & CTO",
         image: "/team/martin-maina.jpg",
         linkedin: "https://www.linkedin.com/in/martinxmaina/",
-        bio: "Martin is a strategic AI leader with a passion for building intelligent systems that solve real business problems. As the head of solution architecture at QENAI, he focuses on designing practical, high-impact solutions that streamline operations, improve decision-making, and unlock new efficiencies for organizations. Known for his ability to bridge the gap between innovation and execution, Martin turns complex ideas into clear, usable solutions.",
-        skills: ["Solution Architecture", "AI Systems Design", "Operational Design", "AI Integration", "LLM Fine-tuning"],
+        bio: "Martin is the heart of the technical build. He owns the engineering architecture, builds the platform engines, and brings the technical product vision to life.",
+        skills: ["Engineering Architecture", "Platform Development", "AI Systems", "Technical Leadership", "Product Vision"],
     },
     {
         name: "Glory Munoru",
-        title: "Co-Founder & Chief Strategy Officer",
+        title: "Co-Founder & CSO",
         image: "/team/glory-munoru.jpg",
         linkedin: "https://www.linkedin.com/in/glory-munoru-93020b147/",
-        bio: "Glory brings a rare blend of operational expertise, policy insight, and a track record in tech-driven social impact. She specializes in AI strategy and change management, bridging the gap between technical possibility and organizational reality. With years of experience in program management, communications, and cross-border operations across East Africa, she turns complex challenges into actionable, high-impact strategies.",
-        skills: ["AI Strategy & Adoption", "Change Management", "Stakeholder Engagement", "Operations & Workflow Design", "Client Success & Training"],
+        bio: "Glory defines the company's direction and shapes the long-term vision. She designs product-market fit, develops core business models, and ensures strategic alignment across all initiatives.",
+        skills: ["Strategic Vision", "Product-Market Fit", "Business Model Design", "Strategic Planning", "Business Direction"],
     },
-];
+    {
+        name: "Hansie Zefy",
+        title: "Co-Founder & COO",
+        image: "/team/hansie-zefy.jpg",
+        linkedin: "https://www.linkedin.com/in/hansiezefy/",
+        bio: "Hansie drives relationships, ecosystem partnerships, and execution. He manages partner and stakeholder relationships, accelerates client growth, and keeps the operational engine running smoothly.",
+        skills: ["Partnership Development", "Stakeholder Management", "Operations", "Client Growth", "Relationship Building"],
+    },];
 
 const approach = [
     {
@@ -46,32 +53,32 @@ const approach = [
 
 export default function AboutPage() {
     return (
-        <main className="min-h-screen bg-white text-black">
+        <main className="page-shell">
             <Navbar />
 
             {/* Hero */}
-            <section className="pt-40 pb-20 bg-blue-50 text-center px-6">
-                <div className="section-container max-w-4xl mx-auto">
-                    <h1 className="text-4xl md:text-6xl font-bold font-serif tracking-tight text-gray-900 mb-6 leading-tight">
-                        We help organizations adopt AI <span className="text-blue-600">correctly.</span>
+            <section className="page-hero pt-[17rem]">
+                <div className="section-container mx-auto flex max-w-4xl flex-col items-center">
+                    <h1 className="max-w-3xl text-balance text-4xl md:text-6xl font-bold font-serif tracking-tight mb-6 leading-tight">
+                        Save Time. Cut Costs. <span className="text-cyan-400">Scale Faster.</span>
                     </h1>
-                    <p className="body-text">
-                        QEN AI is an AI transformation consultancy focused on practical, ethical, and
-                        sustainable adoption of intelligent systems for African organizations and beyond.
+                    <p className="body-text mx-auto max-w-2xl text-center">
+                        We help African businesses increase revenue, reduce manual work, and scale faster
+                        with custom AI systems and workflow automation.
                     </p>
                 </div>
             </section>
 
             {/* Our Story */}
-            <section id="our-story" className="section-padding flex flex-col items-center">
+            <section id="our-story" className="section-padding flex flex-col items-center bg-white">
                 <div className="section-container max-w-6xl text-center mx-auto">
                     <h2 className="text-4xl md:text-5xl font-bold font-serif text-gray-900 mb-4">
                         Our Story
                     </h2>
-                    <h3 className="text-xl md:text-2xl font-semibold font-serif text-gray-800 mb-8">
+                    <h3 className="text-xl md:text-2xl font-semibold font-serif text-cyan-400 mb-8">
                         Built on the belief that AI should work for people.
                     </h3>
-                    <div className="body-text max-w-4xl mx-auto">
+                    <div className="mx-auto max-w-4xl text-base leading-relaxed text-slate-700 md:text-lg">
                         <p>
                             QEN AI was founded to solve a core problem: organizations fail at AI because of poor implementation, not bad technology. We combine deep technical expertise with operational consulting to guide you through every stage—from readiness to system building to adoption—ensuring AI aligns with your reality and your team actually uses it.
                         </p>
@@ -80,17 +87,17 @@ export default function AboutPage() {
             </section>
 
             {/* Team */}
-            <section id="team" className="section-padding bg-gray-50">
+            <section id="team" className="section-padding bg-transparent">
                 <div className="section-container max-w-5xl mx-auto">
                     <h2 className="text-3xl md:text-4xl font-bold font-serif text-gray-900 mb-16">
                         Team
                     </h2>
 
-                    <div className="grid md:grid-cols-2 gap-10 items-start">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 items-start">
                         {team.map((member) => (
                             <div
                                 key={member.name}
-                                className="card-standard flex flex-col items-center text-center"
+                                className="flex flex-col items-center rounded-3xl border border-blue-100 bg-white p-8 text-center shadow-lg shadow-blue-950/10"
                             >
                                 <div className="w-36 h-36 rounded-full overflow-hidden ring-4 ring-blue-100 shadow-md mb-6">
                                     <Image
@@ -107,14 +114,14 @@ export default function AboutPage() {
                                     href={member.linkedin}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 text-gray-500 hover:text-blue-600 transition-colors text-sm mb-7"
+                                    className="inline-flex items-center gap-2 text-black hover:text-blue-600 transition-colors text-sm mb-7"
                                 >
                                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                                     </svg>
                                     Connect on LinkedIn
                                 </a>
-                                <p className="subtext text-left">{member.bio}</p>
+                                <p className="text-left text-base leading-relaxed text-black">{member.bio}</p>
                             </div>
                         ))}
                     </div>
@@ -122,12 +129,12 @@ export default function AboutPage() {
             </section>
 
             {/* Our Approach */}
-            <section id="approach" className="section-padding">
+            <section id="approach" className="section-padding bg-white">
                 <div className="section-container max-w-5xl mx-auto">
                     <h2 className="text-3xl md:text-4xl font-bold font-serif text-gray-900 mb-4">
                         Our Approach
                     </h2>
-                    <p className="body-text mb-16 max-w-3xl">
+                    <p className="mb-16 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
                         A problem-first approach grounded in operational reality. We begin by developing a deep understanding of organizational context, workflows,
                         data, and priorities, then design and deploy AI systems aligned to those realities.
                     </p>
@@ -136,13 +143,13 @@ export default function AboutPage() {
                         {approach.map((step, i) => (
                             <div
                                 key={i}
-                                className="card-primary border hover:border-blue-300"
+                                className="rounded-3xl border border-[#000080] bg-[#000080] p-8 shadow-lg shadow-blue-950/20 hover:bg-[#00044A]"
                             >
-                                <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm mb-5">
+                                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-white text-sm font-bold text-[#000080]">
                                     {i + 1}
                                 </div>
-                                <h3 className="text-lg font-bold font-serif text-gray-900 mb-3">{step.title}</h3>
-                                <p className="subtext">{step.desc}</p>
+                                <h3 className="mb-3 text-lg font-bold font-serif text-white">{step.title}</h3>
+                                <p className="text-base leading-relaxed text-white/80">{step.desc}</p>
                             </div>
                         ))}
                     </div>

@@ -13,7 +13,7 @@ export function MethodologyOverview() {
             icon: "/Images/build.png",
         },
         {
-            title: "Adopt",
+            title: "Integrate",
             desc: `Ensure AI is used, trusted, and sustained. Technology without adoption is just a cost center.`,
             icon: "/Images/adopt1.png",
         },

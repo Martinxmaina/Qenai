@@ -15,7 +15,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Qenai | AI Transformation Partner",
   description:
-    "Consulting-grade AI transformation. We help organizations Audit, Build, and Adopt AI correctly.",
+    "Consulting-grade AI transformation. We help organizations Audit, Build, and Integrate AI correctly.",
   icons: {
     icon: "/favicon.svg",
   },
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${playfair.variable} bg-white text-black antialiased`}
+        className={`${inter.variable} ${playfair.variable} bg-slate-900 text-slate-100 antialiased`}
       >
         {children}
       </body>
