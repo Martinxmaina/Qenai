@@ -5,6 +5,8 @@ import { NeuButton } from "@/components/ui/neu-button";
 import { NeuIconContainer } from "@/components/ui/neu-icon-container";
 import { NeuTag } from "@/components/ui/neu-tag";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
+import Navbar from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "AI Solutions by Industry | QENAI - AI Automation Agency Kenya",
@@ -56,7 +58,9 @@ const SOLUTIONS = [
 
 export default function SolutionsPage() {
   return (
-    <main className="flex-1 bg-[#E0E5EC]">
+    <>
+      <Navbar />
+      <main className="flex-1 bg-[#E0E5EC]">
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "https://qenai.com" },
@@ -65,7 +69,7 @@ export default function SolutionsPage() {
       />
 
       {/* Hero Section */}
-      <section className="pt-40 pb-20 px-4 text-center max-w-4xl mx-auto">
+      <section className="pt-48 lg:pt-56 pb-20 px-4 text-center max-w-4xl mx-auto">
         <NeuTag className="mb-6">By Industry</NeuTag>
         <h1 className="text-4xl md:text-6xl font-serif text-gray-800 mb-6 leading-tight">
           AI Solutions for <span className="text-primary italic">Every Business</span>
@@ -132,6 +136,8 @@ export default function SolutionsPage() {
           </a>
         </NeuCard>
       </section>
-    </main>
+      </main>
+      <Footer />
+    </>
   );
 }

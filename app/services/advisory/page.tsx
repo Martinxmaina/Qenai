@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Navbar from "@/components/navbar";
+import { Footer } from "@/components/footer";
 import Image from "next/image";
 import { NeuCard } from "@/components/ui/neu-card";
 import { NeuButton } from "@/components/ui/neu-button";
@@ -57,6 +59,8 @@ const ADVISORY_SERVICES = [
 
 export default function AdvisoryPage() {
   return (
+    <>
+      <Navbar />
     <main className="flex-1 bg-[#E0E5EC]">
       <ServiceSchema
         name="AI Strategic Advisory & Capacity Building"
@@ -72,7 +76,7 @@ export default function AdvisoryPage() {
       />
 
       {/* Hero Section */}
-      <section className="pt-40 pb-20 px-4 text-center max-w-4xl mx-auto">
+      <section className="pt-48 lg:pt-56 pb-20 px-4 text-center max-w-4xl mx-auto">
         <NeuTag className="mb-6">Advisory Services</NeuTag>
         <h1 className="text-4xl md:text-6xl font-serif text-gray-800 mb-6 leading-tight">
           AI Strategic <span className="text-primary italic">Advisory</span>
@@ -248,5 +252,7 @@ export default function AdvisoryPage() {
         </NeuCard>
       </section>
     </main>
+      <Footer />
+    </>
   );
 }

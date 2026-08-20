@@ -5,8 +5,9 @@ import { NeuCard } from "@/components/ui/neu-card";
 import { NeuButton } from "@/components/ui/neu-button";
 import { NeuIconContainer } from "@/components/ui/neu-icon-container";
 import { NeuTag } from "@/components/ui/neu-tag";
-import { Logo } from "@/components/icons/Logo";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
+import Navbar from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "AI for Financial Services | QENAI - AI Automation Agency Kenya",
@@ -42,7 +43,9 @@ const FINTECH_FEATURES = [
 
 export default function FinancialPage() {
   return (
-    <main className="flex-1 bg-[#E0E5EC]">
+    <>
+      <Navbar />
+      <main className="flex-1 bg-[#E0E5EC]">
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "https://qenai.com" },
@@ -52,26 +55,25 @@ export default function FinancialPage() {
       />
 
       {/* Hero Section */}
-      <section className="pt-40 pb-20 px-4 text-center max-w-4xl mx-auto">
-        <NeuTag className="mb-6">Financial Services</NeuTag>
-        <Logo size="lg" className="mx-auto mb-6" />
+      <section className="pt-48 lg:pt-56 pb-20 px-4 text-center max-w-4xl mx-auto">
+        <NeuTag className="mb-6 text-lg text-primary">Financial Services</NeuTag>
         <h1 className="text-4xl md:text-6xl font-serif text-gray-800 mb-6 leading-tight">
           AI for Financial <span className="text-primary italic">Services</span>
         </h1>
         <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-          Financial services face unique challenges - regulatory compliance, fraud risk, and the 
-          need for trust. Our fintech AI solutions help you innovate while maintaining the 
+          Financial services face unique challenges - regulatory compliance, fraud risk, and the
+          need for trust. Our fintech AI solutions help you innovate while maintaining the
           security and compliance your customers and regulators expect.
         </p>
         <div className="flex justify-center gap-4 flex-wrap">
-          <Link href="/contact">
+          <Link href="/audit">
             <NeuButton variant="primary" size="lg">
-              Discuss Your Use Case
+              Get Your Free AI Audit
             </NeuButton>
           </Link>
-          <Link href="/cases">
+          <Link href="/consultation">
             <NeuButton variant="secondary" size="lg">
-              View Case Studies
+              Book Free Consultation
             </NeuButton>
           </Link>
         </div>
@@ -174,6 +176,8 @@ export default function FinancialPage() {
           </Link>
         </NeuCard>
       </section>
-    </main>
+      </main>
+      <Footer />
+    </>
   );
 }

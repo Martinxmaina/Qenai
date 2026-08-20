@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Navbar from "@/components/navbar";
+import { Footer } from "@/components/footer";
 import Image from "next/image";
 import { NeuCard } from "@/components/ui/neu-card";
 import { NeuButton } from "@/components/ui/neu-button";
@@ -23,6 +25,8 @@ export const metadata: Metadata = {
 
 export default function AutomationPage() {
   return (
+    <>
+      <Navbar />
     <main className="flex-1 bg-[#E0E5EC]">
       <ServiceSchema
         name="AI Workflow Automation"
@@ -38,7 +42,7 @@ export default function AutomationPage() {
       />
 
       {/* Hero Section */}
-      <section className="pt-40 pb-20 px-4 text-center max-w-4xl mx-auto">
+      <section className="pt-48 lg:pt-56 pb-20 px-4 text-center max-w-4xl mx-auto">
         <NeuTag className="mb-6">Automation Services</NeuTag>
         <h1 className="text-4xl md:text-6xl font-serif text-gray-800 mb-6 leading-tight">
           AI Workflow <span className="text-primary italic">Automation</span>
@@ -145,11 +149,10 @@ export default function AutomationPage() {
       <section className="py-20 px-4 max-w-4xl mx-auto text-center">
         <NeuCard className="p-12">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
-            Stop Paying People to Do Robot Work
+            Free Your Team to Do the Work That Actually Moves the Needle.
           </h2>
           <p className="text-gray-500 text-lg mb-8 max-w-2xl mx-auto">
-            Your team was hired for their expertise, not for copying data between spreadsheets. 
-            Let&apos;s talk about what <strong>AI workflow automation</strong> can do for you.
+            We handle the automation, so your team can handle what matters.
           </p>
           <Link href="/contact">
             <NeuButton variant="primary" size="lg">
@@ -159,5 +162,7 @@ export default function AutomationPage() {
         </NeuCard>
       </section>
     </main>
+      <Footer />
+    </>
   );
 }

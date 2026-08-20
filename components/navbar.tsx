@@ -13,11 +13,9 @@ const aboutItems = [
 ];
 
 const serviceItems = [
-    { name: "Workflow Audit", href: "/services#workflow-audit" },
-    { name: "Custom AI Development", href: "/services#custom-ai" },
-    { name: "System Integration", href: "/services#system-integration" },
-    { name: "Functional Automation", href: "/services#functional-automation" },
-    { name: "Implementation & Support", href: "/services#implementation-support" },
+    { name: "Capabilities", href: "/services#capabilities" },
+    { name: "By Industry", href: "/services#by-industry" },
+    { name: "Our Process", href: "/services#process" },
 ];
 
 export default function Navbar() {
@@ -46,17 +44,17 @@ export default function Navbar() {
 
                 <nav className="hidden items-center gap-3 px-1 py-3 md:flex" aria-label="Primary navigation">
                     <div className="flex items-center gap-3">
-                        <Link href="/about" className={`relative px-2 py-2 text-base font-semibold transition hover:text-cyan-300 ${isTeamActive ? "text-cyan-400" : "text-white"}`}>
+                        <Link href="/about" className={`relative px-2 py-2 text-lg font-bold transition hover:text-cyan-300 ${isTeamActive ? "text-cyan-400" : "text-white"}`}>
                             Team
                             {isTeamActive && <span className="absolute inset-x-2 -bottom-0.5 h-0.5 rounded-full bg-cyan-400" aria-hidden="true" />}
                         </Link>
-                        <Link href="/services" className={`relative px-2 py-2 text-base font-semibold transition hover:text-cyan-300 ${isServicesActive ? "text-cyan-400" : "text-white"}`}>
+                        <Link href="/services" className={`relative px-2 py-2 text-lg font-bold transition hover:text-cyan-300 ${isServicesActive ? "text-cyan-400" : "text-white"}`}>
                             Services
                             {isServicesActive && <span className="absolute inset-x-2 -bottom-0.5 h-0.5 rounded-full bg-cyan-400" aria-hidden="true" />}
                         </Link>
                     </div>
                     <div className="mx-2 h-6 w-px bg-blue-200" aria-hidden="true" />
-                    <Link href="/audit" className={`relative px-2 py-2 text-base font-semibold transition hover:text-cyan-300 ${isAuditActive ? "text-cyan-400" : "text-white"}`}>
+                    <Link href="/audit" className={`relative px-2 py-2 text-lg font-bold transition hover:text-cyan-300 ${isAuditActive ? "text-cyan-400" : "text-white"}`}>
                         Get Your Free AI Audit
                         {isAuditActive && <span className="absolute inset-x-2 -bottom-0.5 h-0.5 rounded-full bg-cyan-400" aria-hidden="true" />}
                     </Link>
@@ -72,10 +70,10 @@ export default function Navbar() {
             {mobileOpen && <div className="border-t border-slate-700/80 bg-slate-900 px-6 pb-6 pt-3 md:hidden">
                 <nav className="flex flex-col gap-1" aria-label="Mobile navigation">
                     <p className="px-3 pb-1 pt-3 text-xs font-semibold uppercase tracking-wider text-cyan-300">Meet the Team</p>
-                    {aboutItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`px-3 py-2.5 text-base font-medium transition hover:text-cyan-300 ${isPathActive(item.href) ? "text-cyan-400" : "text-white"}`}>{item.name}</Link>)}
+                    {aboutItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`px-3 py-2.5 text-lg font-bold transition hover:text-cyan-300 ${isPathActive(item.href) ? "text-cyan-400" : "text-white"}`}>{item.name}</Link>)}
                     <p className="px-3 pb-1 pt-5 text-xs font-semibold uppercase tracking-wider text-cyan-300">Services</p>
-                    {serviceItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`px-3 py-2.5 text-base font-medium transition hover:text-cyan-300 ${isPathActive(item.href) ? "text-cyan-400" : "text-white"}`}>{item.name}</Link>)}
-                    <Link href="/audit" onClick={() => setMobileOpen(false)} className={`mt-5 px-3 py-2.5 text-base font-semibold transition hover:text-cyan-300 ${isAuditActive ? "text-cyan-400" : "text-white"}`}>Get Your Free AI Audit</Link>
+                    {serviceItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`px-3 py-2.5 text-lg font-bold transition hover:text-cyan-300 ${isPathActive(item.href) ? "text-cyan-400" : "text-white"}`}>{item.name}</Link>)}
+                    <Link href="/audit" onClick={() => setMobileOpen(false)} className={`mt-5 px-3 py-2.5 text-lg font-bold transition hover:text-cyan-300 ${isAuditActive ? "text-cyan-400" : "text-white"}`}>Get Your Free AI Audit</Link>
                 </nav>
             </div>}
         </header>

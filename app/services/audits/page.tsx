@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Navbar from "@/components/navbar";
+import { Footer } from "@/components/footer";
 import { NeuCard } from "@/components/ui/neu-card";
 import { NeuButton } from "@/components/ui/neu-button";
 import { NeuIconContainer } from "@/components/ui/neu-icon-container";
@@ -70,6 +72,8 @@ const PHASES = [
 
 export default function AuditsPage() {
   return (
+    <>
+      <Navbar />
     <main className="flex-1 bg-[#E0E5EC]">
       <ServiceSchema
         name="AI Readiness Audit"
@@ -85,7 +89,7 @@ export default function AuditsPage() {
       />
 
       {/* Hero Section */}
-      <section className="pt-40 pb-20 px-4 text-center max-w-4xl mx-auto">
+      <section className="pt-48 lg:pt-56 pb-20 px-4 text-center max-w-4xl mx-auto">
         <NeuTag className="mb-6">AI Audit Services</NeuTag>
         <h1 className="text-4xl md:text-6xl font-serif text-gray-800 mb-6 leading-tight">
           AI Readiness Audit <span className="text-primary italic">Services</span>
@@ -254,5 +258,7 @@ export default function AuditsPage() {
         </NeuCard>
       </section>
     </main>
+      <Footer />
+    </>
   );
 }

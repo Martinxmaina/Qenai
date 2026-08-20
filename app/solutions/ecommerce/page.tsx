@@ -5,8 +5,9 @@ import { NeuCard } from "@/components/ui/neu-card";
 import { NeuButton } from "@/components/ui/neu-button";
 import { NeuIconContainer } from "@/components/ui/neu-icon-container";
 import { NeuTag } from "@/components/ui/neu-tag";
-import { Logo } from "@/components/icons/Logo";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
+import Navbar from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "AI for E-commerce & Retail | QENAI - AI Automation Agency Kenya",
@@ -42,7 +43,9 @@ const ECOMMERCE_FEATURES = [
 
 export default function EcommercePage() {
   return (
-    <main className="flex-1 bg-[#E0E5EC]">
+    <>
+      <Navbar />
+      <main className="flex-1 bg-[#E0E5EC]">
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "https://qenai.com" },
@@ -52,26 +55,25 @@ export default function EcommercePage() {
       />
 
       {/* Hero Section */}
-      <section className="pt-40 pb-20 px-4 text-center max-w-4xl mx-auto">
-        <NeuTag className="mb-6">E-commerce Solutions</NeuTag>
-        <Logo size="lg" className="mx-auto mb-6" />
+      <section className="pt-48 lg:pt-56 pb-20 px-4 text-center max-w-4xl mx-auto">
+        <NeuTag className="mb-6 text-lg text-primary">E-commerce Solutions</NeuTag>
         <h1 className="text-4xl md:text-6xl font-serif text-gray-800 mb-6 leading-tight">
           AI for E-commerce & <span className="text-primary italic">Retail</span>
         </h1>
         <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-          In e-commerce, personalization wins. Our retail AI solutions help you deliver 
-          the right product to the right customer at the right time - while optimizing 
+          In e-commerce, personalization wins. Our retail AI solutions help you deliver
+          the right product to the right customer at the right time - while optimizing
           your operations behind the scenes.
         </p>
         <div className="flex justify-center gap-4 flex-wrap">
-          <Link href="/contact">
+          <Link href="/audit">
             <NeuButton variant="primary" size="lg">
-              Boost Your Store
+              Get Your Free AI Audit
             </NeuButton>
           </Link>
-          <Link href="/cases">
+          <Link href="/consultation">
             <NeuButton variant="secondary" size="lg">
-              See Results
+              Book Free Consultation
             </NeuButton>
           </Link>
         </div>
@@ -173,6 +175,8 @@ export default function EcommercePage() {
           </Link>
         </NeuCard>
       </section>
-    </main>
+      </main>
+      <Footer />
+    </>
   );
 }

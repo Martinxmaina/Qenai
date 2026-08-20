@@ -69,13 +69,17 @@ export function Hero() {
             <section className="bg-slate-900 border-t border-slate-700/80 py-6 px-6">
                 <div className="mx-auto max-w-7xl px-2 lg:px-12">
                     <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-medium uppercase tracking-[0.16em] text-white">
+                        <span>NGOs</span>
+                        <span className="text-slate-400">•</span>
                         <span>Real Estate</span>
                         <span className="text-slate-400">•</span>
-                        <span>Dental Clinics</span>
+                        <span>Law Firms</span>
+                        <span className="text-slate-400">•</span>
+                        <span>Medical Clinics</span>
                         <span className="text-slate-400">•</span>
                         <span>Logistics</span>
                         <span className="text-slate-400">•</span>
-                        <span>Professional Services</span>
+                        <span>Recruitment Firms</span>
                     </div>
                 </div>
             </section>

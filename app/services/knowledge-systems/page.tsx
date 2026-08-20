@@ -1,11 +1,12 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Navbar from "@/components/navbar";
+import { Footer } from "@/components/footer";
 import Image from "next/image";
 import { NeuCard } from "@/components/ui/neu-card";
 import { NeuButton } from "@/components/ui/neu-button";
 import { NeuIconContainer } from "@/components/ui/neu-icon-container";
 import { NeuTag } from "@/components/ui/neu-tag";
-import { Logo } from "@/components/icons/Logo";
 import ServiceSchema from "@/components/seo/ServiceSchema";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
@@ -58,6 +59,8 @@ const KNOWLEDGE_FEATURES = [
 
 export default function KnowledgeSystemsPage() {
   return (
+    <>
+      <Navbar />
     <main className="flex-1 bg-[#E0E5EC]">
       <ServiceSchema
         name="AI Knowledge Systems & Productivity"
@@ -73,9 +76,8 @@ export default function KnowledgeSystemsPage() {
       />
 
       {/* Hero Section */}
-      <section className="pt-40 pb-20 px-4 text-center max-w-4xl mx-auto">
+      <section className="pt-48 lg:pt-56 pb-20 px-4 text-center max-w-4xl mx-auto">
         <NeuTag className="mb-6">Knowledge & Productivity</NeuTag>
-        <Logo size="lg" className="mx-auto mb-6" />
         <h1 className="text-4xl md:text-6xl font-serif text-gray-800 mb-6 leading-tight">
           AI Knowledge <span className="text-primary italic">Systems</span>
         </h1>
@@ -196,5 +198,7 @@ export default function KnowledgeSystemsPage() {
         </NeuCard>
       </section>
     </main>
+      <Footer />
+    </>
   );
 }
