@@ -6,7 +6,7 @@ export function Hero() {
     return (
         <>
             <section className="relative min-h-[82vh] bg-slate-900 overflow-hidden pt-[calc(2rem+3cm)] pb-16">
-                <HeroBackgroundMesh />
+                <HeroBackgroundMesh nodes="home" />
 
                 <div className="relative z-10 flex items-center justify-center h-full">
                     {/* Two-column layout: ~55% text, ~45% visual */}

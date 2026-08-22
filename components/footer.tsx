@@ -21,7 +21,7 @@ export function Footer() {
                     {/* Navigation Columns */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-sm">
                         <div className="space-y-3">
-                            <h4 className="font-semibold text-white text-xs uppercase tracking-widest">Company</h4>
+                            <h3 className="font-semibold text-white text-xs uppercase tracking-widest">Company</h3>
                             <ul className="space-y-2 text-white/60">
                                 <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
                                 <li><Link href="/about#team" className="hover:text-white transition-colors">Team</Link></li>
@@ -29,7 +29,7 @@ export function Footer() {
                             </ul>
                         </div>
                         <div className="space-y-3">
-                            <h4 className="font-semibold text-white text-xs uppercase tracking-widest">Services</h4>
+                            <h3 className="font-semibold text-white text-xs uppercase tracking-widest">Services</h3>
                             <ul className="space-y-2 text-white/60">
                                 <li><Link href="#services" className="hover:text-white transition-colors">Audit</Link></li>
                                 <li><Link href="#services" className="hover:text-white transition-colors">Build</Link></li>
@@ -37,7 +37,7 @@ export function Footer() {
                             </ul>
                         </div>
                         <div className="space-y-3">
-                            <h4 className="font-semibold text-white text-xs uppercase tracking-widest">Resources</h4>
+                            <h3 className="font-semibold text-white text-xs uppercase tracking-widest">Resources</h3>
                             <ul className="space-y-2 text-white/60">
                                 <li><Link href="/resources#projects" className="hover:text-white transition-colors">Projects</Link></li>
                                 <li><Link href="/resources#blogs" className="hover:text-white transition-colors">Blog</Link></li>
@@ -45,10 +45,11 @@ export function Footer() {
                             </ul>
                         </div>
                         <div className="space-y-3">
-                            <h4 className="font-semibold text-white text-xs uppercase tracking-widest">Contact</h4>
+                            <h3 className="font-semibold text-white text-xs uppercase tracking-widest">Contact</h3>
                             <ul className="space-y-2 text-white/60">
                                 <li><a href="mailto:martin@qenai.co" className="hover:text-white transition-colors">martin@qenai.co</a></li>
                                 <li><a href="mailto:glory@qenai.co" className="hover:text-white transition-colors">glory@qenai.co</a></li>
+                                <li><a href="mailto:hansie@qenai.co" className="hover:text-white transition-colors">hansie@qenai.co</a></li>
                             </ul>
                         </div>
                     </div>

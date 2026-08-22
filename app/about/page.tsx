@@ -1,7 +1,17 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Navbar from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { HeroBackgroundMesh } from "@/components/hero-background-mesh";
+
+export const metadata: Metadata = {
+    title: "About Us | QENAI - AI Automation Agency Kenya",
+    description: "QENAI helps African businesses increase revenue, reduce manual work, and scale faster with custom AI systems and workflow automation. Meet the team and our Audit, Build, Integrate approach.",
+    keywords: ["about QENAI", "AI automation team Kenya", "AI consulting Kenya", "AI automation agency Kenya"],
+    alternates: {
+        canonical: "/about",
+    },
+};
 
 const team = [
     {

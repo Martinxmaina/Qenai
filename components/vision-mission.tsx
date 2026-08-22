@@ -56,7 +56,7 @@ export function VisionMission() {
                                 className="bg-slate-900 border border-slate-700 rounded-lg p-7 hover:bg-slate-800 transition-colors"
                             >
                                 <div className="w-8 h-1 bg-cyan-400 rounded mb-5" />
-                                <h4 className="heading-4 mb-3 text-white">{val.title}</h4>
+                                <h3 className="heading-4 mb-3 text-white">{val.title}</h3>
                                 <p className="text-slate-300 text-sm leading-relaxed">{val.desc}</p>
                             </div>
                         ))}

@@ -30,33 +30,39 @@ export default function Navbar() {
     }, []);
 
     const isPathActive = (href: string) => pathname === href.split("#")[0];
+    const isHomeActive = pathname === "/";
     const isTeamActive = isPathActive("/about");
     const isServicesActive = isPathActive("/services");
     const isAuditActive = isPathActive("/audit");
     const activeSectionItems = isTeamActive ? aboutItems : isServicesActive ? serviceItems : null;
 
     return (
-        <header className={`fixed top-0 right-0 left-0 z-50 bg-slate-900 transition-all duration-300 ${isScrolled ? "py-3 shadow-md shadow-slate-950/30" : "py-5"}`}>
+        <header className={`fixed top-0 right-0 left-0 z-50 border-b border-blue-100 transition-all duration-300 ${isScrolled ? "py-3 bg-blue-50/90 backdrop-blur-md backdrop-saturate-150 shadow-md shadow-slate-900/5" : "py-6 bg-blue-50"}`}>
             <div className="flex w-full items-center justify-between gap-6 px-6 sm:px-10">
-                <Link href="/" className="relative -ml-6 block h-40 w-128 shrink-0 sm:-ml-10" aria-label="Qenai home">
-                    <Image src="/qenai-logo.png" alt="QENAI" fill className="object-contain object-center" priority unoptimized />
+                <Link href="/" className="relative -ml-4 block h-20 w-64 shrink-0 sm:-ml-6 sm:h-24 sm:w-80" aria-label="Qenai home">
+                    <Image src="/qenai-logo.png" alt="QENAI" fill className="object-contain object-center" priority />
                 </Link>
 
-                <nav className="hidden items-center gap-3 px-1 py-3 md:flex" aria-label="Primary navigation">
-                    <div className="flex items-center gap-3">
-                        <Link href="/about" className={`relative px-2 py-2 text-lg font-bold transition hover:text-cyan-300 ${isTeamActive ? "text-cyan-400" : "text-white"}`}>
-                            Team
-                            {isTeamActive && <span className="absolute inset-x-2 -bottom-0.5 h-0.5 rounded-full bg-cyan-400" aria-hidden="true" />}
+                <nav className="hidden items-center gap-6 font-sans md:flex" aria-label="Primary navigation">
+                    <div className="flex items-center gap-6">
+                        <Link href="/" className={`group relative py-2 text-base font-bold tracking-wide transition-colors hover:text-cyan-600 ${isHomeActive ? "text-blue-600" : "text-slate-900"}`}>
+                            Home
+                            <span className={`absolute inset-x-0 -bottom-0.5 h-0.5 origin-left scale-x-0 rounded-full transition-transform duration-200 group-hover:scale-x-100 ${isHomeActive ? "scale-x-100 bg-blue-600" : "bg-cyan-600"}`} aria-hidden="true" />
                         </Link>
-                        <Link href="/services" className={`relative px-2 py-2 text-lg font-bold transition hover:text-cyan-300 ${isServicesActive ? "text-cyan-400" : "text-white"}`}>
+                        <Link href="/about" className={`group relative py-2 text-base font-bold tracking-wide transition-colors hover:text-cyan-600 ${isTeamActive ? "text-blue-600" : "text-slate-900"}`}>
+                            Team
+                            <span className={`absolute inset-x-0 -bottom-0.5 h-0.5 origin-left scale-x-0 rounded-full transition-transform duration-200 group-hover:scale-x-100 ${isTeamActive ? "scale-x-100 bg-blue-600" : "bg-cyan-600"}`} aria-hidden="true" />
+                        </Link>
+                        <Link href="/services" className={`group relative py-2 text-base font-bold tracking-wide transition-colors hover:text-cyan-600 ${isServicesActive ? "text-blue-600" : "text-slate-900"}`}>
                             Services
-                            {isServicesActive && <span className="absolute inset-x-2 -bottom-0.5 h-0.5 rounded-full bg-cyan-400" aria-hidden="true" />}
+                            <span className={`absolute inset-x-0 -bottom-0.5 h-0.5 origin-left scale-x-0 rounded-full transition-transform duration-200 group-hover:scale-x-100 ${isServicesActive ? "scale-x-100 bg-blue-600" : "bg-cyan-600"}`} aria-hidden="true" />
                         </Link>
                     </div>
-                    <div className="mx-2 h-6 w-px bg-blue-200" aria-hidden="true" />
-                    <Link href="/audit" className={`relative px-2 py-2 text-lg font-bold transition hover:text-cyan-300 ${isAuditActive ? "text-cyan-400" : "text-white"}`}>
+                    <Link
+                        href="/audit"
+                        className={`rounded-full bg-slate-900 px-6 py-2.5 text-sm font-bold tracking-wide text-white whitespace-nowrap transition-colors hover:bg-slate-800 ${isAuditActive ? "ring-2 ring-blue-500 ring-offset-2 ring-offset-white" : ""}`}
+                    >
                         Get Your Free AI Audit
-                        {isAuditActive && <span className="absolute inset-x-2 -bottom-0.5 h-0.5 rounded-full bg-cyan-400" aria-hidden="true" />}
                     </Link>
                 </nav>
 
@@ -67,13 +73,14 @@ export default function Navbar() {
 
             {activeSectionItems && <PageSubNav items={activeSectionItems} />}
 
-            {mobileOpen && <div className="border-t border-slate-700/80 bg-slate-900 px-6 pb-6 pt-3 md:hidden">
+            {mobileOpen && <div className="border-t border-blue-100 bg-blue-50 px-6 pb-6 pt-3 md:hidden">
                 <nav className="flex flex-col gap-1" aria-label="Mobile navigation">
-                    <p className="px-3 pb-1 pt-3 text-xs font-semibold uppercase tracking-wider text-cyan-300">Meet the Team</p>
-                    {aboutItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`px-3 py-2.5 text-lg font-bold transition hover:text-cyan-300 ${isPathActive(item.href) ? "text-cyan-400" : "text-white"}`}>{item.name}</Link>)}
-                    <p className="px-3 pb-1 pt-5 text-xs font-semibold uppercase tracking-wider text-cyan-300">Services</p>
-                    {serviceItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`px-3 py-2.5 text-lg font-bold transition hover:text-cyan-300 ${isPathActive(item.href) ? "text-cyan-400" : "text-white"}`}>{item.name}</Link>)}
-                    <Link href="/audit" onClick={() => setMobileOpen(false)} className={`mt-5 px-3 py-2.5 text-lg font-bold transition hover:text-cyan-300 ${isAuditActive ? "text-cyan-400" : "text-white"}`}>Get Your Free AI Audit</Link>
+                    <Link href="/" onClick={() => setMobileOpen(false)} className={`px-3 py-2.5 text-lg font-bold transition hover:text-cyan-600 ${isHomeActive ? "text-blue-600" : "text-slate-900"}`}>Home</Link>
+                    <p className="px-3 pb-1 pt-3 text-xs font-semibold uppercase tracking-wider text-cyan-600">Meet the Team</p>
+                    {aboutItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`px-3 py-2.5 text-lg font-bold transition hover:text-cyan-600 ${isPathActive(item.href) ? "text-blue-600" : "text-slate-900"}`}>{item.name}</Link>)}
+                    <p className="px-3 pb-1 pt-5 text-xs font-semibold uppercase tracking-wider text-cyan-600">Services</p>
+                    {serviceItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`px-3 py-2.5 text-lg font-bold transition hover:text-cyan-600 ${isPathActive(item.href) ? "text-blue-600" : "text-slate-900"}`}>{item.name}</Link>)}
+                    <Link href="/audit" onClick={() => setMobileOpen(false)} className={`mt-5 inline-flex justify-center rounded-full bg-slate-900 px-6 py-2.5 text-base font-bold tracking-wide text-white transition-colors hover:bg-slate-800 ${isAuditActive ? "ring-2 ring-blue-500" : ""}`}>Get Your Free AI Audit</Link>
                 </nav>
             </div>}
         </header>

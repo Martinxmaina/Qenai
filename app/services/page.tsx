@@ -1,9 +1,20 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, BrainCircuit, Bot, GraduationCap, LayoutDashboard, Workflow } from "lucide-react";
 import Navbar from "@/components/navbar";
 import { CTASection } from "@/components/cta-section";
 import { Footer } from "@/components/footer";
 import { HeroBackgroundMesh } from "@/components/hero-background-mesh";
+import ServiceSchema from "@/components/seo/ServiceSchema";
+
+export const metadata: Metadata = {
+    title: "AI Automation Services | QENAI - AI Automation Agency Kenya",
+    description: "Workflow automation, custom AI models, customer experience AI, data systems, and strategic advisory — the practical menu of what QENAI builds once an Audit identifies the right fit.",
+    keywords: ["AI automation services Kenya", "workflow automation", "custom AI models", "customer experience AI", "AI advisory Kenya", "AI automation agency Kenya"],
+    alternates: {
+        canonical: "/services",
+    },
+};
 
 const capabilities = [
     {
@@ -50,6 +61,11 @@ const industries = [
 export default function ServicesPage() {
     return (
         <main className="page-shell">
+            <ServiceSchema
+                name="AI Automation Services"
+                description="Workflow automation, custom AI models, customer experience AI, data systems and dashboards, and strategic advisory for African businesses."
+                url="https://qenai.com/services"
+            />
             <Navbar />
 
             {/* ─── Hero ─── */}
@@ -183,7 +199,7 @@ export default function ServicesPage() {
                                 <div className="relative z-10 w-12 h-12 rounded-full bg-cyan-500 text-white flex items-center justify-center font-bold mb-4">
                                     {i + 1}
                                 </div>
-                                <h4 className="heading-4 text-lg text-white mb-2">{item.step}</h4>
+                                <h3 className="heading-4 text-lg text-white mb-2">{item.step}</h3>
                                 <p className="subtext text-slate-400">{item.desc}</p>
                             </div>
                         ))}

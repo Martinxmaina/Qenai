@@ -23,11 +23,12 @@ export function CTASection() {
                     </Link>
                 </div>
 
-                <div className="mt-16 text-slate-400 flex flex-col items-center gap-3">
-                    <p className="text-sm uppercase tracking-widest font-semibold text-slate-500 mb-1">Direct Contact</p>
-                    <div className="flex flex-col sm:flex-row gap-4 sm:gap-10">
-                        <a href="mailto:martin@qenai.co" className="hover:text-white transition-colors text-lg font-medium">martin@qenai.co</a>
-                        <a href="mailto:glory@qenai.co" className="hover:text-white transition-colors text-lg font-medium">glory@qenai.co</a>
+                <div className="mt-16 flex flex-col items-center gap-4">
+                    <p className="text-sm uppercase tracking-widest font-semibold text-white mb-1">Direct Contact</p>
+                    <div className="flex flex-wrap justify-center gap-3">
+                        <a href="mailto:martin@qenai.co" className="inline-flex items-center gap-2 rounded-full border-2 border-white px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-slate-900">martin@qenai.co</a>
+                        <a href="mailto:glory@qenai.co" className="inline-flex items-center gap-2 rounded-full border-2 border-white px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-slate-900">glory@qenai.co</a>
+                        <a href="mailto:hansie@qenai.co" className="inline-flex items-center gap-2 rounded-full border-2 border-white px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-slate-900">hansie@qenai.co</a>
                     </div>
                 </div>
             </div>
