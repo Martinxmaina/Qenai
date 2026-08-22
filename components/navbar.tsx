@@ -8,7 +8,7 @@ import { PageSubNav } from "./page-subnav";
 
 const aboutItems = [
     { name: "Our Story", href: "/about#our-story" },
-    { name: "Team", href: "/about#team" },
+    { name: "Meet the Team", href: "/about#team" },
     { name: "Our Approach", href: "/about#approach" },
 ];
 
@@ -38,7 +38,7 @@ export default function Navbar() {
 
     return (
         <header className={`fixed top-0 right-0 left-0 z-50 border-b border-blue-100 transition-all duration-300 ${isScrolled ? "py-3 bg-blue-50/90 backdrop-blur-md backdrop-saturate-150 shadow-md shadow-slate-900/5" : "py-6 bg-blue-50"}`}>
-            <div className="flex w-full items-center justify-between gap-6 px-6 sm:px-10">
+            <div className="relative z-50 flex w-full items-center justify-between gap-6 px-6 sm:px-10">
                 <Link href="/" className="relative -ml-4 block h-20 w-64 shrink-0 sm:-ml-6 sm:h-24 sm:w-80" aria-label="Qenai home">
                     <Image src="/qenai-logo.png" alt="QENAI" fill className="object-contain object-center" priority />
                 </Link>
@@ -73,14 +73,31 @@ export default function Navbar() {
 
             {activeSectionItems && <PageSubNav items={activeSectionItems} />}
 
-            {mobileOpen && <div className="border-t border-blue-100 bg-blue-50 px-6 pb-6 pt-3 md:hidden">
-                <nav className="flex flex-col gap-1" aria-label="Mobile navigation">
-                    <Link href="/" onClick={() => setMobileOpen(false)} className={`px-3 py-2.5 text-lg font-bold transition hover:text-cyan-600 ${isHomeActive ? "text-blue-600" : "text-slate-900"}`}>Home</Link>
-                    <p className="px-3 pb-1 pt-3 text-xs font-semibold uppercase tracking-wider text-cyan-600">Meet the Team</p>
-                    {aboutItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`px-3 py-2.5 text-lg font-bold transition hover:text-cyan-600 ${isPathActive(item.href) ? "text-blue-600" : "text-slate-900"}`}>{item.name}</Link>)}
-                    <p className="px-3 pb-1 pt-5 text-xs font-semibold uppercase tracking-wider text-cyan-600">Services</p>
-                    {serviceItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`px-3 py-2.5 text-lg font-bold transition hover:text-cyan-600 ${isPathActive(item.href) ? "text-blue-600" : "text-slate-900"}`}>{item.name}</Link>)}
-                    <Link href="/audit" onClick={() => setMobileOpen(false)} className={`mt-5 inline-flex justify-center rounded-full bg-slate-900 px-6 py-2.5 text-base font-bold tracking-wide text-white transition-colors hover:bg-slate-800 ${isAuditActive ? "ring-2 ring-blue-500" : ""}`}>Get Your Free AI Audit</Link>
+            {mobileOpen && <div className="fixed inset-0 z-40 overflow-y-auto bg-blue-50 pt-28 pb-10 md:hidden">
+                <nav className="flex flex-col px-6" aria-label="Mobile navigation">
+                    <Link href="/" onClick={() => setMobileOpen(false)} className={`py-3 text-xl font-bold transition hover:text-cyan-600 ${isHomeActive ? "text-blue-600" : "text-slate-900"}`}>Home</Link>
+
+                    <div className="mt-2 border-t border-blue-100 pt-4">
+                        <Link href="/about" onClick={() => setMobileOpen(false)} className={`flex items-center justify-between py-2 text-xl font-bold transition hover:text-cyan-600 ${isTeamActive ? "text-blue-600" : "text-slate-900"}`}>
+                            Team
+                            <svg className="h-4 w-4 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+                        </Link>
+                        <div className="mt-1 flex flex-col border-l-2 border-blue-100 pl-4">
+                            {aboutItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`py-2 text-base font-medium transition hover:text-cyan-600 ${isPathActive(item.href) ? "text-blue-600" : "text-slate-600"}`}>{item.name}</Link>)}
+                        </div>
+                    </div>
+
+                    <div className="mt-4 border-t border-blue-100 pt-4">
+                        <Link href="/services" onClick={() => setMobileOpen(false)} className={`flex items-center justify-between py-2 text-xl font-bold transition hover:text-cyan-600 ${isServicesActive ? "text-blue-600" : "text-slate-900"}`}>
+                            Services
+                            <svg className="h-4 w-4 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+                        </Link>
+                        <div className="mt-1 flex flex-col border-l-2 border-blue-100 pl-4">
+                            {serviceItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`py-2 text-base font-medium transition hover:text-cyan-600 ${isPathActive(item.href) ? "text-blue-600" : "text-slate-600"}`}>{item.name}</Link>)}
+                        </div>
+                    </div>
+
+                    <Link href="/audit" onClick={() => setMobileOpen(false)} className={`mt-8 inline-flex justify-center rounded-full bg-slate-900 px-6 py-3.5 text-base font-bold tracking-wide text-white transition-colors hover:bg-slate-800 ${isAuditActive ? "ring-2 ring-blue-500" : ""}`}>Get Your Free AI Audit</Link>
                 </nav>
             </div>}
         </header>
