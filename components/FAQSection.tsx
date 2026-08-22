@@ -4,7 +4,7 @@ import Accordion from "@/components/Accordion";
 
 export default function FAQSection() {
     return (
-        <section className="section-container section-padding bg-slate-900" id="faqs">
+        <section className="section-container section-padding bg-blue-900" id="faqs">
             <div className="mb-8 text-center sm:text-left">
                 <h2 className="heading-2 text-cyan-400">
                     Frequently Asked Questions

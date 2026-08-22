@@ -166,9 +166,9 @@
       radial-gradient(circle at 12% 18%, rgba(59, 130, 246, 0.08), transparent 18rem);
   }
   .page-hero {
-    @apply mx-4 mt-4 rounded-[2rem] px-6 py-24 text-center sm:mx-6 sm:px-10 md:py-32 border border-slate-800;
-    background: linear-gradient(135deg, rgba(15, 23, 42, 1) 0%, rgba(17, 24, 39, 0.96) 100%);
-    box-shadow: 0 1.5rem 4rem rgba(15, 23, 42, 0.38);
+    @apply mx-4 mt-4 rounded-[2rem] px-6 py-24 text-center sm:mx-6 sm:px-10 md:py-32 border border-blue-800;
+    background: linear-gradient(135deg, #100e52 0%, #0b0a3d 100%);
+    box-shadow: 0 1.5rem 4rem rgba(16, 14, 82, 0.38);
   }
   .page-hero h1 { @apply text-white; }
   .page-hero p { @apply text-slate-300; }

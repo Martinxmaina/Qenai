@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function CTASection() {
     return (
-        <section id="contact" className="section-padding bg-slate-900 text-center border-t border-slate-800">
+        <section id="contact" className="section-padding bg-blue-900 text-center border-t border-blue-800">
             <div className="section-container max-w-4xl mx-auto">
                 <h2 className="text-4xl md:text-6xl font-bold font-serif tracking-tight text-white mb-8">
                     We design clarity.

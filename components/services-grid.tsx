@@ -28,7 +28,7 @@ export default function ServicesGrid() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-slate-900 border border-slate-700 rounded-lg p-8 hover:bg-slate-800 transition-colors"
+              className="bg-blue-900 border border-blue-800 rounded-lg p-8 hover:bg-blue-800 transition-colors"
             >
               <div className="text-cyan-400 text-lg font-bold mb-4">0{index + 1}</div>
               <h3 className="heading-3 text-white mb-4">

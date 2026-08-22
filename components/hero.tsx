@@ -5,7 +5,7 @@ import { HeroBackgroundMesh } from "./hero-background-mesh";
 export function Hero() {
     return (
         <>
-            <section className="relative min-h-[82vh] bg-slate-900 overflow-hidden pt-[calc(2rem+3cm)] pb-16">
+            <section className="relative min-h-[82vh] bg-blue-900 overflow-hidden pt-[calc(2rem+3cm)] pb-16">
                 <HeroBackgroundMesh nodes="home" />
 
                 <div className="relative z-10 flex items-center justify-center h-full">
@@ -66,7 +66,7 @@ export function Hero() {
                 </div>
             </section>
 
-            <section className="bg-slate-900 border-t border-slate-700/80 py-6 px-6">
+            <section className="bg-blue-900 border-t border-blue-800/80 py-6 px-6">
                 <div className="mx-auto max-w-7xl px-2 lg:px-12">
                     <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-medium uppercase tracking-[0.16em] text-white">
                         <span>NGOs</span>

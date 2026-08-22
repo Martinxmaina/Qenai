@@ -60,7 +60,7 @@ const industries = [
 
 export default function ServicesPage() {
     return (
-        <main className="page-shell">
+        <main className="page-shell bg-blue-900">
             <ServiceSchema
                 name="AI Automation Services"
                 description="Workflow automation, custom AI models, customer experience AI, data systems and dashboards, and strategic advisory for African businesses."
@@ -118,7 +118,7 @@ export default function ServicesPage() {
                             return (
                                 <div
                                     key={cap.title}
-                                    className="flex flex-col rounded-3xl border border-slate-700 bg-slate-900 p-8 shadow-lg shadow-black/20 transition-colors hover:bg-slate-800"
+                                    className="flex flex-col rounded-3xl border border-blue-800 bg-blue-900 p-8 shadow-lg shadow-black/20 transition-colors hover:bg-blue-800"
                                 >
                                     <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-400/30 bg-cyan-400/10">
                                         <Icon className="size-6 text-cyan-400" />
@@ -175,7 +175,7 @@ export default function ServicesPage() {
             </section>
 
             {/* ─── How Services Work Together ─── */}
-            <section id="process" className="section-padding scroll-mt-44 bg-slate-950 px-6">
+            <section id="process" className="section-padding scroll-mt-44 bg-[#0a0940] px-6">
                 <div className="section-container max-w-6xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold font-serif tracking-tight text-cyan-400 mb-3">
                         How Our Services Work Together
@@ -186,7 +186,7 @@ export default function ServicesPage() {
 
                     <div className="grid sm:grid-cols-5 gap-0 relative">
                         {/* Connector line */}
-                        <div className="hidden sm:block absolute top-[2.3rem] left-10 right-10 h-px bg-slate-700 z-0" />
+                        <div className="hidden sm:block absolute top-[2.3rem] left-10 right-10 h-px bg-blue-800 z-0" />
 
                         {[
                             { step: "Audit", desc: "Identify high-ROI processes" },

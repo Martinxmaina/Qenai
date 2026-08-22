@@ -20,7 +20,7 @@ const coreValues = [
 export function VisionMission() {
     return (
         <>
-            <section className="section-padding rounded-[2rem] border border-blue-950 bg-[#071a3d] text-white px-6 shadow-[0_1.5rem_4rem_rgba(2,11,26,0.28)]">
+            <section className="section-padding rounded-[2rem] border border-blue-950 bg-blue-900 text-white px-6 shadow-[0_1.5rem_4rem_rgba(2,11,26,0.28)]">
                 <div className="section-container mx-auto">
                     <div className="grid md:grid-cols-2 gap-12">
                         <div>
@@ -53,7 +53,7 @@ export function VisionMission() {
                         {coreValues.map((val, i) => (
                             <div
                                 key={i}
-                                className="bg-slate-900 border border-slate-700 rounded-lg p-7 hover:bg-slate-800 transition-colors"
+                                className="bg-blue-900 border border-blue-800 rounded-lg p-7 hover:bg-blue-800 transition-colors"
                             >
                                 <div className="w-8 h-1 bg-cyan-400 rounded mb-5" />
                                 <h3 className="heading-4 mb-3 text-white">{val.title}</h3>

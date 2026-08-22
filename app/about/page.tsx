@@ -64,7 +64,7 @@ const approach = [
 
 export default function AboutPage() {
     return (
-        <main className="page-shell">
+        <main className="page-shell bg-blue-900">
             <Navbar />
 
             {/* Hero */}
@@ -105,7 +105,7 @@ export default function AboutPage() {
             {/* Team */}
             <section id="team" className="section-padding scroll-mt-44 bg-transparent">
                 <div className="section-container max-w-5xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl font-bold font-serif text-gray-900 mb-16">
+                    <h2 className="text-3xl md:text-4xl font-bold font-serif text-white mb-16">
                         Team
                     </h2>
 
@@ -159,7 +159,7 @@ export default function AboutPage() {
                         {approach.map((step, i) => (
                             <div
                                 key={i}
-                                className="rounded-3xl border border-slate-700 bg-slate-900 p-8 shadow-lg shadow-black/20 hover:bg-slate-800"
+                                className="rounded-3xl border border-blue-800 bg-blue-900 p-8 shadow-lg shadow-black/20 hover:bg-blue-800"
                             >
                                 <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-cyan-400 text-sm font-bold text-slate-900">
                                     {i + 1}

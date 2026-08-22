@@ -29,8 +29,8 @@ export function CalendlyCTA() {
     };
 
     return (
-        <section className="section-padding bg-slate-900 flex justify-center px-6">
-            <div className="max-w-5xl w-full text-center mx-auto bg-slate-800/50 rounded-2xl p-12 border border-slate-700">
+        <section className="section-padding bg-blue-900 flex justify-center px-6">
+            <div className="max-w-5xl w-full text-center mx-auto bg-blue-800/40 rounded-2xl p-12 border border-blue-800">
                 <h2 className="text-3xl md:text-[2.75rem] font-bold font-serif text-white mb-6 tracking-tight leading-tight">
                     Your Competitors Are Already Automating
                 </h2>

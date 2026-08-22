@@ -33,7 +33,7 @@ export function PageSubNav({ items }: { items: { name: string; href: string }[] 
     }, [items]);
 
     return (
-        <div className="hidden border-t border-slate-800 bg-slate-900/95 backdrop-blur-sm md:block">
+        <div className="hidden border-t border-blue-800 bg-blue-900/95 backdrop-blur-sm md:block">
             <nav className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-7 gap-y-1 px-6 py-2.5 sm:px-10" aria-label="Page sections">
                 {items.map((item) => {
                     const hash = item.href.split("#")[1];
